@@ -19,6 +19,7 @@ void mk_uint_from_buff_le(mk_uint_t* out, void const* buff);
 int mk_uint_is_zero(mk_uint_t const* x);
 int mk_uint_is_max(mk_uint_t const* x);
 
+void mk_uint_cmplmnt(mk_uint_t* out, mk_uint_t const* x);
 void mk_uint_or(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b);
 void mk_uint_and(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b);
 void mk_uint_xor(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b);

@@ -12,6 +12,7 @@
 #define mk_uint_small_from_buff_le mk_uint_char_from_buff_le
 #define mk_uint_small_is_zero mk_uint_char_is_zero
 #define mk_uint_small_is_max mk_uint_char_is_max
+#define mk_uint_small_cmplmnt mk_uint_char_cmplmnt
 #define mk_uint_small_or mk_uint_char_or
 #define mk_uint_small_and mk_uint_char_and
 #define mk_uint_small_xor mk_uint_char_xor
@@ -35,6 +36,7 @@
 #define mk_uint_from_buff_le mk_uint8_from_buff_le
 #define mk_uint_is_zero mk_uint8_is_zero
 #define mk_uint_is_max mk_uint8_is_max
+#define mk_uint_cmplmnt mk_uint8_cmplmnt
 #define mk_uint_or mk_uint8_or
 #define mk_uint_and mk_uint8_and
 #define mk_uint_xor mk_uint8_xor
@@ -62,6 +64,7 @@
 #undef mk_uint_from_buff_le
 #undef mk_uint_is_zero
 #undef mk_uint_is_max
+#undef mk_uint_cmplmnt
 #undef mk_uint_or
 #undef mk_uint_and
 #undef mk_uint_xor
@@ -86,6 +89,7 @@
 #undef mk_uint_small_from_buff_le
 #undef mk_uint_small_is_zero
 #undef mk_uint_small_is_max
+#undef mk_uint_small_cmplmnt
 #undef mk_uint_small_or
 #undef mk_uint_small_and
 #undef mk_uint_small_xor

@@ -17,6 +17,7 @@
 #define mk_uint_from_buff_le mk_uint128_from_buff_le
 #define mk_uint_is_zero mk_uint128_is_zero
 #define mk_uint_is_max mk_uint128_is_max
+#define mk_uint_cmplmnt mk_uint128_cmplmnt
 #define mk_uint_or mk_uint128_or
 #define mk_uint_and mk_uint128_and
 #define mk_uint_xor mk_uint128_xor
@@ -48,6 +49,7 @@
 #undef mk_uint_from_buff_le
 #undef mk_uint_is_zero
 #undef mk_uint_is_max
+#undef mk_uint_cmplmnt
 #undef mk_uint_or
 #undef mk_uint_and
 #undef mk_uint_xor

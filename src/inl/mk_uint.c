@@ -131,6 +131,19 @@ int mk_uint_is_max(mk_uint_t const* x)
 }
 
 
+void mk_uint_cmplmnt(mk_uint_t* out, mk_uint_t const* x)
+{
+	mk_assert(out);
+	mk_assert(x);
+
+	int i;
+
+	for(i = 0; i != mk_uint_parts; ++i)
+	{
+		mk_uint_small_cmplmnt(out->m_data + i, x->m_data + i);
+	}
+}
+
 void mk_uint_or(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 {
 	mk_assert(out);
