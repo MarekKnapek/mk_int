@@ -1,0 +1,214 @@
+#if __STDC_VERSION__ >= 199901L || __cplusplus >= 201103L
+
+
+#include "mk_uint_long.h"
+
+#include "../utils/mk_assert.h"
+
+#include <limits.h> /* CHAR_BIT */
+
+
+void mk_uint_long_zero(unsigned long* out)
+{
+	mk_assert(out);
+
+	*out = 0;
+}
+
+void mk_uint_long_one(unsigned long* out)
+{
+	mk_assert(out);
+
+	*out = 1;
+}
+
+void mk_uint_long_from_int(unsigned long* out, unsigned in)
+{
+	mk_assert(out);
+
+	*out = (unsigned long)in;
+}
+
+unsigned mk_uint_long_to_int(unsigned long const* x)
+{
+	mk_assert(x);
+
+	return (unsigned)*x;
+}
+
+
+int mk_uint_long_is_zero(unsigned long const* x)
+{
+	mk_assert(x);
+
+	return *x == 0;
+}
+
+int mk_uint_long_is_max(unsigned long const* x)
+{
+	mk_assert(x);
+
+	return *x == (unsigned long)((unsigned long)0 - (unsigned long)1);
+}
+
+
+
+void mk_uint_long_or(unsigned long* out, unsigned long const* a, unsigned long const* b)
+{
+	mk_assert(out);
+	mk_assert(a);
+	mk_assert(b);
+
+	unsigned long r;
+
+	r = *a | *b;
+
+	*out = r;
+}
+
+void mk_uint_long_and(unsigned long* out, unsigned long const* a, unsigned long const* b)
+{
+	mk_assert(out);
+	mk_assert(a);
+	mk_assert(b);
+
+	unsigned long r;
+
+	r = *a & *b;
+
+	*out = r;
+}
+
+void mk_uint_long_xor(unsigned long* out, unsigned long const* a, unsigned long const* b)
+{
+	mk_assert(out);
+	mk_assert(a);
+	mk_assert(b);
+
+	unsigned long r;
+
+	r = *a ^ *b;
+
+	*out = r;
+}
+
+
+void mk_uint_long_shl(unsigned long* out, unsigned long const* x, int n)
+{
+	mk_assert(out);
+	mk_assert(x);
+	mk_assert(n >= 0 && n < (int)(sizeof(unsigned long) * CHAR_BIT));
+
+	unsigned long r;
+
+	r = (unsigned long)(*x << n);
+
+	*out = r;
+}
+
+void mk_uint_long_shr(unsigned long* out, unsigned long const* x, int n)
+{
+	mk_assert(out);
+	mk_assert(x);
+	mk_assert(n >= 0 && n < (int)(sizeof(unsigned long) * CHAR_BIT));
+
+	unsigned long r;
+
+	r = *x >> n;
+
+	*out = r;
+}
+
+
+int mk_uint_long_eq(unsigned long const* a, unsigned long const* b)
+{
+	mk_assert(a);
+	mk_assert(b);
+
+	return *a == *b;
+}
+
+int mk_uint_long_neq(unsigned long const* a, unsigned long const* b)
+{
+	mk_assert(a);
+	mk_assert(b);
+
+	return *a != *b;
+}
+
+int mk_uint_long_lt(unsigned long const* a, unsigned long const* b)
+{
+	mk_assert(a);
+	mk_assert(b);
+
+	return *a < *b;
+}
+
+int mk_uint_long_le(unsigned long const* a, unsigned long const* b)
+{
+	mk_assert(a);
+	mk_assert(b);
+
+	return *a <= *b;
+}
+
+int mk_uint_long_gt(unsigned long const* a, unsigned long const* b)
+{
+	mk_assert(a);
+	mk_assert(b);
+
+	return *a > *b;
+}
+
+int mk_uint_long_ge(unsigned long const* a, unsigned long const* b)
+{
+	mk_assert(a);
+	mk_assert(b);
+
+	return *a >= *b;
+}
+
+
+void mk_uint_long_inc(unsigned long* x)
+{
+	mk_assert(x);
+
+	++*x;
+}
+
+void mk_uint_long_dec(unsigned long* x)
+{
+	mk_assert(x);
+
+	--*x;
+}
+
+
+void mk_uint_long_add(unsigned long* out, unsigned long const* a, unsigned long const* b)
+{
+	mk_assert(out);
+	mk_assert(a);
+	mk_assert(b);
+
+	unsigned long r;
+	
+	r = *a + *b;
+
+	*out = r;
+}
+
+void mk_uint_long_sub(unsigned long* out, unsigned long const* a, unsigned long const* b)
+{
+	mk_assert(out);
+	mk_assert(a);
+	mk_assert(b);
+
+	unsigned long r;
+	
+	r = *a - *b;
+
+	*out = r;
+}
+
+
+#endif

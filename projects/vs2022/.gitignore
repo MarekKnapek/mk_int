@@ -1,0 +1,11 @@
+.vs
+
+Debug
+Release
+x64/Debug
+x64/Release
+
+mk_int/Debug
+mk_int/Release
+mk_int/x64/Debug
+mk_int/x64/Release
