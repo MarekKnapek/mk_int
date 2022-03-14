@@ -14,6 +14,7 @@ void mk_uint_llong_from_buff_le(unsigned long long* out, void const* buff);
 int mk_uint_llong_is_zero(unsigned long long const* x);
 int mk_uint_llong_is_max(unsigned long long const* x);
 
+void mk_uint_llong_cmplmnt(unsigned long long* out, unsigned long long const* x);
 void mk_uint_llong_or(unsigned long long* out, unsigned long long const* a, unsigned long long const* b);
 void mk_uint_llong_and(unsigned long long* out, unsigned long long const* a, unsigned long long const* b);
 void mk_uint_llong_xor(unsigned long long* out, unsigned long long const* a, unsigned long long const* b);

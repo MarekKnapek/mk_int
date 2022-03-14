@@ -71,6 +71,17 @@ int mk_uint_llong_is_max(unsigned long long const* x)
 }
 
 
+void mk_uint_llong_cmplmnt(unsigned long long* out, unsigned long long const* x)
+{
+	mk_assert(out);
+	mk_assert(x);
+
+	unsigned long long r;
+
+	r = ~*x;
+
+	*out = r;
+}
 
 void mk_uint_llong_or(unsigned long long* out, unsigned long long const* a, unsigned long long const* b)
 {

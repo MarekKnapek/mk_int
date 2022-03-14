@@ -11,6 +11,7 @@ void mk_uint_short_from_buff_le(unsigned short* out, void const* buff);
 int mk_uint_short_is_zero(unsigned short const* x);
 int mk_uint_short_is_max(unsigned short const* x);
 
+void mk_uint_short_cmplmnt(unsigned short* out, unsigned short const* x);
 void mk_uint_short_or(unsigned short* out, unsigned short const* a, unsigned short const* b);
 void mk_uint_short_and(unsigned short* out, unsigned short const* a, unsigned short const* b);
 void mk_uint_short_xor(unsigned short* out, unsigned short const* a, unsigned short const* b);

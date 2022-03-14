@@ -11,6 +11,7 @@ void mk_uint_char_from_buff_le(unsigned char* out, void const* buff);
 int mk_uint_char_is_zero(unsigned char const* x);
 int mk_uint_char_is_max(unsigned char const* x);
 
+void mk_uint_char_cmplmnt(unsigned char* out, unsigned char const* x);
 void mk_uint_char_or(unsigned char* out, unsigned char const* a, unsigned char const* b);
 void mk_uint_char_and(unsigned char* out, unsigned char const* a, unsigned char const* b);
 void mk_uint_char_xor(unsigned char* out, unsigned char const* a, unsigned char const* b);

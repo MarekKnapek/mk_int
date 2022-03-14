@@ -68,6 +68,17 @@ int mk_uint_short_is_max(unsigned short const* x)
 }
 
 
+void mk_uint_short_cmplmnt(unsigned short* out, unsigned short const* x)
+{
+	mk_assert(out);
+	mk_assert(x);
+
+	unsigned short r;
+
+	r = ~*x;
+
+	*out = r;
+}
 
 void mk_uint_short_or(unsigned short* out, unsigned short const* a, unsigned short const* b)
 {

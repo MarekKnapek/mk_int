@@ -68,6 +68,17 @@ int mk_uint_char_is_max(unsigned char const* x)
 }
 
 
+void mk_uint_char_cmplmnt(unsigned char* out, unsigned char const* x)
+{
+	mk_assert(out);
+	mk_assert(x);
+
+	unsigned char r;
+
+	r = ~*x;
+
+	*out = r;
+}
 
 void mk_uint_char_or(unsigned char* out, unsigned char const* a, unsigned char const* b)
 {

@@ -68,6 +68,17 @@ int mk_uint_int_is_max(unsigned int const* x)
 }
 
 
+void mk_uint_int_cmplmnt(unsigned int* out, unsigned int const* x)
+{
+	mk_assert(out);
+	mk_assert(x);
+
+	unsigned int r;
+
+	r = ~*x;
+
+	*out = r;
+}
 
 void mk_uint_int_or(unsigned int* out, unsigned int const* a, unsigned int const* b)
 {
