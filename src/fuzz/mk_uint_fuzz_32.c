@@ -94,6 +94,21 @@ static inline void mk_uint_fuzz_32_is_max(unsigned char const* data)
 }
 
 
+static inline void mk_uint_fuzz_32_cmplmnt(unsigned char const* data)
+{
+	uint32_t bx;
+	uint32_t br;
+	memcpy(&bx, data, 32 / CHAR_BIT);
+	br = ~bx;
+
+	struct mk_uint32_s mx;
+	struct mk_uint32_s mr;
+	memcpy(&mx, data, 32 / CHAR_BIT);
+	mk_uint32_cmplmnt(&mr, &mx);
+
+	test(memcmp(&br, &mr, 32 / CHAR_BIT) == 0);
+}
+
 static inline void mk_uint_fuzz_32_or(unsigned char const* data)
 {
 	uint32_t ba;
@@ -348,6 +363,7 @@ void mk_uint_fuzz_32(unsigned char const* data)
 	mk_uint_fuzz_32_is_zero(data);
 	mk_uint_fuzz_32_is_max(data);
 
+	mk_uint_fuzz_32_cmplmnt(data);
 	mk_uint_fuzz_32_or(data);
 	mk_uint_fuzz_32_and(data);
 	mk_uint_fuzz_32_xor(data);
