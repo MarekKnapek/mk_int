@@ -6,6 +6,7 @@ void mk_uint_char_zero(unsigned char* out);
 void mk_uint_char_one(unsigned char* out);
 void mk_uint_char_from_int(unsigned char* out, unsigned in);
 unsigned mk_uint_char_to_int(unsigned char const* x);
+void mk_uint_char_from_buff_le(unsigned char* out, void const* buff);
 
 int mk_uint_char_is_zero(unsigned char const* x);
 int mk_uint_char_is_max(unsigned char const* x);

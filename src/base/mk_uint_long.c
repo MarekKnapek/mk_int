@@ -33,6 +33,25 @@ unsigned mk_uint_long_to_int(unsigned long const* x)
 	return (unsigned)*x;
 }
 
+void mk_uint_long_from_buff_le(unsigned long* out, void const* buff)
+{
+	mk_assert(out);
+	mk_assert(buff);
+
+	unsigned long r;
+	unsigned char const* input;
+	int i;
+
+	r = 0;
+	input = (unsigned char const*)buff;
+	for(i = 0; i != sizeof(unsigned long); ++i)
+	{
+		r |= ((unsigned long)input[i]) << (i * CHAR_BIT);
+	}
+
+	*out = r;
+}
+
 
 int mk_uint_long_is_zero(unsigned long const* x)
 {

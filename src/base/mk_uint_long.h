@@ -6,6 +6,7 @@ void mk_uint_long_zero(unsigned long* out);
 void mk_uint_long_one(unsigned long* out);
 void mk_uint_long_from_int(unsigned long* out, unsigned in);
 unsigned mk_uint_long_to_int(unsigned long const* x);
+void mk_uint_long_from_buff_le(unsigned long* out, void const* buff);
 
 int mk_uint_long_is_zero(unsigned long const* x);
 int mk_uint_long_is_max(unsigned long const* x);

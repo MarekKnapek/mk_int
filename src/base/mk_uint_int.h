@@ -6,6 +6,7 @@ void mk_uint_int_zero(unsigned int* out);
 void mk_uint_int_one(unsigned int* out);
 void mk_uint_int_from_int(unsigned int* out, unsigned in);
 unsigned mk_uint_int_to_int(unsigned int const* x);
+void mk_uint_int_from_buff_le(unsigned int* out, void const* buff);
 
 int mk_uint_int_is_zero(unsigned int const* x);
 int mk_uint_int_is_max(unsigned int const* x);

@@ -6,6 +6,7 @@ void mk_uint_short_zero(unsigned short* out);
 void mk_uint_short_one(unsigned short* out);
 void mk_uint_short_from_int(unsigned short* out, unsigned in);
 unsigned mk_uint_short_to_int(unsigned short const* x);
+void mk_uint_short_from_buff_le(unsigned short* out, void const* buff);
 
 int mk_uint_short_is_zero(unsigned short const* x);
 int mk_uint_short_is_max(unsigned short const* x);

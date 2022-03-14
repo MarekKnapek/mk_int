@@ -33,6 +33,25 @@ unsigned mk_uint_short_to_int(unsigned short const* x)
 	return (unsigned)*x;
 }
 
+void mk_uint_short_from_buff_le(unsigned short* out, void const* buff)
+{
+	mk_assert(out);
+	mk_assert(buff);
+
+	unsigned short r;
+	unsigned char const* input;
+	int i;
+
+	r = 0;
+	input = (unsigned char const*)buff;
+	for(i = 0; i != sizeof(unsigned short); ++i)
+	{
+		r |= ((unsigned short)input[i]) << (i * CHAR_BIT);
+	}
+
+	*out = r;
+}
+
 
 int mk_uint_short_is_zero(unsigned short const* x)
 {
