@@ -1,6 +1,3 @@
-#if __STDC_VERSION__ >= 199901L || __cplusplus >= 201103L
-
-
 #include "mk_uint_long.h"
 
 #include "../utils/mk_assert.h"
@@ -209,6 +206,3 @@ void mk_uint_long_sub(unsigned long* out, unsigned long const* a, unsigned long 
 
 	*out = r;
 }
-
-
-#endif
