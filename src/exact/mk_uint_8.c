@@ -40,6 +40,7 @@
 #define mk_uint_xor mk_uint8_xor
 #define mk_uint_shl mk_uint8_shl
 #define mk_uint_shr mk_uint8_shr
+#define mk_uint_rotl mk_uint8_rotl
 #define mk_uint_eq mk_uint8_eq
 #define mk_uint_neq mk_uint8_neq
 #define mk_uint_lt mk_uint8_lt
@@ -66,6 +67,7 @@
 #undef mk_uint_xor
 #undef mk_uint_shl
 #undef mk_uint_shr
+#undef mk_uint_rotl
 #undef mk_uint_eq
 #undef mk_uint_neq
 #undef mk_uint_lt

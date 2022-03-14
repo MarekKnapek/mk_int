@@ -273,6 +273,22 @@ void mk_uint_shr(mk_uint_t* out, mk_uint_t const* x, int n)
 	*out = r;
 }
 
+void mk_uint_rotl(mk_uint_t* out, mk_uint_t const* x, int n)
+{
+	mk_assert(out);
+	mk_assert(x);
+	mk_assert(n > 0 && n < mk_uint_bits);
+
+	mk_uint_t r;
+	mk_uint_t tmp;
+
+	mk_uint_shl(&r, x, n);
+	mk_uint_shr(&tmp, x, mk_uint_bits - n);
+	mk_uint_or(&r, &r, &tmp);
+
+	*out = r;
+}
+
 
 int mk_uint_eq(mk_uint_t const* a, mk_uint_t const* b)
 {

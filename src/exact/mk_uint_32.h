@@ -22,6 +22,7 @@
 #define mk_uint_xor mk_uint32_xor
 #define mk_uint_shl mk_uint32_shl
 #define mk_uint_shr mk_uint32_shr
+#define mk_uint_rotl mk_uint32_rotl
 #define mk_uint_eq mk_uint32_eq
 #define mk_uint_neq mk_uint32_neq
 #define mk_uint_lt mk_uint32_lt
@@ -52,6 +53,7 @@
 #undef mk_uint_xor
 #undef mk_uint_shl
 #undef mk_uint_shr
+#undef mk_uint_rotl
 #undef mk_uint_eq
 #undef mk_uint_neq
 #undef mk_uint_lt

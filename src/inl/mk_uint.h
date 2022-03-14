@@ -25,6 +25,7 @@ void mk_uint_xor(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b);
 
 void mk_uint_shl(mk_uint_t* out, mk_uint_t const* x, int n);
 void mk_uint_shr(mk_uint_t* out, mk_uint_t const* x, int n);
+void mk_uint_rotl(mk_uint_t* out, mk_uint_t const* x, int n);
 
 int mk_uint_eq(mk_uint_t const* a, mk_uint_t const* b);
 int mk_uint_neq(mk_uint_t const* a, mk_uint_t const* b);
