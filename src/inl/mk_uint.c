@@ -76,6 +76,21 @@ unsigned mk_uint_to_int(mk_uint_t const* x)
 	return r;
 }
 
+void mk_uint_from_buff_le(mk_uint_t* out, void const* buff)
+{
+	mk_assert(out);
+	mk_assert(buff);
+
+	int i;
+	unsigned char const* input;
+
+	input = (unsigned char const*)buff;
+	for(i = 0; i != mk_uint_parts; ++i)
+	{
+		mk_uint_small_from_buff_le(out->m_data + i, input + i * sizeof(mk_uint_small_t));
+	}
+}
+
 
 int mk_uint_is_zero(mk_uint_t const* x)
 {

@@ -9,6 +9,7 @@
 #define mk_uint_small_one mk_uint_short_one
 #define mk_uint_small_from_int mk_uint_short_from_int
 #define mk_uint_small_to_int mk_uint_short_to_int
+#define mk_uint_small_from_buff_le mk_uint_short_from_buff_le
 #define mk_uint_small_is_zero mk_uint_short_is_zero
 #define mk_uint_small_is_max mk_uint_short_is_max
 #define mk_uint_small_or mk_uint_short_or
@@ -31,6 +32,7 @@
 #define mk_uint_one mk_uint64_one
 #define mk_uint_from_int mk_uint64_from_int
 #define mk_uint_to_int mk_uint64_to_int
+#define mk_uint_from_buff_le mk_uint64_from_buff_le
 #define mk_uint_is_zero mk_uint64_is_zero
 #define mk_uint_is_max mk_uint64_is_max
 #define mk_uint_or mk_uint64_or
@@ -56,6 +58,7 @@
 #undef mk_uint_one
 #undef mk_uint_from_int
 #undef mk_uint_to_int
+#undef mk_uint_from_buff_le
 #undef mk_uint_is_zero
 #undef mk_uint_is_max
 #undef mk_uint_or
@@ -78,6 +81,7 @@
 #undef mk_uint_small_one
 #undef mk_uint_small_from_int
 #undef mk_uint_small_to_int
+#undef mk_uint_small_from_buff_le
 #undef mk_uint_small_is_zero
 #undef mk_uint_small_is_max
 #undef mk_uint_small_or

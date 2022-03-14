@@ -14,6 +14,7 @@
 #define mk_uint_one mk_uint128_one
 #define mk_uint_from_int mk_uint128_from_int
 #define mk_uint_to_int mk_uint128_to_int
+#define mk_uint_from_buff_le mk_uint128_from_buff_le
 #define mk_uint_is_zero mk_uint128_is_zero
 #define mk_uint_is_max mk_uint128_is_max
 #define mk_uint_or mk_uint128_or
@@ -43,6 +44,7 @@
 #undef mk_uint_one
 #undef mk_uint_from_int
 #undef mk_uint_to_int
+#undef mk_uint_from_buff_le
 #undef mk_uint_is_zero
 #undef mk_uint_is_max
 #undef mk_uint_or

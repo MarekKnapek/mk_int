@@ -14,6 +14,7 @@ void mk_uint_zero(mk_uint_t* out);
 void mk_uint_one(mk_uint_t* out);
 void mk_uint_from_int(mk_uint_t* out, unsigned in);
 unsigned mk_uint_to_int(mk_uint_t const* x);
+void mk_uint_from_buff_le(mk_uint_t* out, void const* buff);
 
 int mk_uint_is_zero(mk_uint_t const* x);
 int mk_uint_is_max(mk_uint_t const* x);
