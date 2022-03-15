@@ -132,6 +132,21 @@ void mk_uint_from_buff_le(mk_uint_t* out, void const* buff)
 	}
 }
 
+void mk_uint_to_buff_be(mk_uint_t const* x, void* buff)
+{
+	mk_assert(x);
+	mk_assert(buff);
+
+	int i;
+	unsigned char* output;
+
+	output = (unsigned char*)buff;
+	for(i = 0; i != mk_uint_parts; ++i)
+	{
+		mk_uint_small_to_buff_be(x->m_data + mk_uint_parts - 1 - i, output + i * sizeof(mk_uint_small_t));
+	}
+}
+
 
 int mk_uint_is_zero(mk_uint_t const* x)
 {

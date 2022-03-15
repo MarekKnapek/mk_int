@@ -12,6 +12,7 @@
 #define mk_uint_small_from_sizet mk_uint_short_from_sizet
 #define mk_uint_small_to_sizet mk_uint_short_to_sizet
 #define mk_uint_small_from_buff_le mk_uint_short_from_buff_le
+#define mk_uint_small_to_buff_be mk_uint_short_to_buff_be
 #define mk_uint_small_is_zero mk_uint_short_is_zero
 #define mk_uint_small_is_max mk_uint_short_is_max
 #define mk_uint_small_cmplmnt mk_uint_short_cmplmnt
@@ -38,6 +39,7 @@
 #define mk_uint_from_sizet mk_uint64_from_sizet
 #define mk_uint_to_sizet mk_uint64_to_sizet
 #define mk_uint_from_buff_le mk_uint64_from_buff_le
+#define mk_uint_to_buff_be mk_uint64_to_buff_be
 #define mk_uint_is_zero mk_uint64_is_zero
 #define mk_uint_is_max mk_uint64_is_max
 #define mk_uint_cmplmnt mk_uint64_cmplmnt
@@ -68,6 +70,7 @@
 #undef mk_uint_from_sizet
 #undef mk_uint_to_sizet
 #undef mk_uint_from_buff_le
+#undef mk_uint_to_buff_be
 #undef mk_uint_is_zero
 #undef mk_uint_is_max
 #undef mk_uint_cmplmnt
@@ -95,6 +98,7 @@
 #undef mk_uint_small_from_sizet
 #undef mk_uint_small_to_sizet
 #undef mk_uint_small_from_buff_le
+#undef mk_uint_small_to_buff_be
 #undef mk_uint_small_is_zero
 #undef mk_uint_small_is_max
 #undef mk_uint_small_cmplmnt

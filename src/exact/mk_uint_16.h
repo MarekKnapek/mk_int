@@ -17,6 +17,7 @@
 #define mk_uint_from_sizet mk_uint16_from_sizet
 #define mk_uint_to_sizet mk_uint16_to_sizet
 #define mk_uint_from_buff_le mk_uint16_from_buff_le
+#define mk_uint_to_buff_be mk_uint16_to_buff_be
 #define mk_uint_is_zero mk_uint16_is_zero
 #define mk_uint_is_max mk_uint16_is_max
 #define mk_uint_cmplmnt mk_uint16_cmplmnt
@@ -51,6 +52,7 @@
 #undef mk_uint_from_sizet
 #undef mk_uint_to_sizet
 #undef mk_uint_from_buff_le
+#undef mk_uint_to_buff_be
 #undef mk_uint_is_zero
 #undef mk_uint_is_max
 #undef mk_uint_cmplmnt
