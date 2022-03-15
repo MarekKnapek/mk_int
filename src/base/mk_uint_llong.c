@@ -5,6 +5,7 @@
 
 #include "../utils/mk_assert.h"
 
+#include <stddef.h> /* size_t */
 #include <limits.h> /* CHAR_BIT */
 
 
@@ -34,6 +35,20 @@ unsigned mk_uint_llong_to_int(unsigned long long const* x)
 	mk_assert(x);
 
 	return (unsigned)*x;
+}
+
+void mk_uint_llong_from_sizet(unsigned long long* out, size_t in)
+{
+	mk_assert(out);
+
+	*out = (unsigned long long)in;
+}
+
+size_t mk_uint_llong_to_sizet(unsigned long long const* x)
+{
+	mk_assert(x);
+
+	return (size_t)*x;
 }
 
 void mk_uint_llong_from_buff_le(unsigned long long* out, void const* buff)

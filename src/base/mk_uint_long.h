@@ -2,10 +2,15 @@
 #define mk_include_guard_uint_long
 
 
+#include <stddef.h> /* size_t */
+
+
 void mk_uint_long_zero(unsigned long* out);
 void mk_uint_long_one(unsigned long* out);
 void mk_uint_long_from_int(unsigned long* out, unsigned in);
 unsigned mk_uint_long_to_int(unsigned long const* x);
+void mk_uint_long_from_sizet(unsigned long* out, size_t in);
+size_t mk_uint_long_to_sizet(unsigned long const* x);
 void mk_uint_long_from_buff_le(unsigned long* out, void const* buff);
 
 int mk_uint_long_is_zero(unsigned long const* x);

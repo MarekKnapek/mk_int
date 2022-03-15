@@ -2,10 +2,15 @@
 #define mk_include_guard_uint_short
 
 
+#include <stddef.h> /* size_t */
+
+
 void mk_uint_short_zero(unsigned short* out);
 void mk_uint_short_one(unsigned short* out);
 void mk_uint_short_from_int(unsigned short* out, unsigned in);
 unsigned mk_uint_short_to_int(unsigned short const* x);
+void mk_uint_short_from_sizet(unsigned short* out, size_t in);
+size_t mk_uint_short_to_sizet(unsigned short const* x);
 void mk_uint_short_from_buff_le(unsigned short* out, void const* buff);
 
 int mk_uint_short_is_zero(unsigned short const* x);

@@ -5,10 +5,15 @@
 #define mk_include_guard_uint_llong
 
 
+#include <stddef.h> /* size_t */
+
+
 void mk_uint_llong_zero(unsigned long long* out);
 void mk_uint_llong_one(unsigned long long* out);
 void mk_uint_llong_from_int(unsigned long long* out, unsigned in);
 unsigned mk_uint_llong_to_int(unsigned long long const* x);
+void mk_uint_llong_from_sizet(unsigned long long* out, size_t in);
+size_t mk_uint_llong_to_sizet(unsigned long long const* x);
 void mk_uint_llong_from_buff_le(unsigned long long* out, void const* buff);
 
 int mk_uint_llong_is_zero(unsigned long long const* x);

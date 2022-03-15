@@ -2,6 +2,7 @@
 
 #include "../utils/mk_assert.h"
 
+#include <stddef.h> /* size_t */
 #include <limits.h> /* CHAR_BIT */
 
 
@@ -31,6 +32,20 @@ unsigned mk_uint_short_to_int(unsigned short const* x)
 	mk_assert(x);
 
 	return (unsigned)*x;
+}
+
+void mk_uint_short_from_sizet(unsigned short* out, size_t in)
+{
+	mk_assert(out);
+
+	*out = (unsigned short)in;
+}
+
+size_t mk_uint_short_to_sizet(unsigned short const* x)
+{
+	mk_assert(x);
+
+	return (size_t)*x;
 }
 
 void mk_uint_short_from_buff_le(unsigned short* out, void const* buff)
