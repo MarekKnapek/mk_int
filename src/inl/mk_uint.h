@@ -1,4 +1,5 @@
 #include <limits.h> /* CHAR_BIT */
+#include <stddef.h> /* size_t */
 
 
 #define mk_uint_detail_bits_to_words(x) (((x) + (sizeof(mk_uint_small_t) * CHAR_BIT - 1)) / (sizeof(mk_uint_small_t) * CHAR_BIT))
@@ -14,6 +15,8 @@ void mk_uint_zero(mk_uint_t* out);
 void mk_uint_one(mk_uint_t* out);
 void mk_uint_from_int(mk_uint_t* out, unsigned in);
 unsigned mk_uint_to_int(mk_uint_t const* x);
+void mk_uint_from_sizet(mk_uint_t* out, size_t in);
+size_t mk_uint_to_sizet(mk_uint_t const* x);
 void mk_uint_from_buff_le(mk_uint_t* out, void const* buff);
 
 int mk_uint_is_zero(mk_uint_t const* x);

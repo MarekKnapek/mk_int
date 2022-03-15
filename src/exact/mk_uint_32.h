@@ -14,6 +14,8 @@
 #define mk_uint_one mk_uint32_one
 #define mk_uint_from_int mk_uint32_from_int
 #define mk_uint_to_int mk_uint32_to_int
+#define mk_uint_from_sizet mk_uint32_from_sizet
+#define mk_uint_to_sizet mk_uint32_to_sizet
 #define mk_uint_from_buff_le mk_uint32_from_buff_le
 #define mk_uint_is_zero mk_uint32_is_zero
 #define mk_uint_is_max mk_uint32_is_max
@@ -46,6 +48,8 @@
 #undef mk_uint_one
 #undef mk_uint_from_int
 #undef mk_uint_to_int
+#undef mk_uint_from_sizet
+#undef mk_uint_to_sizet
 #undef mk_uint_from_buff_le
 #undef mk_uint_is_zero
 #undef mk_uint_is_max

@@ -3,6 +3,7 @@
 #include "../utils/maybe_initialize.h"
 
 #include <limits.h> /* CHAR_BIT */
+#include <stddef.h> /* size_t */
 
 
 #define mk_uint_bits ((int)(sizeof(mk_uint_t) * CHAR_BIT))
@@ -71,6 +72,46 @@ unsigned mk_uint_to_int(mk_uint_t const* x)
 	for(i = 0; i != parts; ++i)
 	{
 		r |= mk_uint_small_to_int(x->m_data + i) << (i * mk_uint_small_bits);
+	}
+
+	return r;
+}
+
+void mk_uint_from_sizet(mk_uint_t* out, size_t in)
+{
+	mk_assert(out);
+
+	int parts;
+	int i;
+
+	parts = sizeof(in) / sizeof(mk_uint_small_t);
+	parts = parts < mk_uint_parts ? parts : mk_uint_parts;
+	parts = parts == 0 ? 1 : parts;
+	for(i = 0; i != parts; ++i)
+	{
+		mk_uint_small_from_sizet(out->m_data + i, in >> (i * mk_uint_small_bits));
+	}
+	for(i = parts; i != mk_uint_parts; ++i)
+	{
+		mk_uint_small_zero(out->m_data + i);
+	}
+}
+
+size_t mk_uint_to_sizet(mk_uint_t const* x)
+{
+	mk_assert(x);
+
+	size_t r;
+	int parts;
+	int i;
+
+	r = 0;
+	parts = sizeof(size_t) / sizeof(mk_uint_small_t);
+	parts = parts < mk_uint_parts ? parts : mk_uint_parts;
+	parts = parts == 0 ? 1 : parts;
+	for(i = 0; i != parts; ++i)
+	{
+		r |= mk_uint_small_to_sizet(x->m_data + i) << (i * mk_uint_small_bits);
 	}
 
 	return r;
