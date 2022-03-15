@@ -7,7 +7,7 @@
 #include "../exact/mk_uint_128.h"
 
 #include <limits.h> /* CHAR_BIT */
-#include <stddef.h> /* NULL */
+#include <stddef.h> /* size_t NULL */
 #include <string.h> /* memcpy memcmp */
 
 
@@ -64,6 +64,35 @@ static inline void mk_uint_fuzz_128_to_int(unsigned char const* data)
 	mr = mk_uint128_to_int(&mx);
 
 	test(memcmp(&br, &mr, sizeof(unsigned)) == 0);
+}
+
+static inline void mk_uint_fuzz_128_from_sizet(unsigned char const* data)
+{
+	size_t n;
+	memcpy(&n, data, sizeof(size_t));
+	
+	uint128_t br;
+	br = (uint128_t)n;
+
+	struct mk_uint128_s mr;
+	mk_uint128_from_sizet(&mr, n);
+
+	test(memcmp(&br, &mr, 128 / CHAR_BIT) == 0);
+}
+
+static inline void mk_uint_fuzz_128_to_sizet(unsigned char const* data)
+{
+	uint128_t bx;
+	size_t br;
+	memcpy(&bx, data, 128 / CHAR_BIT);
+	br = (size_t)bx;
+
+	struct mk_uint128_s mx;
+	size_t mr;
+	memcpy(&mx, data, 128 / CHAR_BIT);
+	mr = mk_uint128_to_sizet(&mx);
+
+	test(memcmp(&br, &mr, sizeof(size_t)) == 0);
 }
 
 
@@ -363,6 +392,8 @@ void mk_uint_fuzz_128(unsigned char const* data)
 	mk_uint_fuzz_128_one();
 	mk_uint_fuzz_128_from_int(data);
 	mk_uint_fuzz_128_to_int(data);
+	mk_uint_fuzz_128_from_sizet(data);
+	mk_uint_fuzz_128_to_sizet(data);
 
 	mk_uint_fuzz_128_is_zero(data);
 	mk_uint_fuzz_128_is_max(data);

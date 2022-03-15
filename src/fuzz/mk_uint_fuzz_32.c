@@ -3,7 +3,7 @@
 #include "../exact/mk_uint_32.h"
 
 #include <limits.h> /* CHAR_BIT */
-#include <stddef.h> /* NULL */
+#include <stddef.h> /* size_t NULL */
 #include <stdint.h> /* uint32_t */
 #include <string.h> /* memcpy memcmp */
 
@@ -60,6 +60,35 @@ static inline void mk_uint_fuzz_32_to_int(unsigned char const* data)
 	mr = mk_uint32_to_int(&mx);
 
 	test(memcmp(&br, &mr, sizeof(unsigned)) == 0);
+}
+
+static inline void mk_uint_fuzz_32_from_sizet(unsigned char const* data)
+{
+	size_t n;
+	memcpy(&n, data, sizeof(size_t));
+	
+	uint32_t br;
+	br = (uint32_t)n;
+
+	struct mk_uint32_s mr;
+	mk_uint32_from_sizet(&mr, n);
+
+	test(memcmp(&br, &mr, 32 / CHAR_BIT) == 0);
+}
+
+static inline void mk_uint_fuzz_32_to_sizet(unsigned char const* data)
+{
+	uint32_t bx;
+	size_t br;
+	memcpy(&bx, data, 32 / CHAR_BIT);
+	br = (size_t)bx;
+
+	struct mk_uint32_s mx;
+	size_t mr;
+	memcpy(&mx, data, 32 / CHAR_BIT);
+	mr = mk_uint32_to_sizet(&mx);
+
+	test(memcmp(&br, &mr, sizeof(size_t)) == 0);
 }
 
 
@@ -359,6 +388,8 @@ void mk_uint_fuzz_32(unsigned char const* data)
 	mk_uint_fuzz_32_one();
 	mk_uint_fuzz_32_from_int(data);
 	mk_uint_fuzz_32_to_int(data);
+	mk_uint_fuzz_32_from_sizet(data);
+	mk_uint_fuzz_32_to_sizet(data);
 
 	mk_uint_fuzz_32_is_zero(data);
 	mk_uint_fuzz_32_is_max(data);
