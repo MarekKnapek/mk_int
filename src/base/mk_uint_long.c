@@ -67,6 +67,21 @@ void mk_uint_long_from_buff_le(unsigned long* out, void const* buff)
 	*out = r;
 }
 
+void mk_uint_long_to_buff_be(unsigned long const* x, void* buff)
+{
+	mk_assert(x);
+	mk_assert(buff);
+	
+	int i;
+	unsigned char* output;
+
+	output = (unsigned char*)buff;
+	for(i = 0; i != sizeof(unsigned long); ++i)
+	{
+		output[i] = (unsigned char)((*x >> ((sizeof(unsigned long) - 1 - i) * CHAR_BIT)) & 0xff);
+	}
+}
+
 
 int mk_uint_long_is_zero(unsigned long const* x)
 {

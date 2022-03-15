@@ -67,6 +67,21 @@ void mk_uint_short_from_buff_le(unsigned short* out, void const* buff)
 	*out = r;
 }
 
+void mk_uint_short_to_buff_be(unsigned short const* x, void* buff)
+{
+	mk_assert(x);
+	mk_assert(buff);
+	
+	int i;
+	unsigned char* output;
+
+	output = (unsigned char*)buff;
+	for(i = 0; i != sizeof(unsigned short); ++i)
+	{
+		output[i] = (unsigned char)((*x >> ((sizeof(unsigned short) - 1 - i) * CHAR_BIT)) & 0xff);
+	}
+}
+
 
 int mk_uint_short_is_zero(unsigned short const* x)
 {

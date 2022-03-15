@@ -67,6 +67,21 @@ void mk_uint_int_from_buff_le(unsigned int* out, void const* buff)
 	*out = r;
 }
 
+void mk_uint_int_to_buff_be(unsigned int const* x, void* buff)
+{
+	mk_assert(x);
+	mk_assert(buff);
+	
+	int i;
+	unsigned char* output;
+
+	output = (unsigned char*)buff;
+	for(i = 0; i != sizeof(unsigned int); ++i)
+	{
+		output[i] = (unsigned char)((*x >> ((sizeof(unsigned int) - 1 - i) * CHAR_BIT)) & 0xff);
+	}
+}
+
 
 int mk_uint_int_is_zero(unsigned int const* x)
 {
