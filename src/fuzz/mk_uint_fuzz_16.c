@@ -15,9 +15,9 @@
 static mk_inline void mk_uint_fuzz_16_zero(void)
 {
 	uint16_t br;
-	br = 0;
-
 	struct mk_uint16_s mr;
+
+	br = 0;
 	mk_uint16_zero(&mr);
 
 	test(memcmp(&br, &mr, 16 / CHAR_BIT) == 0);
@@ -26,9 +26,9 @@ static mk_inline void mk_uint_fuzz_16_zero(void)
 static mk_inline void mk_uint_fuzz_16_one(void)
 {
 	uint16_t br;
-	br = 1;
-
 	struct mk_uint16_s mr;
+
+	br = 1;
 	mk_uint16_one(&mr);
 
 	test(memcmp(&br, &mr, 16 / CHAR_BIT) == 0);
@@ -37,12 +37,12 @@ static mk_inline void mk_uint_fuzz_16_one(void)
 static mk_inline void mk_uint_fuzz_16_from_int(unsigned char const* data)
 {
 	unsigned n;
-	memcpy(&n, data, sizeof(unsigned));
-	
 	uint16_t br;
-	br = (uint16_t)n;
-
 	struct mk_uint16_s mr;
+	
+	memcpy(&n, data, sizeof(unsigned));
+
+	br = (uint16_t)n;
 	mk_uint16_from_int(&mr, n);
 
 	test(memcmp(&br, &mr, 16 / CHAR_BIT) == 0);
@@ -52,11 +52,12 @@ static mk_inline void mk_uint_fuzz_16_to_int(unsigned char const* data)
 {
 	uint16_t bx;
 	unsigned br;
+	struct mk_uint16_s mx;
+	unsigned mr;
+
 	memcpy(&bx, data, 16 / CHAR_BIT);
 	br = (unsigned)bx;
 
-	struct mk_uint16_s mx;
-	unsigned mr;
 	memcpy(&mx, data, 16 / CHAR_BIT);
 	mr = mk_uint16_to_int(&mx);
 
@@ -66,12 +67,12 @@ static mk_inline void mk_uint_fuzz_16_to_int(unsigned char const* data)
 static mk_inline void mk_uint_fuzz_16_from_sizet(unsigned char const* data)
 {
 	size_t n;
-	memcpy(&n, data, sizeof(size_t));
-	
 	uint16_t br;
-	br = (uint16_t)n;
-
 	struct mk_uint16_s mr;
+	
+	memcpy(&n, data, sizeof(size_t));
+
+	br = (uint16_t)n;
 	mk_uint16_from_sizet(&mr, n);
 
 	test(memcmp(&br, &mr, 16 / CHAR_BIT) == 0);
@@ -81,11 +82,12 @@ static mk_inline void mk_uint_fuzz_16_to_sizet(unsigned char const* data)
 {
 	uint16_t bx;
 	size_t br;
+	struct mk_uint16_s mx;
+	size_t mr;
+
 	memcpy(&bx, data, 16 / CHAR_BIT);
 	br = (size_t)bx;
 
-	struct mk_uint16_s mx;
-	size_t mr;
 	memcpy(&mx, data, 16 / CHAR_BIT);
 	mr = mk_uint16_to_sizet(&mx);
 
@@ -97,11 +99,12 @@ static mk_inline void mk_uint_fuzz_16_is_zero(unsigned char const* data)
 {
 	uint16_t bx;
 	int br;
+	struct mk_uint16_s mx;
+	int mr;
+
 	memcpy(&bx, data, 16 / CHAR_BIT);
 	br = bx == 0;
 
-	struct mk_uint16_s mx;
-	int mr;
 	memcpy(&mx, data, 16 / CHAR_BIT);
 	mr = mk_uint16_is_zero(&mx);
 
@@ -112,11 +115,12 @@ static mk_inline void mk_uint_fuzz_16_is_max(unsigned char const* data)
 {
 	uint16_t bx;
 	int br;
+	struct mk_uint16_s mx;
+	int mr;
+
 	memcpy(&bx, data, 16 / CHAR_BIT);
 	br = bx == (uint16_t)((uint16_t)0 - (uint16_t)1);
 
-	struct mk_uint16_s mx;
-	int mr;
 	memcpy(&mx, data, 16 / CHAR_BIT);
 	mr = mk_uint16_is_max(&mx);
 
@@ -128,11 +132,12 @@ static mk_inline void mk_uint_fuzz_16_cmplmnt(unsigned char const* data)
 {
 	uint16_t bx;
 	uint16_t br;
+	struct mk_uint16_s mx;
+	struct mk_uint16_s mr;
+
 	memcpy(&bx, data, 16 / CHAR_BIT);
 	br = ~bx;
 
-	struct mk_uint16_s mx;
-	struct mk_uint16_s mr;
 	memcpy(&mx, data, 16 / CHAR_BIT);
 	mk_uint16_cmplmnt(&mr, &mx);
 
@@ -144,13 +149,14 @@ static mk_inline void mk_uint_fuzz_16_or(unsigned char const* data)
 	uint16_t ba;
 	uint16_t bb;
 	uint16_t br;
+	struct mk_uint16_s ma;
+	struct mk_uint16_s mb;
+	struct mk_uint16_s mr;
+
 	memcpy(&ba, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&bb, data + 16 / CHAR_BIT, 16 / CHAR_BIT);
 	br = ba | bb;
 
-	struct mk_uint16_s ma;
-	struct mk_uint16_s mb;
-	struct mk_uint16_s mr;
 	memcpy(&ma, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&mb, data + 16 / CHAR_BIT, 16 / CHAR_BIT);
 	mk_uint16_or(&mr, &ma, &mb);
@@ -163,13 +169,14 @@ static mk_inline void mk_uint_fuzz_16_and(unsigned char const* data)
 	uint16_t ba;
 	uint16_t bb;
 	uint16_t br;
+	struct mk_uint16_s ma;
+	struct mk_uint16_s mb;
+	struct mk_uint16_s mr;
+
 	memcpy(&ba, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&bb, data + 16 / CHAR_BIT, 16 / CHAR_BIT);
 	br = ba & bb;
 
-	struct mk_uint16_s ma;
-	struct mk_uint16_s mb;
-	struct mk_uint16_s mr;
 	memcpy(&ma, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&mb, data + 16 / CHAR_BIT, 16 / CHAR_BIT);
 	mk_uint16_and(&mr, &ma, &mb);
@@ -182,13 +189,14 @@ static mk_inline void mk_uint_fuzz_16_xor(unsigned char const* data)
 	uint16_t ba;
 	uint16_t bb;
 	uint16_t br;
+	struct mk_uint16_s ma;
+	struct mk_uint16_s mb;
+	struct mk_uint16_s mr;
+
 	memcpy(&ba, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&bb, data + 16 / CHAR_BIT, 16 / CHAR_BIT);
 	br = ba ^ bb;
 
-	struct mk_uint16_s ma;
-	struct mk_uint16_s mb;
-	struct mk_uint16_s mr;
 	memcpy(&ma, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&mb, data + 16 / CHAR_BIT, 16 / CHAR_BIT);
 	mk_uint16_xor(&mr, &ma, &mb);
@@ -202,14 +210,15 @@ static mk_inline void mk_uint_fuzz_16_shl(unsigned char const* data)
 	uint16_t bx;
 	unsigned bn;
 	uint16_t br;
+	struct mk_uint16_s mx;
+	unsigned mn;
+	struct mk_uint16_s mr;
+
 	memcpy(&bx, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&bn, data + 16 / CHAR_BIT, sizeof(bn));
 	bn = bn % 16;
 	br = bx << bn;
 
-	struct mk_uint16_s mx;
-	unsigned mn;
-	struct mk_uint16_s mr;
 	memcpy(&mx, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&mn, data + 16 / CHAR_BIT, sizeof(mn));
 	mn = mn % 16;
@@ -223,14 +232,15 @@ static mk_inline void mk_uint_fuzz_16_shr(unsigned char const* data)
 	uint16_t bx;
 	unsigned bn;
 	uint16_t br;
+	struct mk_uint16_s mx;
+	unsigned mn;
+	struct mk_uint16_s mr;
+
 	memcpy(&bx, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&bn, data + 16 / CHAR_BIT, sizeof(bn));
 	bn = bn % 16;
 	br = bx >> bn;
 
-	struct mk_uint16_s mx;
-	unsigned mn;
-	struct mk_uint16_s mr;
 	memcpy(&mx, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&mn, data + 16 / CHAR_BIT, sizeof(mn));
 	mn = mn % 16;
@@ -245,13 +255,14 @@ static mk_inline void mk_uint_fuzz_16_eq(unsigned char const* data)
 	uint16_t ba;
 	uint16_t bb;
 	int br;
+	struct mk_uint16_s ma;
+	struct mk_uint16_s mb;
+	int mr;
+
 	memcpy(&ba, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&bb, data + 16 / CHAR_BIT, 16 / CHAR_BIT);
 	br = ba == bb;
 
-	struct mk_uint16_s ma;
-	struct mk_uint16_s mb;
-	int mr;
 	memcpy(&ma, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&mb, data + 16 / CHAR_BIT, 16 / CHAR_BIT);
 	mr = mk_uint16_eq(&ma, &mb);
@@ -264,13 +275,14 @@ static mk_inline void mk_uint_fuzz_16_neq(unsigned char const* data)
 	uint16_t ba;
 	uint16_t bb;
 	int br;
+	struct mk_uint16_s ma;
+	struct mk_uint16_s mb;
+	int mr;
+
 	memcpy(&ba, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&bb, data + 16 / CHAR_BIT, 16 / CHAR_BIT);
 	br = ba != bb;
 
-	struct mk_uint16_s ma;
-	struct mk_uint16_s mb;
-	int mr;
 	memcpy(&ma, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&mb, data + 16 / CHAR_BIT, 16 / CHAR_BIT);
 	mr = mk_uint16_neq(&ma, &mb);
@@ -283,13 +295,14 @@ static mk_inline void mk_uint_fuzz_16_lt(unsigned char const* data)
 	uint16_t ba;
 	uint16_t bb;
 	int br;
+	struct mk_uint16_s ma;
+	struct mk_uint16_s mb;
+	int mr;
+
 	memcpy(&ba, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&bb, data + 16 / CHAR_BIT, 16 / CHAR_BIT);
 	br = ba < bb;
 
-	struct mk_uint16_s ma;
-	struct mk_uint16_s mb;
-	int mr;
 	memcpy(&ma, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&mb, data + 16 / CHAR_BIT, 16 / CHAR_BIT);
 	mr = mk_uint16_lt(&ma, &mb);
@@ -302,13 +315,14 @@ static mk_inline void mk_uint_fuzz_16_le(unsigned char const* data)
 	uint16_t ba;
 	uint16_t bb;
 	int br;
+	struct mk_uint16_s ma;
+	struct mk_uint16_s mb;
+	int mr;
+
 	memcpy(&ba, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&bb, data + 16 / CHAR_BIT, 16 / CHAR_BIT);
 	br = ba <= bb;
 
-	struct mk_uint16_s ma;
-	struct mk_uint16_s mb;
-	int mr;
 	memcpy(&ma, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&mb, data + 16 / CHAR_BIT, 16 / CHAR_BIT);
 	mr = mk_uint16_le(&ma, &mb);
@@ -320,10 +334,11 @@ static mk_inline void mk_uint_fuzz_16_le(unsigned char const* data)
 static mk_inline void mk_uint_fuzz_16_inc(unsigned char const* data)
 {
 	uint16_t bx;
+	struct mk_uint16_s mx;
+
 	memcpy(&bx, data, 16 / CHAR_BIT);
 	++bx;
 
-	struct mk_uint16_s mx;
 	memcpy(&mx, data, 16 / CHAR_BIT);
 	mk_uint16_inc(&mx);
 
@@ -333,10 +348,11 @@ static mk_inline void mk_uint_fuzz_16_inc(unsigned char const* data)
 static mk_inline void mk_uint_fuzz_16_dec(unsigned char const* data)
 {
 	uint16_t bx;
+	struct mk_uint16_s mx;
+
 	memcpy(&bx, data, 16 / CHAR_BIT);
 	--bx;
 
-	struct mk_uint16_s mx;
 	memcpy(&mx, data, 16 / CHAR_BIT);
 	mk_uint16_dec(&mx);
 
@@ -349,13 +365,14 @@ static mk_inline void mk_uint_fuzz_16_add(unsigned char const* data)
 	uint16_t ba;
 	uint16_t bb;
 	uint16_t br;
+	struct mk_uint16_s ma;
+	struct mk_uint16_s mb;
+	struct mk_uint16_s mr;
+
 	memcpy(&ba, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&bb, data + 16 / CHAR_BIT, 16 / CHAR_BIT);
 	br = ba + bb;
 
-	struct mk_uint16_s ma;
-	struct mk_uint16_s mb;
-	struct mk_uint16_s mr;
 	memcpy(&ma, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&mb, data + 16 / CHAR_BIT, 16 / CHAR_BIT);
 	mk_uint16_add(&mr, &ma, &mb);
@@ -368,13 +385,14 @@ static mk_inline void mk_uint_fuzz_16_sub(unsigned char const* data)
 	uint16_t ba;
 	uint16_t bb;
 	uint16_t br;
+	struct mk_uint16_s ma;
+	struct mk_uint16_s mb;
+	struct mk_uint16_s mr;
+
 	memcpy(&ba, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&bb, data + 16 / CHAR_BIT, 16 / CHAR_BIT);
 	br = ba - bb;
 
-	struct mk_uint16_s ma;
-	struct mk_uint16_s mb;
-	struct mk_uint16_s mr;
 	memcpy(&ma, data + 0 / CHAR_BIT, 16 / CHAR_BIT);
 	memcpy(&mb, data + 16 / CHAR_BIT, 16 / CHAR_BIT);
 	mk_uint16_sub(&mr, &ma, &mb);

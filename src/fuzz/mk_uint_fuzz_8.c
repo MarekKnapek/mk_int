@@ -15,9 +15,9 @@
 static mk_inline void mk_uint_fuzz_8_zero(void)
 {
 	uint8_t br;
-	br = 0;
-
 	struct mk_uint8_s mr;
+
+	br = 0;
 	mk_uint8_zero(&mr);
 
 	test(memcmp(&br, &mr, 8 / CHAR_BIT) == 0);
@@ -26,9 +26,9 @@ static mk_inline void mk_uint_fuzz_8_zero(void)
 static mk_inline void mk_uint_fuzz_8_one(void)
 {
 	uint8_t br;
-	br = 1;
-
 	struct mk_uint8_s mr;
+
+	br = 1;
 	mk_uint8_one(&mr);
 
 	test(memcmp(&br, &mr, 8 / CHAR_BIT) == 0);
@@ -37,12 +37,12 @@ static mk_inline void mk_uint_fuzz_8_one(void)
 static mk_inline void mk_uint_fuzz_8_from_int(unsigned char const* data)
 {
 	unsigned n;
-	memcpy(&n, data, sizeof(unsigned));
-	
 	uint8_t br;
-	br = (uint8_t)n;
-
 	struct mk_uint8_s mr;
+	
+	memcpy(&n, data, sizeof(unsigned));
+
+	br = (uint8_t)n;
 	mk_uint8_from_int(&mr, n);
 
 	test(memcmp(&br, &mr, 8 / CHAR_BIT) == 0);
@@ -52,11 +52,12 @@ static mk_inline void mk_uint_fuzz_8_to_int(unsigned char const* data)
 {
 	uint8_t bx;
 	unsigned br;
+	struct mk_uint8_s mx;
+	unsigned mr;
+
 	memcpy(&bx, data, 8 / CHAR_BIT);
 	br = (unsigned)bx;
 
-	struct mk_uint8_s mx;
-	unsigned mr;
 	memcpy(&mx, data, 8 / CHAR_BIT);
 	mr = mk_uint8_to_int(&mx);
 
@@ -66,12 +67,12 @@ static mk_inline void mk_uint_fuzz_8_to_int(unsigned char const* data)
 static mk_inline void mk_uint_fuzz_8_from_sizet(unsigned char const* data)
 {
 	size_t n;
-	memcpy(&n, data, sizeof(size_t));
-	
 	uint8_t br;
-	br = (uint8_t)n;
-
 	struct mk_uint8_s mr;
+	
+	memcpy(&n, data, sizeof(size_t));
+
+	br = (uint8_t)n;
 	mk_uint8_from_sizet(&mr, n);
 
 	test(memcmp(&br, &mr, 8 / CHAR_BIT) == 0);
@@ -81,11 +82,12 @@ static mk_inline void mk_uint_fuzz_8_to_sizet(unsigned char const* data)
 {
 	uint8_t bx;
 	size_t br;
+	struct mk_uint8_s mx;
+	size_t mr;
+
 	memcpy(&bx, data, 8 / CHAR_BIT);
 	br = (size_t)bx;
 
-	struct mk_uint8_s mx;
-	size_t mr;
 	memcpy(&mx, data, 8 / CHAR_BIT);
 	mr = mk_uint8_to_sizet(&mx);
 
@@ -97,11 +99,12 @@ static mk_inline void mk_uint_fuzz_8_is_zero(unsigned char const* data)
 {
 	uint8_t bx;
 	int br;
+	struct mk_uint8_s mx;
+	int mr;
+
 	memcpy(&bx, data, 8 / CHAR_BIT);
 	br = bx == 0;
 
-	struct mk_uint8_s mx;
-	int mr;
 	memcpy(&mx, data, 8 / CHAR_BIT);
 	mr = mk_uint8_is_zero(&mx);
 
@@ -112,11 +115,12 @@ static mk_inline void mk_uint_fuzz_8_is_max(unsigned char const* data)
 {
 	uint8_t bx;
 	int br;
+	struct mk_uint8_s mx;
+	int mr;
+
 	memcpy(&bx, data, 8 / CHAR_BIT);
 	br = bx == (uint8_t)((uint8_t)0 - (uint8_t)1);
 
-	struct mk_uint8_s mx;
-	int mr;
 	memcpy(&mx, data, 8 / CHAR_BIT);
 	mr = mk_uint8_is_max(&mx);
 
@@ -128,11 +132,12 @@ static mk_inline void mk_uint_fuzz_8_cmplmnt(unsigned char const* data)
 {
 	uint8_t bx;
 	uint8_t br;
+	struct mk_uint8_s mx;
+	struct mk_uint8_s mr;
+
 	memcpy(&bx, data, 8 / CHAR_BIT);
 	br = ~bx;
 
-	struct mk_uint8_s mx;
-	struct mk_uint8_s mr;
 	memcpy(&mx, data, 8 / CHAR_BIT);
 	mk_uint8_cmplmnt(&mr, &mx);
 
@@ -144,13 +149,14 @@ static mk_inline void mk_uint_fuzz_8_or(unsigned char const* data)
 	uint8_t ba;
 	uint8_t bb;
 	uint8_t br;
+	struct mk_uint8_s ma;
+	struct mk_uint8_s mb;
+	struct mk_uint8_s mr;
+
 	memcpy(&ba, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&bb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
 	br = ba | bb;
 
-	struct mk_uint8_s ma;
-	struct mk_uint8_s mb;
-	struct mk_uint8_s mr;
 	memcpy(&ma, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&mb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
 	mk_uint8_or(&mr, &ma, &mb);
@@ -163,13 +169,14 @@ static mk_inline void mk_uint_fuzz_8_and(unsigned char const* data)
 	uint8_t ba;
 	uint8_t bb;
 	uint8_t br;
+	struct mk_uint8_s ma;
+	struct mk_uint8_s mb;
+	struct mk_uint8_s mr;
+
 	memcpy(&ba, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&bb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
 	br = ba & bb;
 
-	struct mk_uint8_s ma;
-	struct mk_uint8_s mb;
-	struct mk_uint8_s mr;
 	memcpy(&ma, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&mb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
 	mk_uint8_and(&mr, &ma, &mb);
@@ -182,13 +189,14 @@ static mk_inline void mk_uint_fuzz_8_xor(unsigned char const* data)
 	uint8_t ba;
 	uint8_t bb;
 	uint8_t br;
+	struct mk_uint8_s ma;
+	struct mk_uint8_s mb;
+	struct mk_uint8_s mr;
+
 	memcpy(&ba, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&bb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
 	br = ba ^ bb;
 
-	struct mk_uint8_s ma;
-	struct mk_uint8_s mb;
-	struct mk_uint8_s mr;
 	memcpy(&ma, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&mb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
 	mk_uint8_xor(&mr, &ma, &mb);
@@ -202,14 +210,15 @@ static mk_inline void mk_uint_fuzz_8_shl(unsigned char const* data)
 	uint8_t bx;
 	unsigned bn;
 	uint8_t br;
+	struct mk_uint8_s mx;
+	unsigned mn;
+	struct mk_uint8_s mr;
+
 	memcpy(&bx, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&bn, data + 8 / CHAR_BIT, sizeof(bn));
 	bn = bn % 8;
 	br = bx << bn;
 
-	struct mk_uint8_s mx;
-	unsigned mn;
-	struct mk_uint8_s mr;
 	memcpy(&mx, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&mn, data + 8 / CHAR_BIT, sizeof(mn));
 	mn = mn % 8;
@@ -223,14 +232,15 @@ static mk_inline void mk_uint_fuzz_8_shr(unsigned char const* data)
 	uint8_t bx;
 	unsigned bn;
 	uint8_t br;
+	struct mk_uint8_s mx;
+	unsigned mn;
+	struct mk_uint8_s mr;
+
 	memcpy(&bx, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&bn, data + 8 / CHAR_BIT, sizeof(bn));
 	bn = bn % 8;
 	br = bx >> bn;
 
-	struct mk_uint8_s mx;
-	unsigned mn;
-	struct mk_uint8_s mr;
 	memcpy(&mx, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&mn, data + 8 / CHAR_BIT, sizeof(mn));
 	mn = mn % 8;
@@ -245,13 +255,14 @@ static mk_inline void mk_uint_fuzz_8_eq(unsigned char const* data)
 	uint8_t ba;
 	uint8_t bb;
 	int br;
+	struct mk_uint8_s ma;
+	struct mk_uint8_s mb;
+	int mr;
+
 	memcpy(&ba, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&bb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
 	br = ba == bb;
 
-	struct mk_uint8_s ma;
-	struct mk_uint8_s mb;
-	int mr;
 	memcpy(&ma, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&mb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
 	mr = mk_uint8_eq(&ma, &mb);
@@ -264,13 +275,14 @@ static mk_inline void mk_uint_fuzz_8_neq(unsigned char const* data)
 	uint8_t ba;
 	uint8_t bb;
 	int br;
+	struct mk_uint8_s ma;
+	struct mk_uint8_s mb;
+	int mr;
+
 	memcpy(&ba, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&bb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
 	br = ba != bb;
 
-	struct mk_uint8_s ma;
-	struct mk_uint8_s mb;
-	int mr;
 	memcpy(&ma, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&mb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
 	mr = mk_uint8_neq(&ma, &mb);
@@ -283,13 +295,14 @@ static mk_inline void mk_uint_fuzz_8_lt(unsigned char const* data)
 	uint8_t ba;
 	uint8_t bb;
 	int br;
+	struct mk_uint8_s ma;
+	struct mk_uint8_s mb;
+	int mr;
+
 	memcpy(&ba, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&bb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
 	br = ba < bb;
 
-	struct mk_uint8_s ma;
-	struct mk_uint8_s mb;
-	int mr;
 	memcpy(&ma, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&mb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
 	mr = mk_uint8_lt(&ma, &mb);
@@ -302,13 +315,14 @@ static mk_inline void mk_uint_fuzz_8_le(unsigned char const* data)
 	uint8_t ba;
 	uint8_t bb;
 	int br;
+	struct mk_uint8_s ma;
+	struct mk_uint8_s mb;
+	int mr;
+
 	memcpy(&ba, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&bb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
 	br = ba <= bb;
 
-	struct mk_uint8_s ma;
-	struct mk_uint8_s mb;
-	int mr;
 	memcpy(&ma, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&mb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
 	mr = mk_uint8_le(&ma, &mb);
@@ -320,10 +334,11 @@ static mk_inline void mk_uint_fuzz_8_le(unsigned char const* data)
 static mk_inline void mk_uint_fuzz_8_inc(unsigned char const* data)
 {
 	uint8_t bx;
+	struct mk_uint8_s mx;
+
 	memcpy(&bx, data, 8 / CHAR_BIT);
 	++bx;
 
-	struct mk_uint8_s mx;
 	memcpy(&mx, data, 8 / CHAR_BIT);
 	mk_uint8_inc(&mx);
 
@@ -333,10 +348,11 @@ static mk_inline void mk_uint_fuzz_8_inc(unsigned char const* data)
 static mk_inline void mk_uint_fuzz_8_dec(unsigned char const* data)
 {
 	uint8_t bx;
+	struct mk_uint8_s mx;
+
 	memcpy(&bx, data, 8 / CHAR_BIT);
 	--bx;
 
-	struct mk_uint8_s mx;
 	memcpy(&mx, data, 8 / CHAR_BIT);
 	mk_uint8_dec(&mx);
 
@@ -349,13 +365,14 @@ static mk_inline void mk_uint_fuzz_8_add(unsigned char const* data)
 	uint8_t ba;
 	uint8_t bb;
 	uint8_t br;
+	struct mk_uint8_s ma;
+	struct mk_uint8_s mb;
+	struct mk_uint8_s mr;
+
 	memcpy(&ba, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&bb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
 	br = ba + bb;
 
-	struct mk_uint8_s ma;
-	struct mk_uint8_s mb;
-	struct mk_uint8_s mr;
 	memcpy(&ma, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&mb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
 	mk_uint8_add(&mr, &ma, &mb);
@@ -368,13 +385,14 @@ static mk_inline void mk_uint_fuzz_8_sub(unsigned char const* data)
 	uint8_t ba;
 	uint8_t bb;
 	uint8_t br;
+	struct mk_uint8_s ma;
+	struct mk_uint8_s mb;
+	struct mk_uint8_s mr;
+
 	memcpy(&ba, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&bb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
 	br = ba - bb;
 
-	struct mk_uint8_s ma;
-	struct mk_uint8_s mb;
-	struct mk_uint8_s mr;
 	memcpy(&ma, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
 	memcpy(&mb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
 	mk_uint8_sub(&mr, &ma, &mb);
