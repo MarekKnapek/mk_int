@@ -50,12 +50,12 @@ size_t mk_uint_short_to_sizet(unsigned short const* x)
 
 void mk_uint_short_from_buff_le(unsigned short* out, void const* buff)
 {
-	mk_assert(out);
-	mk_assert(buff);
-
 	unsigned short r;
 	unsigned char const* input;
 	int i;
+
+	mk_assert(out);
+	mk_assert(buff);
 
 	r = 0;
 	input = (unsigned char const*)buff;
@@ -69,12 +69,12 @@ void mk_uint_short_from_buff_le(unsigned short* out, void const* buff)
 
 void mk_uint_short_to_buff_be(unsigned short const* x, void* buff)
 {
-	mk_assert(x);
-	mk_assert(buff);
-	
 	int i;
 	unsigned char* output;
 
+	mk_assert(x);
+	mk_assert(buff);
+	
 	output = (unsigned char*)buff;
 	for(i = 0; i != sizeof(unsigned short); ++i)
 	{
@@ -100,10 +100,10 @@ int mk_uint_short_is_max(unsigned short const* x)
 
 void mk_uint_short_cmplmnt(unsigned short* out, unsigned short const* x)
 {
+	unsigned short r;
+
 	mk_assert(out);
 	mk_assert(x);
-
-	unsigned short r;
 
 	r = ~*x;
 
@@ -112,11 +112,11 @@ void mk_uint_short_cmplmnt(unsigned short* out, unsigned short const* x)
 
 void mk_uint_short_or(unsigned short* out, unsigned short const* a, unsigned short const* b)
 {
+	unsigned short r;
+
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
-
-	unsigned short r;
 
 	r = *a | *b;
 
@@ -125,11 +125,11 @@ void mk_uint_short_or(unsigned short* out, unsigned short const* a, unsigned sho
 
 void mk_uint_short_and(unsigned short* out, unsigned short const* a, unsigned short const* b)
 {
+	unsigned short r;
+
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
-
-	unsigned short r;
 
 	r = *a & *b;
 
@@ -138,11 +138,11 @@ void mk_uint_short_and(unsigned short* out, unsigned short const* a, unsigned sh
 
 void mk_uint_short_xor(unsigned short* out, unsigned short const* a, unsigned short const* b)
 {
+	unsigned short r;
+
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
-
-	unsigned short r;
 
 	r = *a ^ *b;
 
@@ -152,11 +152,11 @@ void mk_uint_short_xor(unsigned short* out, unsigned short const* a, unsigned sh
 
 void mk_uint_short_shl(unsigned short* out, unsigned short const* x, int n)
 {
+	unsigned short r;
+
 	mk_assert(out);
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned short) * CHAR_BIT));
-
-	unsigned short r;
 
 	r = (unsigned short)(*x << n);
 
@@ -165,11 +165,11 @@ void mk_uint_short_shl(unsigned short* out, unsigned short const* x, int n)
 
 void mk_uint_short_shr(unsigned short* out, unsigned short const* x, int n)
 {
+	unsigned short r;
+
 	mk_assert(out);
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned short) * CHAR_BIT));
-
-	unsigned short r;
 
 	r = *x >> n;
 
@@ -243,12 +243,12 @@ void mk_uint_short_dec(unsigned short* x)
 
 void mk_uint_short_add(unsigned short* out, unsigned short const* a, unsigned short const* b)
 {
+	unsigned short r;
+	
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
 
-	unsigned short r;
-	
 	r = *a + *b;
 
 	*out = r;
@@ -256,12 +256,12 @@ void mk_uint_short_add(unsigned short* out, unsigned short const* a, unsigned sh
 
 void mk_uint_short_sub(unsigned short* out, unsigned short const* a, unsigned short const* b)
 {
+	unsigned short r;
+
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
 
-	unsigned short r;
-	
 	r = *a - *b;
 
 	*out = r;

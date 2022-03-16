@@ -10,12 +10,12 @@ int LLVMFuzzerTestOneInput(unsigned char const* data, size_t size);
 
 int main(int argv, char** argc)
 {
-	(void)argc;
-	(void)argv;
-
 	unsigned buff[((2 * 16 * CHAR_BIT) + (sizeof(unsigned) * CHAR_BIT - 1)) / (sizeof(unsigned) * CHAR_BIT)];
 	int n;
 	int i;
+
+	(void)argc;
+	(void)argv;
 
 	srand((unsigned)time(NULL));
 

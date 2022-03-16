@@ -14,9 +14,9 @@
 
 void mk_uint_zero(mk_uint_t* out)
 {
-	mk_assert(out);
-
 	int i;
+
+	mk_assert(out);
 
 	for(i = 0; i != mk_uint_parts; ++i)
 	{
@@ -26,9 +26,9 @@ void mk_uint_zero(mk_uint_t* out)
 
 void mk_uint_one(mk_uint_t* out)
 {
-	mk_assert(out);
-
 	int i;
+
+	mk_assert(out);
 
 	mk_uint_small_one(out->m_data + 0);
 	for(i = 1; i != mk_uint_parts; ++i)
@@ -39,10 +39,10 @@ void mk_uint_one(mk_uint_t* out)
 
 void mk_uint_from_int(mk_uint_t* out, unsigned in)
 {
-	mk_assert(out);
-
 	int parts;
 	int i;
+
+	mk_assert(out);
 
 	parts = sizeof(in) / sizeof(mk_uint_small_t);
 	parts = parts < mk_uint_parts ? parts : mk_uint_parts;
@@ -59,11 +59,11 @@ void mk_uint_from_int(mk_uint_t* out, unsigned in)
 
 unsigned mk_uint_to_int(mk_uint_t const* x)
 {
-	mk_assert(x);
-
 	unsigned r;
 	int parts;
 	int i;
+
+	mk_assert(x);
 
 	r = 0;
 	parts = sizeof(unsigned) / sizeof(mk_uint_small_t);
@@ -79,10 +79,10 @@ unsigned mk_uint_to_int(mk_uint_t const* x)
 
 void mk_uint_from_sizet(mk_uint_t* out, size_t in)
 {
-	mk_assert(out);
-
 	int parts;
 	int i;
+
+	mk_assert(out);
 
 	parts = sizeof(in) / sizeof(mk_uint_small_t);
 	parts = parts < mk_uint_parts ? parts : mk_uint_parts;
@@ -99,11 +99,11 @@ void mk_uint_from_sizet(mk_uint_t* out, size_t in)
 
 size_t mk_uint_to_sizet(mk_uint_t const* x)
 {
-	mk_assert(x);
-
 	size_t r;
 	int parts;
 	int i;
+
+	mk_assert(x);
 
 	r = 0;
 	parts = sizeof(size_t) / sizeof(mk_uint_small_t);
@@ -119,11 +119,11 @@ size_t mk_uint_to_sizet(mk_uint_t const* x)
 
 void mk_uint_from_buff_le(mk_uint_t* out, void const* buff)
 {
-	mk_assert(out);
-	mk_assert(buff);
-
 	int i;
 	unsigned char const* input;
+
+	mk_assert(out);
+	mk_assert(buff);
 
 	input = (unsigned char const*)buff;
 	for(i = 0; i != mk_uint_parts; ++i)
@@ -134,11 +134,11 @@ void mk_uint_from_buff_le(mk_uint_t* out, void const* buff)
 
 void mk_uint_to_buff_be(mk_uint_t const* x, void* buff)
 {
-	mk_assert(x);
-	mk_assert(buff);
-
 	int i;
 	unsigned char* output;
+
+	mk_assert(x);
+	mk_assert(buff);
 
 	output = (unsigned char*)buff;
 	for(i = 0; i != mk_uint_parts; ++i)
@@ -150,10 +150,10 @@ void mk_uint_to_buff_be(mk_uint_t const* x, void* buff)
 
 int mk_uint_is_zero(mk_uint_t const* x)
 {
-	mk_assert(x);
-
 	int i;
 	int r;
+
+	mk_assert(x);
 
 	for(i = 0; i != mk_uint_parts - 1; ++i)
 	{
@@ -169,10 +169,10 @@ int mk_uint_is_zero(mk_uint_t const* x)
 
 int mk_uint_is_max(mk_uint_t const* x)
 {
-	mk_assert(x);
-
 	int i;
 	int r;
+
+	mk_assert(x);
 
 	for(i = 0; i != mk_uint_parts - 1; ++i)
 	{
@@ -189,10 +189,10 @@ int mk_uint_is_max(mk_uint_t const* x)
 
 void mk_uint_cmplmnt(mk_uint_t* out, mk_uint_t const* x)
 {
+	int i;
+
 	mk_assert(out);
 	mk_assert(x);
-
-	int i;
 
 	for(i = 0; i != mk_uint_parts; ++i)
 	{
@@ -202,12 +202,12 @@ void mk_uint_cmplmnt(mk_uint_t* out, mk_uint_t const* x)
 
 void mk_uint_or(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 {
+	mk_uint_t r;
+	int i;
+
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
-
-	mk_uint_t r;
-	int i;
 
 	maybe_initialize(&r);
 	
@@ -221,13 +221,13 @@ void mk_uint_or(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 
 void mk_uint_and(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 {
+	mk_uint_t r;
+	int i;
+	
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
 
-	mk_uint_t r;
-	int i;
-	
 	maybe_initialize(&r);
 
 	for(i = 0; i != mk_uint_parts; ++i)
@@ -240,12 +240,12 @@ void mk_uint_and(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 
 void mk_uint_xor(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 {
+	mk_uint_t r;
+	int i;
+
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
-
-	mk_uint_t r;
-	int i;
 
 	maybe_initialize(&r);
 	
@@ -260,16 +260,16 @@ void mk_uint_xor(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 
 void mk_uint_shl(mk_uint_t* out, mk_uint_t const* x, int n)
 {
-	mk_assert(out);
-	mk_assert(x);
-	mk_assert(n >= 0 && n < mk_uint_bits);
-
 	mk_uint_t r;
 	int parts;
 	int bits;
 	int rem;
 	int i;
 	mk_uint_small_t tmp;
+
+	mk_assert(out);
+	mk_assert(x);
+	mk_assert(n >= 0 && n < mk_uint_bits);
 
 	maybe_initialize(&r);
 
@@ -302,16 +302,16 @@ void mk_uint_shl(mk_uint_t* out, mk_uint_t const* x, int n)
 
 void mk_uint_shr(mk_uint_t* out, mk_uint_t const* x, int n)
 {
-	mk_assert(out);
-	mk_assert(x);
-	mk_assert(n >= 0 && n < mk_uint_bits);
-
 	mk_uint_t r;
 	int parts;
 	int bits;
 	int rem;
 	int i;
 	mk_uint_small_t tmp;
+
+	mk_assert(out);
+	mk_assert(x);
+	mk_assert(n >= 0 && n < mk_uint_bits);
 
 	maybe_initialize(&r);
 
@@ -344,12 +344,12 @@ void mk_uint_shr(mk_uint_t* out, mk_uint_t const* x, int n)
 
 void mk_uint_rotl(mk_uint_t* out, mk_uint_t const* x, int n)
 {
+	mk_uint_t r;
+	mk_uint_t tmp;
+
 	mk_assert(out);
 	mk_assert(x);
 	mk_assert(n > 0 && n < mk_uint_bits);
-
-	mk_uint_t r;
-	mk_uint_t tmp;
 
 	mk_uint_shl(&r, x, n);
 	mk_uint_shr(&tmp, x, mk_uint_bits - n);
@@ -361,11 +361,11 @@ void mk_uint_rotl(mk_uint_t* out, mk_uint_t const* x, int n)
 
 int mk_uint_eq(mk_uint_t const* a, mk_uint_t const* b)
 {
-	mk_assert(a);
-	mk_assert(b);
-
 	int r;
 	int i;
+
+	mk_assert(a);
+	mk_assert(b);
 
 	for(i = 0; i != mk_uint_parts - 1; ++i)
 	{
@@ -381,11 +381,11 @@ int mk_uint_eq(mk_uint_t const* a, mk_uint_t const* b)
 
 int mk_uint_neq(mk_uint_t const* a, mk_uint_t const* b)
 {
-	mk_assert(a);
-	mk_assert(b);
-
 	int r;
 	int i;
+
+	mk_assert(a);
+	mk_assert(b);
 
 	for(i = 0; i != mk_uint_parts - 1; ++i)
 	{
@@ -401,13 +401,13 @@ int mk_uint_neq(mk_uint_t const* a, mk_uint_t const* b)
 
 int mk_uint_lt(mk_uint_t const* a, mk_uint_t const* b)
 {
-	mk_assert(a);
-	mk_assert(b);
-
 	int r;
 	int i;
 	int lt;
 	int gt;
+
+	mk_assert(a);
+	mk_assert(b);
 
 	for(i = 0; i != mk_uint_parts - 1; ++i)
 	{
@@ -429,13 +429,13 @@ int mk_uint_lt(mk_uint_t const* a, mk_uint_t const* b)
 
 int mk_uint_le(mk_uint_t const* a, mk_uint_t const* b)
 {
-	mk_assert(a);
-	mk_assert(b);
-
 	int r;
 	int i;
 	int lt;
 	int gt;
+
+	mk_assert(a);
+	mk_assert(b);
 
 	for(i = 0; i != mk_uint_parts - 1; ++i)
 	{
@@ -458,10 +458,10 @@ int mk_uint_le(mk_uint_t const* a, mk_uint_t const* b)
 
 void mk_uint_inc(mk_uint_t* x)
 {
-	mk_assert(x);
-
 	int i;
 	int o;
+
+	mk_assert(x);
 
 	mk_uint_small_inc(x->m_data + 0);
 	for(i = 1; i != mk_uint_parts; ++i)
@@ -480,10 +480,10 @@ void mk_uint_inc(mk_uint_t* x)
 
 void mk_uint_dec(mk_uint_t* x)
 {
-	mk_assert(x);
-
 	int i;
 	int u;
+
+	mk_assert(x);
 
 	mk_uint_small_dec(x->m_data + 0);
 	for(i = 1; i != mk_uint_parts; ++i)
@@ -503,14 +503,14 @@ void mk_uint_dec(mk_uint_t* x)
 
 void mk_uint_add(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 {
-	mk_assert(out);
-	mk_assert(a);
-	mk_assert(b);
-
 	mk_uint_t r;
 	int i;
 	int overflow;
 	mk_uint_small_t one;
+
+	mk_assert(out);
+	mk_assert(a);
+	mk_assert(b);
 
 	overflow = 0;
 	mk_uint_small_add(r.m_data + 0, a->m_data + 0, b->m_data + 0);
@@ -539,14 +539,14 @@ void mk_uint_add(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 
 void mk_uint_sub(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 {
-	mk_assert(out);
-	mk_assert(a);
-	mk_assert(b);
-
 	mk_uint_t r;
 	int i;
 	int overflow;
 	mk_uint_small_t one;
+
+	mk_assert(out);
+	mk_assert(a);
+	mk_assert(b);
 
 	overflow = 0;
 	mk_uint_small_sub(r.m_data + 0, a->m_data + 0, b->m_data + 0);

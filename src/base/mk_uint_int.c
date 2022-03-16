@@ -50,12 +50,12 @@ size_t mk_uint_int_to_sizet(unsigned int const* x)
 
 void mk_uint_int_from_buff_le(unsigned int* out, void const* buff)
 {
-	mk_assert(out);
-	mk_assert(buff);
-
 	unsigned int r;
 	unsigned char const* input;
 	int i;
+
+	mk_assert(out);
+	mk_assert(buff);
 
 	r = 0;
 	input = (unsigned char const*)buff;
@@ -69,12 +69,12 @@ void mk_uint_int_from_buff_le(unsigned int* out, void const* buff)
 
 void mk_uint_int_to_buff_be(unsigned int const* x, void* buff)
 {
-	mk_assert(x);
-	mk_assert(buff);
-	
 	int i;
 	unsigned char* output;
 
+	mk_assert(x);
+	mk_assert(buff);
+	
 	output = (unsigned char*)buff;
 	for(i = 0; i != sizeof(unsigned int); ++i)
 	{
@@ -100,10 +100,10 @@ int mk_uint_int_is_max(unsigned int const* x)
 
 void mk_uint_int_cmplmnt(unsigned int* out, unsigned int const* x)
 {
+	unsigned int r;
+
 	mk_assert(out);
 	mk_assert(x);
-
-	unsigned int r;
 
 	r = ~*x;
 
@@ -112,11 +112,11 @@ void mk_uint_int_cmplmnt(unsigned int* out, unsigned int const* x)
 
 void mk_uint_int_or(unsigned int* out, unsigned int const* a, unsigned int const* b)
 {
+	unsigned int r;
+
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
-
-	unsigned int r;
 
 	r = *a | *b;
 
@@ -125,11 +125,11 @@ void mk_uint_int_or(unsigned int* out, unsigned int const* a, unsigned int const
 
 void mk_uint_int_and(unsigned int* out, unsigned int const* a, unsigned int const* b)
 {
+	unsigned int r;
+
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
-
-	unsigned int r;
 
 	r = *a & *b;
 
@@ -138,11 +138,11 @@ void mk_uint_int_and(unsigned int* out, unsigned int const* a, unsigned int cons
 
 void mk_uint_int_xor(unsigned int* out, unsigned int const* a, unsigned int const* b)
 {
+	unsigned int r;
+
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
-
-	unsigned int r;
 
 	r = *a ^ *b;
 
@@ -152,11 +152,11 @@ void mk_uint_int_xor(unsigned int* out, unsigned int const* a, unsigned int cons
 
 void mk_uint_int_shl(unsigned int* out, unsigned int const* x, int n)
 {
+	unsigned int r;
+
 	mk_assert(out);
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned int) * CHAR_BIT));
-
-	unsigned int r;
 
 	r = (unsigned int)(*x << n);
 
@@ -165,11 +165,11 @@ void mk_uint_int_shl(unsigned int* out, unsigned int const* x, int n)
 
 void mk_uint_int_shr(unsigned int* out, unsigned int const* x, int n)
 {
+	unsigned int r;
+
 	mk_assert(out);
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned int) * CHAR_BIT));
-
-	unsigned int r;
 
 	r = *x >> n;
 
@@ -243,12 +243,12 @@ void mk_uint_int_dec(unsigned int* x)
 
 void mk_uint_int_add(unsigned int* out, unsigned int const* a, unsigned int const* b)
 {
+	unsigned int r;
+	
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
 
-	unsigned int r;
-	
 	r = *a + *b;
 
 	*out = r;
@@ -256,12 +256,12 @@ void mk_uint_int_add(unsigned int* out, unsigned int const* a, unsigned int cons
 
 void mk_uint_int_sub(unsigned int* out, unsigned int const* a, unsigned int const* b)
 {
+	unsigned int r;
+
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
 
-	unsigned int r;
-	
 	r = *a - *b;
 
 	*out = r;

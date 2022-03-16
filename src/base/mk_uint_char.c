@@ -50,12 +50,12 @@ size_t mk_uint_char_to_sizet(unsigned char const* x)
 
 void mk_uint_char_from_buff_le(unsigned char* out, void const* buff)
 {
-	mk_assert(out);
-	mk_assert(buff);
-
 	unsigned char r;
 	unsigned char const* input;
 	int i;
+
+	mk_assert(out);
+	mk_assert(buff);
 
 	r = 0;
 	input = (unsigned char const*)buff;
@@ -69,12 +69,12 @@ void mk_uint_char_from_buff_le(unsigned char* out, void const* buff)
 
 void mk_uint_char_to_buff_be(unsigned char const* x, void* buff)
 {
-	mk_assert(x);
-	mk_assert(buff);
-	
 	int i;
 	unsigned char* output;
 
+	mk_assert(x);
+	mk_assert(buff);
+	
 	output = (unsigned char*)buff;
 	for(i = 0; i != sizeof(unsigned char); ++i)
 	{
@@ -100,10 +100,10 @@ int mk_uint_char_is_max(unsigned char const* x)
 
 void mk_uint_char_cmplmnt(unsigned char* out, unsigned char const* x)
 {
+	unsigned char r;
+
 	mk_assert(out);
 	mk_assert(x);
-
-	unsigned char r;
 
 	r = ~*x;
 
@@ -112,11 +112,11 @@ void mk_uint_char_cmplmnt(unsigned char* out, unsigned char const* x)
 
 void mk_uint_char_or(unsigned char* out, unsigned char const* a, unsigned char const* b)
 {
+	unsigned char r;
+
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
-
-	unsigned char r;
 
 	r = *a | *b;
 
@@ -125,11 +125,11 @@ void mk_uint_char_or(unsigned char* out, unsigned char const* a, unsigned char c
 
 void mk_uint_char_and(unsigned char* out, unsigned char const* a, unsigned char const* b)
 {
+	unsigned char r;
+
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
-
-	unsigned char r;
 
 	r = *a & *b;
 
@@ -138,11 +138,11 @@ void mk_uint_char_and(unsigned char* out, unsigned char const* a, unsigned char 
 
 void mk_uint_char_xor(unsigned char* out, unsigned char const* a, unsigned char const* b)
 {
+	unsigned char r;
+
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
-
-	unsigned char r;
 
 	r = *a ^ *b;
 
@@ -152,11 +152,11 @@ void mk_uint_char_xor(unsigned char* out, unsigned char const* a, unsigned char 
 
 void mk_uint_char_shl(unsigned char* out, unsigned char const* x, int n)
 {
+	unsigned char r;
+
 	mk_assert(out);
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned char) * CHAR_BIT));
-
-	unsigned char r;
 
 	r = (unsigned char)(*x << n);
 
@@ -165,11 +165,11 @@ void mk_uint_char_shl(unsigned char* out, unsigned char const* x, int n)
 
 void mk_uint_char_shr(unsigned char* out, unsigned char const* x, int n)
 {
+	unsigned char r;
+
 	mk_assert(out);
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned char) * CHAR_BIT));
-
-	unsigned char r;
 
 	r = *x >> n;
 
@@ -243,12 +243,12 @@ void mk_uint_char_dec(unsigned char* x)
 
 void mk_uint_char_add(unsigned char* out, unsigned char const* a, unsigned char const* b)
 {
+	unsigned char r;
+	
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
 
-	unsigned char r;
-	
 	r = *a + *b;
 
 	*out = r;
@@ -256,12 +256,12 @@ void mk_uint_char_add(unsigned char* out, unsigned char const* a, unsigned char 
 
 void mk_uint_char_sub(unsigned char* out, unsigned char const* a, unsigned char const* b)
 {
+	unsigned char r;
+
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
 
-	unsigned char r;
-	
 	r = *a - *b;
 
 	*out = r;
