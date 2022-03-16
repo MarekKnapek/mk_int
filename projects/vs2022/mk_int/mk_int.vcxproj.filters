@@ -128,5 +128,8 @@
     <ClInclude Include="..\..\..\src\utils\maybe_initialize.h">
       <Filter>utils</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\utils\mk_inline.h">
+      <Filter>utils</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

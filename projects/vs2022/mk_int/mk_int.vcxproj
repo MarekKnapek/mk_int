@@ -67,6 +67,7 @@
     </ClInclude>
     <ClInclude Include="..\..\..\src\utils\maybe_initialize.h" />
     <ClInclude Include="..\..\..\src\utils\mk_assert.h" />
+    <ClInclude Include="..\..\..\src\utils\mk_inline.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -4,6 +4,7 @@
 #ifdef __SIZEOF_INT128__
 
 
+#include "../utils/mk_inline.h"
 #include "../exact/mk_uint_128.h"
 
 #include <limits.h> /* CHAR_BIT */
@@ -15,7 +16,7 @@
 #define test(x) do{ if(!(x)){ int volatile* volatile ptr = NULL; *ptr = 0; } }while(0)
 
 
-static inline void mk_uint_fuzz_128_zero(void)
+static mk_inline void mk_uint_fuzz_128_zero(void)
 {
 	uint128_t br;
 	br = 0;
@@ -26,7 +27,7 @@ static inline void mk_uint_fuzz_128_zero(void)
 	test(memcmp(&br, &mr, 128 / CHAR_BIT) == 0);
 }
 
-static inline void mk_uint_fuzz_128_one(void)
+static mk_inline void mk_uint_fuzz_128_one(void)
 {
 	uint128_t br;
 	br = 1;
@@ -37,7 +38,7 @@ static inline void mk_uint_fuzz_128_one(void)
 	test(memcmp(&br, &mr, 128 / CHAR_BIT) == 0);
 }
 
-static inline void mk_uint_fuzz_128_from_int(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_from_int(unsigned char const* data)
 {
 	unsigned n;
 	memcpy(&n, data, sizeof(unsigned));
@@ -51,7 +52,7 @@ static inline void mk_uint_fuzz_128_from_int(unsigned char const* data)
 	test(memcmp(&br, &mr, 128 / CHAR_BIT) == 0);
 }
 
-static inline void mk_uint_fuzz_128_to_int(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_to_int(unsigned char const* data)
 {
 	uint128_t bx;
 	unsigned br;
@@ -66,7 +67,7 @@ static inline void mk_uint_fuzz_128_to_int(unsigned char const* data)
 	test(memcmp(&br, &mr, sizeof(unsigned)) == 0);
 }
 
-static inline void mk_uint_fuzz_128_from_sizet(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_from_sizet(unsigned char const* data)
 {
 	size_t n;
 	memcpy(&n, data, sizeof(size_t));
@@ -80,7 +81,7 @@ static inline void mk_uint_fuzz_128_from_sizet(unsigned char const* data)
 	test(memcmp(&br, &mr, 128 / CHAR_BIT) == 0);
 }
 
-static inline void mk_uint_fuzz_128_to_sizet(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_to_sizet(unsigned char const* data)
 {
 	uint128_t bx;
 	size_t br;
@@ -96,7 +97,7 @@ static inline void mk_uint_fuzz_128_to_sizet(unsigned char const* data)
 }
 
 
-static inline void mk_uint_fuzz_128_is_zero(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_is_zero(unsigned char const* data)
 {
 	uint128_t bx;
 	int br;
@@ -111,7 +112,7 @@ static inline void mk_uint_fuzz_128_is_zero(unsigned char const* data)
 	test(memcmp(&br, &mr, sizeof(int)) == 0);
 }
 
-static inline void mk_uint_fuzz_128_is_max(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_is_max(unsigned char const* data)
 {
 	uint128_t bx;
 	int br;
@@ -127,7 +128,7 @@ static inline void mk_uint_fuzz_128_is_max(unsigned char const* data)
 }
 
 
-static inline void mk_uint_fuzz_128_cmplmnt(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_cmplmnt(unsigned char const* data)
 {
 	uint128_t bx;
 	uint128_t br;
@@ -142,7 +143,7 @@ static inline void mk_uint_fuzz_128_cmplmnt(unsigned char const* data)
 	test(memcmp(&br, &mr, 128 / CHAR_BIT) == 0);
 }
 
-static inline void mk_uint_fuzz_128_or(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_or(unsigned char const* data)
 {
 	uint128_t ba;
 	uint128_t bb;
@@ -161,7 +162,7 @@ static inline void mk_uint_fuzz_128_or(unsigned char const* data)
 	test(memcmp(&br, &mr, 128 / CHAR_BIT) == 0);
 }
 
-static inline void mk_uint_fuzz_128_and(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_and(unsigned char const* data)
 {
 	uint128_t ba;
 	uint128_t bb;
@@ -180,7 +181,7 @@ static inline void mk_uint_fuzz_128_and(unsigned char const* data)
 	test(memcmp(&br, &mr, 128 / CHAR_BIT) == 0);
 }
 
-static inline void mk_uint_fuzz_128_xor(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_xor(unsigned char const* data)
 {
 	uint128_t ba;
 	uint128_t bb;
@@ -200,7 +201,7 @@ static inline void mk_uint_fuzz_128_xor(unsigned char const* data)
 }
 
 
-static inline void mk_uint_fuzz_128_shl(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_shl(unsigned char const* data)
 {
 	uint128_t bx;
 	unsigned bn;
@@ -221,7 +222,7 @@ static inline void mk_uint_fuzz_128_shl(unsigned char const* data)
 	test(memcmp(&br, &mr, 128 / CHAR_BIT) == 0);
 }
 
-static inline void mk_uint_fuzz_128_shr(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_shr(unsigned char const* data)
 {
 	uint128_t bx;
 	unsigned bn;
@@ -243,7 +244,7 @@ static inline void mk_uint_fuzz_128_shr(unsigned char const* data)
 }
 
 
-static inline void mk_uint_fuzz_128_eq(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_eq(unsigned char const* data)
 {
 	uint128_t ba;
 	uint128_t bb;
@@ -262,7 +263,7 @@ static inline void mk_uint_fuzz_128_eq(unsigned char const* data)
 	test(memcmp(&br, &mr, sizeof(br)) == 0);
 }
 
-static inline void mk_uint_fuzz_128_neq(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_neq(unsigned char const* data)
 {
 	uint128_t ba;
 	uint128_t bb;
@@ -281,7 +282,7 @@ static inline void mk_uint_fuzz_128_neq(unsigned char const* data)
 	test(memcmp(&br, &mr, sizeof(br)) == 0);
 }
 
-static inline void mk_uint_fuzz_128_lt(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_lt(unsigned char const* data)
 {
 	uint128_t ba;
 	uint128_t bb;
@@ -300,7 +301,7 @@ static inline void mk_uint_fuzz_128_lt(unsigned char const* data)
 	test(memcmp(&br, &mr, sizeof(br)) == 0);
 }
 
-static inline void mk_uint_fuzz_128_le(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_le(unsigned char const* data)
 {
 	uint128_t ba;
 	uint128_t bb;
@@ -320,7 +321,7 @@ static inline void mk_uint_fuzz_128_le(unsigned char const* data)
 }
 
 
-static inline void mk_uint_fuzz_128_inc(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_inc(unsigned char const* data)
 {
 	uint128_t bx;
 	memcpy(&bx, data, 128 / CHAR_BIT);
@@ -333,7 +334,7 @@ static inline void mk_uint_fuzz_128_inc(unsigned char const* data)
 	test(memcmp(&mx, &bx, 128 / CHAR_BIT) == 0);
 }
 
-static inline void mk_uint_fuzz_128_dec(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_dec(unsigned char const* data)
 {
 	uint128_t bx;
 	memcpy(&bx, data, 128 / CHAR_BIT);
@@ -347,7 +348,7 @@ static inline void mk_uint_fuzz_128_dec(unsigned char const* data)
 }
 
 
-static inline void mk_uint_fuzz_128_add(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_add(unsigned char const* data)
 {
 	uint128_t ba;
 	uint128_t bb;
@@ -366,7 +367,7 @@ static inline void mk_uint_fuzz_128_add(unsigned char const* data)
 	test(memcmp(&br, &mr, 128 / CHAR_BIT) == 0);
 }
 
-static inline void mk_uint_fuzz_128_sub(unsigned char const* data)
+static mk_inline void mk_uint_fuzz_128_sub(unsigned char const* data)
 {
 	uint128_t ba;
 	uint128_t bb;
