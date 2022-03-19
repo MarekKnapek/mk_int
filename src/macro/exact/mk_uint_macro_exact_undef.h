@@ -26,6 +26,7 @@
 #undef mk_uint_shl
 #undef mk_uint_shr
 #undef mk_uint_rotl
+#undef mk_uint_rotr
 
 #undef mk_uint_eq
 #undef mk_uint_neq

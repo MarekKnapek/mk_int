@@ -37,6 +37,7 @@
 #define mk_uint_shl mk_uint64_shl
 #define mk_uint_shr mk_uint64_shr
 #define mk_uint_rotl mk_uint64_rotl
+#define mk_uint_rotr mk_uint64_rotr
 
 #define mk_uint_eq mk_uint64_eq
 #define mk_uint_neq mk_uint64_neq

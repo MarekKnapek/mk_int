@@ -33,6 +33,7 @@
 #define mk_uint_shl mk_uint8_shl
 #define mk_uint_shr mk_uint8_shr
 #define mk_uint_rotl mk_uint8_rotl
+#define mk_uint_rotr mk_uint8_rotr
 
 #define mk_uint_eq mk_uint8_eq
 #define mk_uint_neq mk_uint8_neq

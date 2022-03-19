@@ -33,6 +33,7 @@
 #define mk_uint_shl mk_uint16_shl
 #define mk_uint_shr mk_uint16_shr
 #define mk_uint_rotl mk_uint16_rotl
+#define mk_uint_rotr mk_uint16_rotr
 
 #define mk_uint_eq mk_uint16_eq
 #define mk_uint_neq mk_uint16_neq

@@ -39,6 +39,7 @@
 #define mk_uint_shl mk_uint128_shl
 #define mk_uint_shr mk_uint128_shr
 #define mk_uint_rotl mk_uint128_rotl
+#define mk_uint_rotr mk_uint128_rotr
 
 #define mk_uint_eq mk_uint128_eq
 #define mk_uint_neq mk_uint128_neq
