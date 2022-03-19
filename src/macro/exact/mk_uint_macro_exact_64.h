@@ -5,9 +5,11 @@
 #if __STDC_VERSION__ >= 199901L || __cplusplus >= 201103L
 #if ULLONG_MAX == 0xffffffffffffffff
 #include "../base/mk_uint_macro_base_llong.h"
+#define mk_uint64_c(a, b) {{(((unsigned long long)a) << 32) | ((unsigned long long)b)}}
 #endif
 #else
 #include "../base/mk_uint_macro_base_long.h"
+#define mk_uint64_c(a, b) {{a, b}}
 #endif
 #endif
 
