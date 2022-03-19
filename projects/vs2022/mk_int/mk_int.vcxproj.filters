@@ -16,23 +16,17 @@
     <Filter Include="fuzz">
       <UniqueIdentifier>{00c68099-99a6-42e0-afff-a353253c532a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="macro">
+      <UniqueIdentifier>{17e637b1-2dee-4ad3-a4a7-259a26ad62be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="macro\base">
+      <UniqueIdentifier>{853d0534-b6a2-4cf2-8123-c24d885ae6e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="macro\exact">
+      <UniqueIdentifier>{9c94d860-f533-4c63-8dfe-6d98b8f0be73}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\base\mk_uint_char.c">
-      <Filter>base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\base\mk_uint_int.c">
-      <Filter>base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\base\mk_uint_llong.c">
-      <Filter>base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\base\mk_uint_long.c">
-      <Filter>base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\base\mk_uint_short.c">
-      <Filter>base</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\exact\mk_uint_128.c">
       <Filter>exact</Filter>
     </ClCompile>
@@ -72,23 +66,26 @@
     <ClCompile Include="..\..\..\src\utils\maybe_initialize.c">
       <Filter>utils</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\base\mk_uint_base_128.c">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\base\mk_uint_base_char.c">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\base\mk_uint_base_int.c">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\base\mk_uint_base_llong.c">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\base\mk_uint_base_long.c">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\base\mk_uint_base_short.c">
+      <Filter>base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\src\base\mk_uint_char.h">
-      <Filter>base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\base\mk_uint_int.h">
-      <Filter>base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\base\mk_uint_llong.h">
-      <Filter>base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\base\mk_uint_long.h">
-      <Filter>base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\base\mk_uint_short.h">
-      <Filter>base</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\exact\mk_uint_128.h">
       <Filter>exact</Filter>
     </ClInclude>
@@ -130,6 +127,63 @@
     </ClInclude>
     <ClInclude Include="..\..\..\src\utils\mk_inline.h">
       <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\macro\base\mk_uint_macro_base_128.h">
+      <Filter>macro\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\macro\base\mk_uint_macro_base_char.h">
+      <Filter>macro\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\macro\base\mk_uint_macro_base_int.h">
+      <Filter>macro\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\macro\base\mk_uint_macro_base_llong.h">
+      <Filter>macro\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\macro\base\mk_uint_macro_base_long.h">
+      <Filter>macro\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\macro\base\mk_uint_macro_base_short.h">
+      <Filter>macro\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\macro\base\mk_uint_macro_base_undef.h">
+      <Filter>macro\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\macro\exact\mk_uint_macro_exact_128.h">
+      <Filter>macro\exact</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\macro\exact\mk_uint_macro_exact_16.h">
+      <Filter>macro\exact</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\macro\exact\mk_uint_macro_exact_32.h">
+      <Filter>macro\exact</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\macro\exact\mk_uint_macro_exact_64.h">
+      <Filter>macro\exact</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\macro\exact\mk_uint_macro_exact_8.h">
+      <Filter>macro\exact</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\macro\exact\mk_uint_macro_exact_undef.h">
+      <Filter>macro\exact</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\base\mk_uint_base_128.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\base\mk_uint_base_char.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\base\mk_uint_base_int.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\base\mk_uint_base_llong.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\base\mk_uint_base_long.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\base\mk_uint_base_short.h">
+      <Filter>base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

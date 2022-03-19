@@ -1,5 +1,5 @@
-#ifndef mk_include_guard_uint_int
-#define mk_include_guard_uint_int
+#ifndef mk_include_guard_uint_base_int
+#define mk_include_guard_uint_base_int
 
 
 #include <stddef.h> /* size_t */

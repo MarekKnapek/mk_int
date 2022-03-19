@@ -6,7 +6,6 @@
 #include <stddef.h> /* size_t */
 
 
-#define mk_uint_bits ((int)(sizeof(mk_uint_t) * CHAR_BIT))
 #define mk_uint_small_bits ((int)(sizeof(mk_uint_small_t) * CHAR_BIT))
 #define mk_uint_bits_to_words(x) (((x) + (mk_uint_small_bits - 1)) / mk_uint_small_bits)
 #define mk_uint_parts (mk_uint_bits_to_words(mk_uint_bits))
