@@ -13,6 +13,7 @@ void mk_uint_long_from_sizet(unsigned long* out, size_t in);
 size_t mk_uint_long_to_sizet(unsigned long const* x);
 void mk_uint_long_from_buff_le(unsigned long* out, void const* buff);
 void mk_uint_long_to_buff_le(unsigned long const* x, void* buff);
+void mk_uint_long_from_buff_be(unsigned long* out, void const* buff);
 void mk_uint_long_to_buff_be(unsigned long const* x, void* buff);
 
 int mk_uint_long_is_zero(unsigned long const* x);

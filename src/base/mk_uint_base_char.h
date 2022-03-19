@@ -13,6 +13,7 @@ void mk_uint_char_from_sizet(unsigned char* out, size_t in);
 size_t mk_uint_char_to_sizet(unsigned char const* x);
 void mk_uint_char_from_buff_le(unsigned char* out, void const* buff);
 void mk_uint_char_to_buff_le(unsigned char const* x, void* buff);
+void mk_uint_char_from_buff_be(unsigned char* out, void const* buff);
 void mk_uint_char_to_buff_be(unsigned char const* x, void* buff);
 
 int mk_uint_char_is_zero(unsigned char const* x);

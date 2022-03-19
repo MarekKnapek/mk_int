@@ -12,6 +12,7 @@
 #undef mk_uint_to_sizet
 #undef mk_uint_from_buff_le
 #undef mk_uint_to_buff_le
+#undef mk_uint_from_buff_be
 #undef mk_uint_to_buff_be
 
 #undef mk_uint_is_zero

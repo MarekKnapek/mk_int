@@ -86,6 +86,25 @@ void mk_uint_128_to_buff_le(unsigned __int128 const* x, void* buff)
 	}
 }
 
+void mk_uint_128_from_buff_be(unsigned __int128* out, void const* buff)
+{
+	unsigned __int128 r;
+	unsigned char const* input;
+	int i;
+
+	mk_assert(out);
+	mk_assert(buff);
+
+	r = 0;
+	input = (unsigned char const*)buff;
+	for(i = 0; i != sizeof(unsigned __int128); ++i)
+	{
+		r |= ((unsigned __int128)input[i]) << ((sizeof(unsigned __int128) - 1 - i) * CHAR_BIT);
+	}
+
+	*out = r;
+}
+
 void mk_uint_128_to_buff_be(unsigned __int128 const* x, void* buff)
 {
 	int i;

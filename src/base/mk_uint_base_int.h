@@ -13,6 +13,7 @@ void mk_uint_int_from_sizet(unsigned int* out, size_t in);
 size_t mk_uint_int_to_sizet(unsigned int const* x);
 void mk_uint_int_from_buff_le(unsigned int* out, void const* buff);
 void mk_uint_int_to_buff_le(unsigned int const* x, void* buff);
+void mk_uint_int_from_buff_be(unsigned int* out, void const* buff);
 void mk_uint_int_to_buff_be(unsigned int const* x, void* buff);
 
 int mk_uint_int_is_zero(unsigned int const* x);

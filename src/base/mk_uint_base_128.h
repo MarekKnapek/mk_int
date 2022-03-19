@@ -16,6 +16,7 @@ void mk_uint_128_from_sizet(unsigned __int128* out, size_t in);
 size_t mk_uint_128_to_sizet(unsigned __int128 const* x);
 void mk_uint_128_from_buff_le(unsigned __int128* out, void const* buff);
 void mk_uint_128_to_buff_le(unsigned __int128 const* x, void* buff);
+void mk_uint_128_from_buff_be(unsigned __int128* out, void const* buff);
 void mk_uint_128_to_buff_be(unsigned __int128 const* x, void* buff);
 
 int mk_uint_128_is_zero(unsigned __int128 const* x);

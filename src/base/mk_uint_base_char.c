@@ -82,6 +82,25 @@ void mk_uint_char_to_buff_le(unsigned char const* x, void* buff)
 	}
 }
 
+void mk_uint_char_from_buff_be(unsigned char* out, void const* buff)
+{
+	unsigned char r;
+	unsigned char const* input;
+	int i;
+
+	mk_assert(out);
+	mk_assert(buff);
+
+	r = 0;
+	input = (unsigned char const*)buff;
+	for(i = 0; i != sizeof(unsigned char); ++i)
+	{
+		r |= ((unsigned char)input[i]) << ((sizeof(unsigned char) - 1 - i) * CHAR_BIT);
+	}
+
+	*out = r;
+}
+
 void mk_uint_char_to_buff_be(unsigned char const* x, void* buff)
 {
 	int i;

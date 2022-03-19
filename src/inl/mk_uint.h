@@ -19,6 +19,7 @@ void mk_uint_from_sizet(mk_uint_t* out, size_t in);
 size_t mk_uint_to_sizet(mk_uint_t const* x);
 void mk_uint_from_buff_le(mk_uint_t* out, void const* buff);
 void mk_uint_to_buff_le(mk_uint_t const* x, void* buff);
+void mk_uint_from_buff_be(mk_uint_t* out, void const* buff);
 void mk_uint_to_buff_be(mk_uint_t const* x, void* buff);
 
 int mk_uint_is_zero(mk_uint_t const* x);

@@ -25,6 +25,7 @@
 #define mk_uint_to_sizet mk_uint128_to_sizet
 #define mk_uint_from_buff_le mk_uint128_from_buff_le
 #define mk_uint_to_buff_le mk_uint128_to_buff_le
+#define mk_uint_from_buff_be mk_uint128_from_buff_be
 #define mk_uint_to_buff_be mk_uint128_to_buff_be
 
 #define mk_uint_is_zero mk_uint128_is_zero
