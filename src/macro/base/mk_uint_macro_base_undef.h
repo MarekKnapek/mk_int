@@ -7,6 +7,7 @@
 #undef mk_uint_small_from_sizet
 #undef mk_uint_small_to_sizet
 #undef mk_uint_small_from_buff_le
+#undef mk_uint_small_to_buff_le
 #undef mk_uint_small_to_buff_be
 
 #undef mk_uint_small_is_zero

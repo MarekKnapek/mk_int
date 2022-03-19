@@ -131,6 +131,21 @@ void mk_uint_from_buff_le(mk_uint_t* out, void const* buff)
 	}
 }
 
+void mk_uint_to_buff_le(mk_uint_t const* x, void* buff)
+{
+	int i;
+	unsigned char* output;
+
+	mk_assert(x);
+	mk_assert(buff);
+
+	output = (unsigned char*)buff;
+	for(i = 0; i != mk_uint_parts; ++i)
+	{
+		mk_uint_small_to_buff_le(x->m_data + i, output + i * sizeof(mk_uint_small_t));
+	}
+}
+
 void mk_uint_to_buff_be(mk_uint_t const* x, void* buff)
 {
 	int i;

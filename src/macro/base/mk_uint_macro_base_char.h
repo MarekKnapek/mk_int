@@ -7,6 +7,7 @@
 #define mk_uint_small_from_sizet mk_uint_char_from_sizet
 #define mk_uint_small_to_sizet mk_uint_char_to_sizet
 #define mk_uint_small_from_buff_le mk_uint_char_from_buff_le
+#define mk_uint_small_to_buff_le mk_uint_char_to_buff_le
 #define mk_uint_small_to_buff_be mk_uint_char_to_buff_be
 
 #define mk_uint_small_is_zero mk_uint_char_is_zero

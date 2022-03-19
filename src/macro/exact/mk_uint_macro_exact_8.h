@@ -18,6 +18,7 @@
 #define mk_uint_from_sizet mk_uint8_from_sizet
 #define mk_uint_to_sizet mk_uint8_to_sizet
 #define mk_uint_from_buff_le mk_uint8_from_buff_le
+#define mk_uint_to_buff_le mk_uint8_to_buff_le
 #define mk_uint_to_buff_be mk_uint8_to_buff_be
 
 #define mk_uint_is_zero mk_uint8_is_zero
