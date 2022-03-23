@@ -290,40 +290,36 @@ void mk_uint_xor(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 void mk_uint_shl(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_uint_t r;
-	int parts;
-	int bits;
-	int rem;
+	int big_shl;
+	int small_shl;
 	int i;
 	mk_uint_small_t tmp;
 
-	mk_assert(out);
-	mk_assert(x);
-	mk_assert(n >= 0 && n < mk_uint_bits);
-
 	maybe_initialize(&r);
 
-	parts = n / mk_uint_small_bits;
-	bits = n % mk_uint_small_bits;
-	for(i = 0; i != parts; ++i)
+	big_shl = n / mk_uint_small_bits;
+	small_shl = n % mk_uint_small_bits;
+	for(i = 0; i != big_shl; ++i)
 	{
 		mk_uint_small_zero(r.m_data + i);
 	}
-	if(bits == 0)
+	if(small_shl == 0)
 	{
-		for(i = parts; i != mk_uint_parts; ++i)
+		r.m_data[big_shl] = x->m_data[0];
+		for(i = big_shl + 1; i != mk_uint_parts; ++i)
 		{
-			r.m_data[i] = x->m_data[i - parts];
+			r.m_data[i] = x->m_data[i - big_shl];
 		}
-		*out = r;
-		return;
 	}
-	rem = mk_uint_small_bits - bits;
-	mk_uint_small_shl(r.m_data + parts, x->m_data + 0, bits);
-	for(i = parts + 1; i != mk_uint_parts; ++i)
+	else
 	{
-		mk_uint_small_shl(r.m_data + i, x->m_data + i - parts, bits);
-		mk_uint_small_shr(&tmp, x->m_data + i - parts - 1, rem);
-		mk_uint_small_or(r.m_data + i, r.m_data + i, &tmp);
+		mk_uint_small_shl(r.m_data + big_shl, x->m_data + 0, small_shl);
+		for(i = big_shl + 1; i != mk_uint_parts; ++i)
+		{
+			mk_uint_small_shl(r.m_data + i, x->m_data + i - big_shl, small_shl);
+			mk_uint_small_shr(&tmp, x->m_data + i - big_shl - 1, mk_uint_small_bits - small_shl);
+			mk_uint_small_or(r.m_data + i, r.m_data + i, &tmp);
+		}
 	}
 
 	*out = r;
@@ -332,40 +328,36 @@ void mk_uint_shl(mk_uint_t* out, mk_uint_t const* x, int n)
 void mk_uint_shr(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_uint_t r;
-	int parts;
-	int bits;
-	int rem;
+	int big_shr;
+	int small_shr;
 	int i;
 	mk_uint_small_t tmp;
 
-	mk_assert(out);
-	mk_assert(x);
-	mk_assert(n >= 0 && n < mk_uint_bits);
-
 	maybe_initialize(&r);
 
-	parts = n / mk_uint_small_bits;
-	bits = n % mk_uint_small_bits;
-	for(i = 0; i != parts; ++i)
+	big_shr = n / mk_uint_small_bits;
+	small_shr = n % mk_uint_small_bits;
+	for(i = 0; i != big_shr; ++i)
 	{
 		mk_uint_small_zero(r.m_data + mk_uint_parts - 1 - i);
 	}
-	if(bits == 0)
+	if(small_shr == 0)
 	{
-		for(i = parts; i != mk_uint_parts; ++i)
+		r.m_data[mk_uint_parts - 1 - big_shr] = x->m_data[mk_uint_parts - 1];
+		for(i = big_shr + 1; i != mk_uint_parts; ++i)
 		{
-			r.m_data[mk_uint_parts - 1 - i] = x->m_data[mk_uint_parts - 1 - i + parts];
+			r.m_data[mk_uint_parts - 1 - i] = x->m_data[mk_uint_parts - 1 - i + big_shr];
 		}
-		*out = r;
-		return;
 	}
-	rem = mk_uint_small_bits - bits;
-	mk_uint_small_shr(r.m_data + mk_uint_parts - 1 - parts, x->m_data + mk_uint_parts - 1, bits);
-	for(i = parts + 1; i != mk_uint_parts; ++i)
+	else
 	{
-		mk_uint_small_shr(r.m_data + mk_uint_parts - 1 - i, x->m_data + mk_uint_parts - 1 - i + parts, bits);
-		mk_uint_small_shl(&tmp, x->m_data + mk_uint_parts - 1 - i + parts + 1, rem);
-		mk_uint_small_or(r.m_data + mk_uint_parts - 1 - i, r.m_data + mk_uint_parts - 1 - i, &tmp);
+		mk_uint_small_shr(r.m_data + mk_uint_parts - 1 - big_shr, x->m_data + mk_uint_parts - 1, small_shr);
+		for(i = big_shr + 1; i != mk_uint_parts; ++i)
+		{
+			mk_uint_small_shr(r.m_data + mk_uint_parts - 1 - i, x->m_data + mk_uint_parts - 1 - i + big_shr, small_shr);
+			mk_uint_small_shl(&tmp, x->m_data + mk_uint_parts - 1 - i + big_shr + 1, mk_uint_small_bits - small_shr);
+			mk_uint_small_or(r.m_data + mk_uint_parts - 1 - i, r.m_data + mk_uint_parts - 1 - i, &tmp);
+		}
 	}
 
 	*out = r;
