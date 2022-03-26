@@ -1,13 +1,12 @@
 #include "../utils/mk_assert.h"
 
-#include "../utils/maybe_initialize.h"
-
 #include <limits.h> /* CHAR_BIT */
 #include <stddef.h> /* size_t */
 
 
 #pragma warning(push)
 #pragma warning(disable:4127) /* warning C4127: conditional expression is constant */
+#pragma warning(disable:4701) /* warning C4701: potentially uninitialized local variable 'xxx' used */
 #pragma warning(disable:4711) /* warning C4711: function 'xxx' selected for automatic inline expansion */
 
 
@@ -244,8 +243,6 @@ void mk_uint_or(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
-
-	maybe_initialize(&r);
 	
 	for(i = 0; i != mk_uint_parts; ++i)
 	{
@@ -264,8 +261,6 @@ void mk_uint_and(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	maybe_initialize(&r);
-
 	for(i = 0; i != mk_uint_parts; ++i)
 	{
 		mk_uint_small_and(r.m_data + i, a->m_data + i, b->m_data + i);
@@ -283,8 +278,6 @@ void mk_uint_xor(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	maybe_initialize(&r);
-	
 	for(i = 0; i != mk_uint_parts; ++i)
 	{
 		mk_uint_small_xor(r.m_data + i, a->m_data + i, b->m_data + i);
@@ -358,8 +351,6 @@ void mk_uint_concat(mk_uint_shl, n)(mk_uint_t* out, mk_uint_t const* x, int n)
 	mk_assert(out);
 	mk_assert(x);
 	mk_assert(n >= 0 && n < mk_uint_bits);
-
-	maybe_initialize(&r);
 
 	parts = n / mk_uint_small_bits;
 	bits = n % mk_uint_small_bits;
@@ -468,8 +459,6 @@ void mk_uint_concat(mk_uint_shr, n)(mk_uint_t* out, mk_uint_t const* x, int n)
 	mk_assert(out);
 	mk_assert(x);
 	mk_assert(n >= 0 && n < mk_uint_bits);
-
-	maybe_initialize(&r);
 
 	parts = n / mk_uint_small_bits;
 	bits = n % mk_uint_small_bits;

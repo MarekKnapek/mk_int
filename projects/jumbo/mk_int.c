@@ -52,5 +52,3 @@ int main(int argv, char** argc)
 #include "../../src/fuzz/mk_uint_fuzz_32.c"
 #include "../../src/fuzz/mk_uint_fuzz_64.c"
 #include "../../src/fuzz/mk_uint_fuzz_128.c"
-
-#include "../../src/utils/maybe_initialize.c"

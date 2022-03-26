@@ -42,7 +42,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\utils\maybe_initialize.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\base\mk_uint_base_128.h" />
@@ -80,7 +79,6 @@
     <ClInclude Include="..\..\..\src\macro\exact\mk_uint_macro_exact_64.h" />
     <ClInclude Include="..\..\..\src\macro\exact\mk_uint_macro_exact_8.h" />
     <ClInclude Include="..\..\..\src\macro\exact\mk_uint_macro_exact_undef.h" />
-    <ClInclude Include="..\..\..\src\utils\maybe_initialize.h" />
     <ClInclude Include="..\..\..\src\utils\mk_assert.h" />
     <ClInclude Include="..\..\..\src\utils\mk_inline.h" />
   </ItemGroup>

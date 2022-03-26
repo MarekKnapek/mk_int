@@ -63,9 +63,6 @@
     <ClCompile Include="..\..\..\src\fuzz\mk_uint_fuzz_128.c">
       <Filter>fuzz</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\utils\maybe_initialize.c">
-      <Filter>utils</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\base\mk_uint_base_128.c">
       <Filter>base</Filter>
     </ClCompile>
@@ -121,9 +118,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\src\fuzz\mk_uint_fuzz_128.h">
       <Filter>fuzz</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\utils\maybe_initialize.h">
-      <Filter>utils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\utils\mk_inline.h">
       <Filter>utils</Filter>
