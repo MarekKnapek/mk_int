@@ -1,7 +1,10 @@
 #include "mk_uint_fuzz_128.h"
 
 
-#ifdef __SIZEOF_INT128__
+#include "../mk_uint_setup.h"
+
+
+#if mk_uint_has_128bit_int
 
 
 #include "../utils/mk_inline.h"

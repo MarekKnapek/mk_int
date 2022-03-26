@@ -2,7 +2,10 @@
 #define mk_include_guard_uint_base_128
 
 
-#ifdef __SIZEOF_INT128__
+#include "../mk_uint_setup.h"
+
+
+#if mk_uint_has_128bit_int
 
 
 #include <stddef.h> /* size_t */

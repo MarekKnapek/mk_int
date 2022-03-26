@@ -2,18 +2,13 @@
 #define mk_include_guard_inline
 
 
-#if (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L) || (defined(__cplusplus) && __cplusplus >= 199711L)
+#include "../mk_uint_setup.h"
 
 
+#if mk_uint_has_inline
 #define mk_inline inline
-
-
 #else
-
-
 #define mk_inline
-
-
 #endif
 
 

@@ -1,7 +1,10 @@
 #include "mk_uint_base_llong.h"
 
 
-#if (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L) || (defined(__cplusplus) && __cplusplus >= 201103L)
+#include "../mk_uint_setup.h"
+
+
+#if mk_uint_has_long_long
 
 
 #include "../utils/mk_assert.h"

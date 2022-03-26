@@ -1,8 +1,10 @@
+#include "../../mk_uint_setup.h"
+
 #include <limits.h> /* CHAR_BIT ULLONG_MAX */
 
 
 #if CHAR_BIT == 8
-#if (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L) || (defined(__cplusplus) && __cplusplus >= 201103L)
+#if mk_uint_has_long_long
 #if ULLONG_MAX == 0xffffffffffffffff
 #include "../base/mk_uint_macro_base_llong.h"
 #define mk_uint64_c(a, b) {{(((unsigned long long)a) << 32) | (((unsigned long long)b) << 0)}}
