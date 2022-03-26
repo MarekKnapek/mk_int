@@ -79,6 +79,7 @@
     <ClInclude Include="..\..\..\src\macro\exact\mk_uint_macro_exact_64.h" />
     <ClInclude Include="..\..\..\src\macro\exact\mk_uint_macro_exact_8.h" />
     <ClInclude Include="..\..\..\src\macro\exact\mk_uint_macro_exact_undef.h" />
+    <ClInclude Include="..\..\..\src\mk_uint_setup.h" />
     <ClInclude Include="..\..\..\src\utils\mk_assert.h" />
     <ClInclude Include="..\..\..\src\utils\mk_inline.h" />
   </ItemGroup>
