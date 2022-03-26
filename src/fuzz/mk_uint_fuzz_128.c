@@ -15,7 +15,7 @@
 #include <string.h> /* memcpy memcmp */
 
 
-#define uint128_t __uint128_t
+#define uint128_t unsigned __int128
 #define test(x) do{ if(!(x)){ int volatile* volatile ptr = NULL; *ptr = 0; } }while(0)
 
 
@@ -441,6 +441,7 @@ void mk_uint_fuzz_128(unsigned char const* data)
 }
 
 
+#undef uint128_t
 #undef test
 
 
