@@ -5,7 +5,7 @@
 #ifdef __SIZEOF_INT128__
 #include "../base/mk_uint_macro_base_128.h"
 #else
-#if __STDC_VERSION__ >= 199901L || __cplusplus >= 201103L
+#if (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L) || (defined(__cplusplus) && __cplusplus >= 201103L)
 #include "../base/mk_uint_macro_base_llong.h"
 #else
 #include "../base/mk_uint_macro_base_long.h"

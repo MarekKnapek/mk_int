@@ -2,7 +2,7 @@
 #define mk_include_guard_uint_base_llong
 
 
-#if __STDC_VERSION__ >= 199901L || __cplusplus >= 201103L
+#if (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L) || (defined(__cplusplus) && __cplusplus >= 201103L)
 
 
 #include <stddef.h> /* size_t */

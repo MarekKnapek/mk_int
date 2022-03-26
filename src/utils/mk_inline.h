@@ -2,7 +2,7 @@
 #define mk_include_guard_inline
 
 
-#if __STDC_VERSION__ >= 199901L || __cplusplus >= 199711L
+#if (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L) || (defined(__cplusplus) && __cplusplus >= 199711L)
 
 
 #define mk_inline inline
