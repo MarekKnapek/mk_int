@@ -5,10 +5,12 @@
 #include <stddef.h> /* size_t */
 
 
+#if defined(_MSC_VER)
 #pragma warning(push)
 #pragma warning(disable:4127) /* warning C4127: conditional expression is constant */
 #pragma warning(disable:4701) /* warning C4701: potentially uninitialized local variable 'xxx' used */
 #pragma warning(disable:4711) /* warning C4711: function 'xxx' selected for automatic inline expansion */
+#endif
 
 
 #define mk_uint_bits_to_words(x) (((x) + (mk_uint_small_bits - 1)) / mk_uint_small_bits)
@@ -757,4 +759,6 @@ void mk_uint_sub(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 #undef mk_uint_concat
 
 
+#if defined(_MSC_VER)
 #pragma warning(pop)
+#endif

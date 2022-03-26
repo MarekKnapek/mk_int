@@ -7,8 +7,10 @@
 #include <stddef.h> /* size_t */
 
 
+#if defined(_MSC_VER)
 #pragma warning(push)
 #pragma warning(disable:4711) /* warning C4711: function 'xxx' selected for automatic inline expansion */
+#endif
 
 
 int LLVMFuzzerTestOneInput(unsigned char const* data, size_t size)
@@ -28,4 +30,6 @@ int LLVMFuzzerTestOneInput(unsigned char const* data, size_t size)
 }
 
 
+#if defined(_MSC_VER)
 #pragma warning(pop)
+#endif
