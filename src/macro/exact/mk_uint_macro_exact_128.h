@@ -1,14 +1,21 @@
-#include <limits.h> /* CHAR_BIT */
+#include <limits.h> /* CHAR_BIT ULLONG_MAX ULONG_MAX */
 
 
 #if CHAR_BIT == 8
 #ifdef __SIZEOF_INT128__
 #include "../base/mk_uint_macro_base_128.h"
+#define mk_uint128_c(a, b, c, d) {{a}}
 #else
 #if (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L) || (defined(__cplusplus) && __cplusplus >= 201103L)
+#if ULLONG_MAX == 0xffffffffffffffff
 #include "../base/mk_uint_macro_base_llong.h"
+#define mk_uint128_c(a, b, c, d) {{(((unsigned long long)a) << 32) | (((unsigned long long)b) << 0), (((unsigned long long)c) << 32) | (((unsigned long long)d) << 0)}}
+#endif
 #else
+#if ULONG_MAX == 0xffffffff
 #include "../base/mk_uint_macro_base_long.h"
+#define mk_uint128_c(a, b, c, d) {{a, b, c, d}}
+#endif
 #endif
 #endif
 #endif

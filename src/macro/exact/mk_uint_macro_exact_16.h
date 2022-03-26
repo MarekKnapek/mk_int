@@ -4,6 +4,7 @@
 #if CHAR_BIT == 8
 #if USHRT_MAX == 0xffff
 #include "../base/mk_uint_macro_base_short.h"
+#define mk_uint16_c(a) {{a}}
 #endif
 #endif
 

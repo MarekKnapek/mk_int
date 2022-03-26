@@ -4,6 +4,7 @@
 #if CHAR_BIT == 8
 #if UCHAR_MAX == 0xff
 #include "../base/mk_uint_macro_base_char.h"
+#define mk_uint8_c(a) {{a}}
 #endif
 #endif
 
