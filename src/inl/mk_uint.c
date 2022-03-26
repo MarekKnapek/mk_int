@@ -1,4 +1,5 @@
 #include "../utils/mk_assert.h"
+#include "../utils/mk_inline.h"
 
 #include <limits.h> /* CHAR_BIT */
 #include <stddef.h> /* size_t */
@@ -288,7 +289,7 @@ void mk_uint_xor(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 
 #if mk_uint_parts == 1
 
-void mk_uint_concat(mk_uint_shl, 1)(mk_uint_t* out, mk_uint_t const* x, int n)
+static mk_inline void mk_uint_concat(mk_uint_shl, 1)(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_assert(out);
 	mk_assert(x);
@@ -299,7 +300,7 @@ void mk_uint_concat(mk_uint_shl, 1)(mk_uint_t* out, mk_uint_t const* x, int n)
 
 #elif mk_uint_parts == 2
 
-void mk_uint_concat(mk_uint_shl, 2)(mk_uint_t* out, mk_uint_t const* x, int n)
+static mk_inline void mk_uint_concat(mk_uint_shl, 2)(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_uint_t r;
 	int bytes;
@@ -344,7 +345,7 @@ void mk_uint_concat(mk_uint_shl, 2)(mk_uint_t* out, mk_uint_t const* x, int n)
 
 #else
 
-void mk_uint_concat(mk_uint_shl, n)(mk_uint_t* out, mk_uint_t const* x, int n)
+static mk_inline void mk_uint_concat(mk_uint_shl, n)(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_uint_t r;
 	int parts;
@@ -399,7 +400,7 @@ void mk_uint_shl(mk_uint_t* out, mk_uint_t const* x, int n)
 
 #if mk_uint_parts == 1
 
-void mk_uint_concat(mk_uint_shr, 1)(mk_uint_t* out, mk_uint_t const* x, int n)
+static mk_inline void mk_uint_concat(mk_uint_shr, 1)(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_assert(out);
 	mk_assert(x);
@@ -410,7 +411,7 @@ void mk_uint_concat(mk_uint_shr, 1)(mk_uint_t* out, mk_uint_t const* x, int n)
 
 #elif mk_uint_parts == 2
 
-void mk_uint_concat(mk_uint_shr, 2)(mk_uint_t* out, mk_uint_t const* x, int n)
+static mk_inline void mk_uint_concat(mk_uint_shr, 2)(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_uint_t r;
 	int bytes;
@@ -455,7 +456,7 @@ void mk_uint_concat(mk_uint_shr, 2)(mk_uint_t* out, mk_uint_t const* x, int n)
 
 #else
 
-void mk_uint_concat(mk_uint_shr, n)(mk_uint_t* out, mk_uint_t const* x, int n)
+static mk_inline void mk_uint_concat(mk_uint_shr, n)(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_uint_t r;
 	int parts;
