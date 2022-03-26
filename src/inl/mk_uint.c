@@ -6,6 +6,10 @@
 #include <stddef.h> /* size_t */
 
 
+#pragma warning(push)
+#pragma warning(disable:4711) /* warning C4711: function 'xxx' selected for automatic inline expansion */
+
+
 #define mk_uint_small_bits ((int)(sizeof(mk_uint_small_t) * CHAR_BIT))
 #define mk_uint_bits_to_words(x) (((x) + (mk_uint_small_bits - 1)) / mk_uint_small_bits)
 #define mk_uint_parts (mk_uint_bits_to_words(mk_uint_bits))
@@ -609,3 +613,6 @@ void mk_uint_sub(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 #undef mk_uint_small_bits
 #undef mk_uint_bits_to_words
 #undef mk_uint_parts
+
+
+#pragma warning(pop)

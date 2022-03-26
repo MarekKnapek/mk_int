@@ -163,7 +163,7 @@
       <PreprocessorDefinitions>__STDC_WANT_SECURE_LIB__=0;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <DisableSpecificWarnings>4206;4464;4701;4710;4711</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4206;4464</DisableSpecificWarnings>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -180,7 +180,7 @@
       <PreprocessorDefinitions>__STDC_WANT_SECURE_LIB__=0;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <DisableSpecificWarnings>4206;4464;4701;4710;4711</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4206;4464</DisableSpecificWarnings>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -197,7 +197,7 @@
       <PreprocessorDefinitions>__STDC_WANT_SECURE_LIB__=0;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <DisableSpecificWarnings>4206;4464;4701;4710;4711</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4206;4464</DisableSpecificWarnings>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -214,7 +214,7 @@
       <PreprocessorDefinitions>__STDC_WANT_SECURE_LIB__=0;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <DisableSpecificWarnings>4206;4464;4701;4710;4711</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4206;4464</DisableSpecificWarnings>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>

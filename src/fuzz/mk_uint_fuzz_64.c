@@ -9,6 +9,11 @@
 #include <string.h> /* memcpy memcmp */
 
 
+#pragma warning(push)
+#pragma warning(disable:4710) /* warning C4710: 'xxx': function not inlined */
+#pragma warning(disable:4711) /* warning C4711: function 'xxx' selected for automatic inline expansion */
+
+
 #define test(x) do{ if(!(x)){ int volatile* volatile ptr = NULL; *ptr = 0; } }while(0)
 
 
@@ -435,3 +440,6 @@ void mk_uint_fuzz_64(unsigned char const* data)
 
 
 #undef test
+
+
+#pragma warning(pop)

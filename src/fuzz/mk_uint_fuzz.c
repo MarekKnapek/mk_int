@@ -7,6 +7,10 @@
 #include <stddef.h> /* size_t */
 
 
+#pragma warning(push)
+#pragma warning(disable:4711) /* warning C4711: function 'xxx' selected for automatic inline expansion */
+
+
 int LLVMFuzzerTestOneInput(unsigned char const* data, size_t size)
 {
 	if(size != 2 * 16)
@@ -22,3 +26,6 @@ int LLVMFuzzerTestOneInput(unsigned char const* data, size_t size)
 
 	return 0;
 }
+
+
+#pragma warning(pop)
