@@ -9,6 +9,7 @@
 #pragma warning(push)
 #pragma warning(disable:4127) /* warning C4127: conditional expression is constant */
 #pragma warning(disable:4701) /* warning C4701: potentially uninitialized local variable 'xxx' used */
+#pragma warning(disable:4710) /* warning C4710: 'xxx': function not inlined */
 #pragma warning(disable:4711) /* warning C4711: function 'xxx' selected for automatic inline expansion */
 #endif
 
