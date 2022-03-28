@@ -192,7 +192,7 @@ void mk_uint_int_shl(unsigned int* out, unsigned int const* x, int n)
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned int) * CHAR_BIT));
 
-	r = (unsigned int)(*x << n);
+	r = *x << n;
 
 	*out = r;
 }

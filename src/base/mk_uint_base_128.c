@@ -199,7 +199,7 @@ void mk_uint_128_shl(unsigned __int128* out, unsigned __int128 const* x, int n)
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned __int128) * CHAR_BIT));
 
-	r = (unsigned __int128)(*x << n);
+	r = *x << n;
 
 	*out = r;
 }

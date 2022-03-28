@@ -192,7 +192,7 @@ void mk_uint_char_shl(unsigned char* out, unsigned char const* x, int n)
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned char) * CHAR_BIT));
 
-	r = (unsigned char)(*x << n);
+	r = *x << n;
 
 	*out = r;
 }

@@ -192,7 +192,7 @@ void mk_uint_short_shl(unsigned short* out, unsigned short const* x, int n)
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned short) * CHAR_BIT));
 
-	r = (unsigned short)(*x << n);
+	r = *x << n;
 
 	*out = r;
 }

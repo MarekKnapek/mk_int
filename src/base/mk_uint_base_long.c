@@ -192,7 +192,7 @@ void mk_uint_long_shl(unsigned long* out, unsigned long const* x, int n)
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned long) * CHAR_BIT));
 
-	r = (unsigned long)(*x << n);
+	r = *x << n;
 
 	*out = r;
 }
