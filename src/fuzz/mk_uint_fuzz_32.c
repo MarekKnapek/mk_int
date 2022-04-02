@@ -1,5 +1,12 @@
 #include "mk_uint_fuzz_32.h"
 
+
+#if defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable:4464) /* warning C4464: relative include path contains '..' */
+#endif
+
+
 #include "../utils/mk_inline.h"
 #include "../exact/mk_uint_32.h"
 
@@ -442,6 +449,11 @@ void mk_uint_fuzz_32(unsigned char const* data)
 
 
 #undef test
+
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#endif
 
 
 #if defined(_MSC_VER)

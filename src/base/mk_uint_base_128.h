@@ -2,6 +2,12 @@
 #define mk_include_guard_uint_base_128
 
 
+#if defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable:4464) /* warning C4464: relative include path contains '..' */
+#endif
+
+
 #include "../mk_uint_setup.h"
 
 
@@ -47,6 +53,11 @@ void mk_uint_128_add(unsigned __int128* out, unsigned __int128 const* a, unsigne
 void mk_uint_128_sub(unsigned __int128* out, unsigned __int128 const* a, unsigned __int128 const* b);
 
 
+#endif
+
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
 #endif
 
 

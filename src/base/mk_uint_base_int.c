@@ -1,5 +1,12 @@
 #include "mk_uint_base_int.h"
 
+
+#if defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable:4464) /* warning C4464: relative include path contains '..' */
+#endif
+
+
 #include "../utils/mk_assert.h"
 
 #include <stddef.h> /* size_t */
@@ -300,3 +307,8 @@ void mk_uint_int_sub(unsigned int* out, unsigned int const* a, unsigned int cons
 
 	*out = r;
 }
+
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#endif

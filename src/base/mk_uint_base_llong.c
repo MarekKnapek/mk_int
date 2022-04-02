@@ -1,6 +1,12 @@
 #include "mk_uint_base_llong.h"
 
 
+#if defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable:4464) /* warning C4464: relative include path contains '..' */
+#endif
+
+
 #include "../mk_uint_setup.h"
 
 
@@ -309,4 +315,9 @@ void mk_uint_llong_sub(unsigned long long* out, unsigned long long const* a, uns
 }
 
 
+#endif
+
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
 #endif
