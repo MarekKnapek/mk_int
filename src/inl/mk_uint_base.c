@@ -218,6 +218,32 @@ void mk_uint_concat(mk_uint_tn, shr)(mk_uint_t* out, mk_uint_t const* x, int n)
 	*out = r;
 }
 
+void mk_uint_concat(mk_uint_tn, rotl)(mk_uint_t* out, mk_uint_t const* x, int n)
+{
+	mk_uint_t r;
+
+	mk_assert(out);
+	mk_assert(x);
+	mk_assert(n >= 0 && n < (int)(sizeof(mk_uint_t) * CHAR_BIT));
+
+	r = (mk_uint_t)((*x << n) | (*x >> (sizeof (mk_uint_t) * CHAR_BIT - n)));
+
+	*out = r;
+}
+
+void mk_uint_concat(mk_uint_tn, rotr)(mk_uint_t* out, mk_uint_t const* x, int n)
+{
+	mk_uint_t r;
+
+	mk_assert(out);
+	mk_assert(x);
+	mk_assert(n >= 0 && n < (int)(sizeof(mk_uint_t) * CHAR_BIT));
+
+	r = (mk_uint_t)((*x >> n) | (*x << (sizeof (mk_uint_t) * CHAR_BIT - n)));
+
+	*out = r;
+}
+
 
 int mk_uint_concat(mk_uint_tn, eq)(mk_uint_t const* a, mk_uint_t const* b)
 {

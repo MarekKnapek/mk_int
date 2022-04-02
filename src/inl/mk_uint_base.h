@@ -26,6 +26,8 @@ void mk_uint_concat(mk_uint_tn, xor)(mk_uint_t* out, mk_uint_t const* a, mk_uint
 
 void mk_uint_concat(mk_uint_tn, shl)(mk_uint_t* out, mk_uint_t const* x, int n);
 void mk_uint_concat(mk_uint_tn, shr)(mk_uint_t* out, mk_uint_t const* x, int n);
+void mk_uint_concat(mk_uint_tn, rotl)(mk_uint_t* out, mk_uint_t const* x, int n);
+void mk_uint_concat(mk_uint_tn, rotr)(mk_uint_t* out, mk_uint_t const* x, int n);
 
 int mk_uint_concat(mk_uint_tn, eq)(mk_uint_t const* a, mk_uint_t const* b);
 int mk_uint_concat(mk_uint_tn, neq)(mk_uint_t const* a, mk_uint_t const* b);
