@@ -146,7 +146,7 @@ void mk_uint_char_cmplmnt(unsigned char* out, unsigned char const* x)
 	mk_assert(out);
 	mk_assert(x);
 
-	r = ~*x;
+	r = (unsigned char)(~*x);
 
 	*out = r;
 }
@@ -159,7 +159,7 @@ void mk_uint_char_or(unsigned char* out, unsigned char const* a, unsigned char c
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a | *b;
+	r = (unsigned char)(*a | *b);
 
 	*out = r;
 }
@@ -172,7 +172,7 @@ void mk_uint_char_and(unsigned char* out, unsigned char const* a, unsigned char 
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a & *b;
+	r = (unsigned char)(*a & *b);
 
 	*out = r;
 }
@@ -185,7 +185,7 @@ void mk_uint_char_xor(unsigned char* out, unsigned char const* a, unsigned char 
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a ^ *b;
+	r = (unsigned char)(*a ^ *b);
 
 	*out = r;
 }
@@ -199,7 +199,7 @@ void mk_uint_char_shl(unsigned char* out, unsigned char const* x, int n)
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned char) * CHAR_BIT));
 
-	r = *x << n;
+	r = (unsigned char)(*x << n);
 
 	*out = r;
 }
@@ -212,7 +212,7 @@ void mk_uint_char_shr(unsigned char* out, unsigned char const* x, int n)
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned char) * CHAR_BIT));
 
-	r = *x >> n;
+	r = (unsigned char)(*x >> n);
 
 	*out = r;
 }
@@ -223,7 +223,7 @@ int mk_uint_char_eq(unsigned char const* a, unsigned char const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a == *b;
+	return (unsigned char)(*a == *b);
 }
 
 int mk_uint_char_neq(unsigned char const* a, unsigned char const* b)
@@ -231,7 +231,7 @@ int mk_uint_char_neq(unsigned char const* a, unsigned char const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a != *b;
+	return (unsigned char)(*a != *b);
 }
 
 int mk_uint_char_lt(unsigned char const* a, unsigned char const* b)
@@ -239,7 +239,7 @@ int mk_uint_char_lt(unsigned char const* a, unsigned char const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a < *b;
+	return (unsigned char)(*a < *b);
 }
 
 int mk_uint_char_le(unsigned char const* a, unsigned char const* b)
@@ -247,7 +247,7 @@ int mk_uint_char_le(unsigned char const* a, unsigned char const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a <= *b;
+	return (unsigned char)(*a <= *b);
 }
 
 int mk_uint_char_gt(unsigned char const* a, unsigned char const* b)
@@ -255,7 +255,7 @@ int mk_uint_char_gt(unsigned char const* a, unsigned char const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a > *b;
+	return (unsigned char)(*a > *b);
 }
 
 int mk_uint_char_ge(unsigned char const* a, unsigned char const* b)
@@ -263,7 +263,7 @@ int mk_uint_char_ge(unsigned char const* a, unsigned char const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a >= *b;
+	return (unsigned char)(*a >= *b);
 }
 
 
@@ -290,7 +290,7 @@ void mk_uint_char_add(unsigned char* out, unsigned char const* a, unsigned char 
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a + *b;
+	r = (unsigned char)(*a + *b);
 
 	*out = r;
 }
@@ -303,7 +303,7 @@ void mk_uint_char_sub(unsigned char* out, unsigned char const* a, unsigned char 
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a - *b;
+	r = (unsigned char)(*a - *b);
 
 	*out = r;
 }

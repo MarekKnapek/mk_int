@@ -152,7 +152,7 @@ void mk_uint_128_cmplmnt(unsigned __int128* out, unsigned __int128 const* x)
 	mk_assert(out);
 	mk_assert(x);
 
-	r = ~*x;
+	r = (unsigned __int128)(~*x);
 
 	*out = r;
 }
@@ -165,7 +165,7 @@ void mk_uint_128_or(unsigned __int128* out, unsigned __int128 const* a, unsigned
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a | *b;
+	r = (unsigned __int128)(*a | *b);
 
 	*out = r;
 }
@@ -178,7 +178,7 @@ void mk_uint_128_and(unsigned __int128* out, unsigned __int128 const* a, unsigne
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a & *b;
+	r = (unsigned __int128)(*a & *b);
 
 	*out = r;
 }
@@ -191,7 +191,7 @@ void mk_uint_128_xor(unsigned __int128* out, unsigned __int128 const* a, unsigne
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a ^ *b;
+	r = (unsigned __int128)(*a ^ *b);
 
 	*out = r;
 }
@@ -205,7 +205,7 @@ void mk_uint_128_shl(unsigned __int128* out, unsigned __int128 const* x, int n)
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned __int128) * CHAR_BIT));
 
-	r = *x << n;
+	r = (unsigned __int128)(*x << n);
 
 	*out = r;
 }
@@ -218,7 +218,7 @@ void mk_uint_128_shr(unsigned __int128* out, unsigned __int128 const* x, int n)
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned __int128) * CHAR_BIT));
 
-	r = *x >> n;
+	r = (unsigned __int128)(*x >> n);
 
 	*out = r;
 }
@@ -229,7 +229,7 @@ int mk_uint_128_eq(unsigned __int128 const* a, unsigned __int128 const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a == *b;
+	return (unsigned __int128)(*a == *b);
 }
 
 int mk_uint_128_neq(unsigned __int128 const* a, unsigned __int128 const* b)
@@ -237,7 +237,7 @@ int mk_uint_128_neq(unsigned __int128 const* a, unsigned __int128 const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a != *b;
+	return (unsigned __int128)(*a != *b);
 }
 
 int mk_uint_128_lt(unsigned __int128 const* a, unsigned __int128 const* b)
@@ -245,7 +245,7 @@ int mk_uint_128_lt(unsigned __int128 const* a, unsigned __int128 const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a < *b;
+	return (unsigned __int128)(*a < *b);
 }
 
 int mk_uint_128_le(unsigned __int128 const* a, unsigned __int128 const* b)
@@ -253,7 +253,7 @@ int mk_uint_128_le(unsigned __int128 const* a, unsigned __int128 const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a <= *b;
+	return (unsigned __int128)(*a <= *b);
 }
 
 int mk_uint_128_gt(unsigned __int128 const* a, unsigned __int128 const* b)
@@ -261,7 +261,7 @@ int mk_uint_128_gt(unsigned __int128 const* a, unsigned __int128 const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a > *b;
+	return (unsigned __int128)(*a > *b);
 }
 
 int mk_uint_128_ge(unsigned __int128 const* a, unsigned __int128 const* b)
@@ -269,7 +269,7 @@ int mk_uint_128_ge(unsigned __int128 const* a, unsigned __int128 const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a >= *b;
+	return (unsigned __int128)(*a >= *b);
 }
 
 
@@ -296,7 +296,7 @@ void mk_uint_128_add(unsigned __int128* out, unsigned __int128 const* a, unsigne
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a + *b;
+	r = (unsigned __int128)(*a + *b);
 
 	*out = r;
 }
@@ -309,7 +309,7 @@ void mk_uint_128_sub(unsigned __int128* out, unsigned __int128 const* a, unsigne
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a - *b;
+	r = (unsigned __int128)(*a - *b);
 
 	*out = r;
 }

@@ -152,7 +152,7 @@ void mk_uint_llong_cmplmnt(unsigned long long* out, unsigned long long const* x)
 	mk_assert(out);
 	mk_assert(x);
 
-	r = ~*x;
+	r = (unsigned long long)(~*x);
 
 	*out = r;
 }
@@ -165,7 +165,7 @@ void mk_uint_llong_or(unsigned long long* out, unsigned long long const* a, unsi
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a | *b;
+	r = (unsigned long long)(*a | *b);
 
 	*out = r;
 }
@@ -178,7 +178,7 @@ void mk_uint_llong_and(unsigned long long* out, unsigned long long const* a, uns
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a & *b;
+	r = (unsigned long long)(*a & *b);
 
 	*out = r;
 }
@@ -191,7 +191,7 @@ void mk_uint_llong_xor(unsigned long long* out, unsigned long long const* a, uns
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a ^ *b;
+	r = (unsigned long long)(*a ^ *b);
 
 	*out = r;
 }
@@ -205,7 +205,7 @@ void mk_uint_llong_shl(unsigned long long* out, unsigned long long const* x, int
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned long long) * CHAR_BIT));
 
-	r = *x << n;
+	r = (unsigned long long)(*x << n);
 
 	*out = r;
 }
@@ -218,7 +218,7 @@ void mk_uint_llong_shr(unsigned long long* out, unsigned long long const* x, int
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned long long) * CHAR_BIT));
 
-	r = *x >> n;
+	r = (unsigned long long)(*x >> n);
 
 	*out = r;
 }
@@ -229,7 +229,7 @@ int mk_uint_llong_eq(unsigned long long const* a, unsigned long long const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a == *b;
+	return (unsigned long long)(*a == *b);
 }
 
 int mk_uint_llong_neq(unsigned long long const* a, unsigned long long const* b)
@@ -237,7 +237,7 @@ int mk_uint_llong_neq(unsigned long long const* a, unsigned long long const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a != *b;
+	return (unsigned long long)(*a != *b);
 }
 
 int mk_uint_llong_lt(unsigned long long const* a, unsigned long long const* b)
@@ -245,7 +245,7 @@ int mk_uint_llong_lt(unsigned long long const* a, unsigned long long const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a < *b;
+	return (unsigned long long)(*a < *b);
 }
 
 int mk_uint_llong_le(unsigned long long const* a, unsigned long long const* b)
@@ -253,7 +253,7 @@ int mk_uint_llong_le(unsigned long long const* a, unsigned long long const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a <= *b;
+	return (unsigned long long)(*a <= *b);
 }
 
 int mk_uint_llong_gt(unsigned long long const* a, unsigned long long const* b)
@@ -261,7 +261,7 @@ int mk_uint_llong_gt(unsigned long long const* a, unsigned long long const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a > *b;
+	return (unsigned long long)(*a > *b);
 }
 
 int mk_uint_llong_ge(unsigned long long const* a, unsigned long long const* b)
@@ -269,7 +269,7 @@ int mk_uint_llong_ge(unsigned long long const* a, unsigned long long const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a >= *b;
+	return (unsigned long long)(*a >= *b);
 }
 
 
@@ -296,7 +296,7 @@ void mk_uint_llong_add(unsigned long long* out, unsigned long long const* a, uns
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a + *b;
+	r = (unsigned long long)(*a + *b);
 
 	*out = r;
 }
@@ -309,7 +309,7 @@ void mk_uint_llong_sub(unsigned long long* out, unsigned long long const* a, uns
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a - *b;
+	r = (unsigned long long)(*a - *b);
 
 	*out = r;
 }

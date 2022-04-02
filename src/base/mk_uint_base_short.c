@@ -146,7 +146,7 @@ void mk_uint_short_cmplmnt(unsigned short* out, unsigned short const* x)
 	mk_assert(out);
 	mk_assert(x);
 
-	r = ~*x;
+	r = (unsigned short)(~*x);
 
 	*out = r;
 }
@@ -159,7 +159,7 @@ void mk_uint_short_or(unsigned short* out, unsigned short const* a, unsigned sho
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a | *b;
+	r = (unsigned short)(*a | *b);
 
 	*out = r;
 }
@@ -172,7 +172,7 @@ void mk_uint_short_and(unsigned short* out, unsigned short const* a, unsigned sh
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a & *b;
+	r = (unsigned short)(*a & *b);
 
 	*out = r;
 }
@@ -185,7 +185,7 @@ void mk_uint_short_xor(unsigned short* out, unsigned short const* a, unsigned sh
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a ^ *b;
+	r = (unsigned short)(*a ^ *b);
 
 	*out = r;
 }
@@ -199,7 +199,7 @@ void mk_uint_short_shl(unsigned short* out, unsigned short const* x, int n)
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned short) * CHAR_BIT));
 
-	r = *x << n;
+	r = (unsigned short)(*x << n);
 
 	*out = r;
 }
@@ -212,7 +212,7 @@ void mk_uint_short_shr(unsigned short* out, unsigned short const* x, int n)
 	mk_assert(x);
 	mk_assert(n >= 0 && n < (int)(sizeof(unsigned short) * CHAR_BIT));
 
-	r = *x >> n;
+	r = (unsigned short)(*x >> n);
 
 	*out = r;
 }
@@ -223,7 +223,7 @@ int mk_uint_short_eq(unsigned short const* a, unsigned short const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a == *b;
+	return (unsigned short)(*a == *b);
 }
 
 int mk_uint_short_neq(unsigned short const* a, unsigned short const* b)
@@ -231,7 +231,7 @@ int mk_uint_short_neq(unsigned short const* a, unsigned short const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a != *b;
+	return (unsigned short)(*a != *b);
 }
 
 int mk_uint_short_lt(unsigned short const* a, unsigned short const* b)
@@ -239,7 +239,7 @@ int mk_uint_short_lt(unsigned short const* a, unsigned short const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a < *b;
+	return (unsigned short)(*a < *b);
 }
 
 int mk_uint_short_le(unsigned short const* a, unsigned short const* b)
@@ -247,7 +247,7 @@ int mk_uint_short_le(unsigned short const* a, unsigned short const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a <= *b;
+	return (unsigned short)(*a <= *b);
 }
 
 int mk_uint_short_gt(unsigned short const* a, unsigned short const* b)
@@ -255,7 +255,7 @@ int mk_uint_short_gt(unsigned short const* a, unsigned short const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a > *b;
+	return (unsigned short)(*a > *b);
 }
 
 int mk_uint_short_ge(unsigned short const* a, unsigned short const* b)
@@ -263,7 +263,7 @@ int mk_uint_short_ge(unsigned short const* a, unsigned short const* b)
 	mk_assert(a);
 	mk_assert(b);
 
-	return *a >= *b;
+	return (unsigned short)(*a >= *b);
 }
 
 
@@ -290,7 +290,7 @@ void mk_uint_short_add(unsigned short* out, unsigned short const* a, unsigned sh
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a + *b;
+	r = (unsigned short)(*a + *b);
 
 	*out = r;
 }
@@ -303,7 +303,7 @@ void mk_uint_short_sub(unsigned short* out, unsigned short const* a, unsigned sh
 	mk_assert(a);
 	mk_assert(b);
 
-	r = *a - *b;
+	r = (unsigned short)(*a - *b);
 
 	*out = r;
 }
