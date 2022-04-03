@@ -84,6 +84,15 @@
     <ClCompile Include="..\..\..\src\inl\mk_uint_base.c">
       <Filter>inl</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\inl\mk_uint_1.c">
+      <Filter>inl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\inl\mk_uint_2.c">
+      <Filter>inl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\inl\mk_uint_n.c">
+      <Filter>inl</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\exact\mk_uint_128.h">
