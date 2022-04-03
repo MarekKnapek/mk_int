@@ -78,6 +78,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\macro\base\mk_uint_macro_base.h" />
     <ClInclude Include="..\..\..\src\macro\base\mk_uint_macro_base_128.h" />
     <ClInclude Include="..\..\..\src\macro\base\mk_uint_macro_base_char.h" />
     <ClInclude Include="..\..\..\src\macro\base\mk_uint_macro_base_int.h" />

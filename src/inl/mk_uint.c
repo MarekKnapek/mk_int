@@ -16,8 +16,8 @@
 
 #define mk_uint_bits_to_words(x) (((x) + (mk_uint_small_bits - 1)) / mk_uint_small_bits)
 #define mk_uint_parts (mk_uint_bits_to_words(mk_uint_bits))
-#define mk_uint_concat_1(a, b) a ## _ ## b
-#define mk_uint_concat(a, b) mk_uint_concat_1(a, b)
+#define mk_uint_concat_1_(a, b) a ## _ ## b
+#define mk_uint_concat_(a, b) mk_uint_concat_1_(a, b)
 
 
 void mk_uint_zero(mk_uint_t* out)
@@ -292,7 +292,7 @@ void mk_uint_xor(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 
 #if mk_uint_parts == 1
 
-static mk_inline void mk_uint_concat(mk_uint_shl, 1)(mk_uint_t* out, mk_uint_t const* x, int n)
+static mk_inline void mk_uint_concat_(mk_uint_shl, 1)(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_assert(out);
 	mk_assert(x);
@@ -303,7 +303,7 @@ static mk_inline void mk_uint_concat(mk_uint_shl, 1)(mk_uint_t* out, mk_uint_t c
 
 #elif mk_uint_parts == 2
 
-static mk_inline void mk_uint_concat(mk_uint_shl, 2)(mk_uint_t* out, mk_uint_t const* x, int n)
+static mk_inline void mk_uint_concat_(mk_uint_shl, 2)(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_uint_t r;
 	int bytes;
@@ -348,7 +348,7 @@ static mk_inline void mk_uint_concat(mk_uint_shl, 2)(mk_uint_t* out, mk_uint_t c
 
 #else
 
-static mk_inline void mk_uint_concat(mk_uint_shl, n)(mk_uint_t* out, mk_uint_t const* x, int n)
+static mk_inline void mk_uint_concat_(mk_uint_shl, n)(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_uint_t r;
 	int parts;
@@ -393,17 +393,17 @@ static mk_inline void mk_uint_concat(mk_uint_shl, n)(mk_uint_t* out, mk_uint_t c
 void mk_uint_shl(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 #if mk_uint_parts == 1
-	mk_uint_concat(mk_uint_shl, 1)(out, x, n);
+	mk_uint_concat_(mk_uint_shl, 1)(out, x, n);
 #elif mk_uint_parts == 2
-	mk_uint_concat(mk_uint_shl, 2)(out, x, n);
+	mk_uint_concat_(mk_uint_shl, 2)(out, x, n);
 #else
-	mk_uint_concat(mk_uint_shl, n)(out, x, n);
+	mk_uint_concat_(mk_uint_shl, n)(out, x, n);
 #endif
 }
 
 #if mk_uint_parts == 1
 
-static mk_inline void mk_uint_concat(mk_uint_shr, 1)(mk_uint_t* out, mk_uint_t const* x, int n)
+static mk_inline void mk_uint_concat_(mk_uint_shr, 1)(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_assert(out);
 	mk_assert(x);
@@ -414,7 +414,7 @@ static mk_inline void mk_uint_concat(mk_uint_shr, 1)(mk_uint_t* out, mk_uint_t c
 
 #elif mk_uint_parts == 2
 
-static mk_inline void mk_uint_concat(mk_uint_shr, 2)(mk_uint_t* out, mk_uint_t const* x, int n)
+static mk_inline void mk_uint_concat_(mk_uint_shr, 2)(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_uint_t r;
 	int bytes;
@@ -459,7 +459,7 @@ static mk_inline void mk_uint_concat(mk_uint_shr, 2)(mk_uint_t* out, mk_uint_t c
 
 #else
 
-static mk_inline void mk_uint_concat(mk_uint_shr, n)(mk_uint_t* out, mk_uint_t const* x, int n)
+static mk_inline void mk_uint_concat_(mk_uint_shr, n)(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_uint_t r;
 	int parts;
@@ -504,11 +504,11 @@ static mk_inline void mk_uint_concat(mk_uint_shr, n)(mk_uint_t* out, mk_uint_t c
 void mk_uint_shr(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 #if mk_uint_parts == 1
-	mk_uint_concat(mk_uint_shr, 1)(out, x, n);
+	mk_uint_concat_(mk_uint_shr, 1)(out, x, n);
 #elif mk_uint_parts == 2
-	mk_uint_concat(mk_uint_shr, 2)(out, x, n);
+	mk_uint_concat_(mk_uint_shr, 2)(out, x, n);
 #else
-	mk_uint_concat(mk_uint_shr, n)(out, x, n);
+	mk_uint_concat_(mk_uint_shr, n)(out, x, n);
 #endif
 }
 
@@ -812,8 +812,8 @@ void mk_uint_sub(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 
 #undef mk_uint_bits_to_words
 #undef mk_uint_parts
-#undef mk_uint_concat_1
-#undef mk_uint_concat
+#undef mk_uint_concat_1_
+#undef mk_uint_concat_
 
 
 #if defined(_MSC_VER)

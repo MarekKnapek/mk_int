@@ -186,5 +186,8 @@
     <ClInclude Include="..\..\..\src\inl\mk_uint_base.h">
       <Filter>inl</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\macro\base\mk_uint_macro_base.h">
+      <Filter>macro\base</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
