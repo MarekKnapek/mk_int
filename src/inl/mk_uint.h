@@ -39,6 +39,8 @@ int mk_uint_eq(mk_uint_t const* a, mk_uint_t const* b);
 int mk_uint_neq(mk_uint_t const* a, mk_uint_t const* b);
 int mk_uint_lt(mk_uint_t const* a, mk_uint_t const* b);
 int mk_uint_le(mk_uint_t const* a, mk_uint_t const* b);
+int mk_uint_gt(mk_uint_t const* a, mk_uint_t const* b);
+int mk_uint_ge(mk_uint_t const* a, mk_uint_t const* b);
 
 void mk_uint_inc(mk_uint_t* x);
 void mk_uint_dec(mk_uint_t* x);

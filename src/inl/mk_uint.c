@@ -641,6 +641,62 @@ int mk_uint_le(mk_uint_t const* a, mk_uint_t const* b)
 	return r;
 }
 
+int mk_uint_gt(mk_uint_t const* a, mk_uint_t const* b)
+{
+	int r;
+	int i;
+	int lt;
+	int gt;
+
+	mk_assert(a);
+	mk_assert(b);
+
+	for(i = 0; i != mk_uint_parts - 1; ++i)
+	{
+		lt = mk_uint_small_gt(a->m_data + mk_uint_parts - 1 - i, b->m_data + mk_uint_parts - 1 - i);
+		if(lt)
+		{
+			return lt;
+		}
+		gt = mk_uint_small_gt(b->m_data + mk_uint_parts - 1 - i, a->m_data + mk_uint_parts - 1 - i);
+		if(gt)
+		{
+			return !gt;
+		}
+	}
+	r = mk_uint_small_gt(a->m_data + 0, b->m_data + 0);
+
+	return r;
+}
+
+int mk_uint_ge(mk_uint_t const* a, mk_uint_t const* b)
+{
+	int r;
+	int i;
+	int lt;
+	int gt;
+
+	mk_assert(a);
+	mk_assert(b);
+
+	for(i = 0; i != mk_uint_parts - 1; ++i)
+	{
+		lt = mk_uint_small_gt(a->m_data + mk_uint_parts - 1 - i, b->m_data + mk_uint_parts - 1 - i);
+		if(lt)
+		{
+			return lt;
+		}
+		gt = mk_uint_small_gt(b->m_data + mk_uint_parts - 1 - i, a->m_data + mk_uint_parts - 1 - i);
+		if(gt)
+		{
+			return !gt;
+		}
+	}
+	r = mk_uint_small_ge(a->m_data + 0, b->m_data + 0);
+
+	return r;
+}
+
 
 void mk_uint_inc(mk_uint_t* x)
 {

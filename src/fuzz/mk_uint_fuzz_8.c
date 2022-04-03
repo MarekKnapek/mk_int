@@ -344,6 +344,46 @@ static mk_inline void mk_uint_fuzz_8_le(unsigned char const* data)
 	test(memcmp(&br, &mr, sizeof(br)) == 0);
 }
 
+static mk_inline void mk_uint_fuzz_8_gt(unsigned char const* data)
+{
+	uint8_t ba;
+	uint8_t bb;
+	int br;
+	struct mk_uint8_s ma;
+	struct mk_uint8_s mb;
+	int mr;
+
+	memcpy(&ba, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
+	memcpy(&bb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
+	br = ba > bb;
+
+	memcpy(&ma, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
+	memcpy(&mb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
+	mr = mk_uint8_gt(&ma, &mb);
+
+	test(memcmp(&br, &mr, sizeof(br)) == 0);
+}
+
+static mk_inline void mk_uint_fuzz_8_ge(unsigned char const* data)
+{
+	uint8_t ba;
+	uint8_t bb;
+	int br;
+	struct mk_uint8_s ma;
+	struct mk_uint8_s mb;
+	int mr;
+
+	memcpy(&ba, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
+	memcpy(&bb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
+	br = ba >= bb;
+
+	memcpy(&ma, data + 0 / CHAR_BIT, 8 / CHAR_BIT);
+	memcpy(&mb, data + 8 / CHAR_BIT, 8 / CHAR_BIT);
+	mr = mk_uint8_ge(&ma, &mb);
+
+	test(memcmp(&br, &mr, sizeof(br)) == 0);
+}
+
 
 static mk_inline void mk_uint_fuzz_8_inc(unsigned char const* data)
 {
@@ -439,6 +479,8 @@ void mk_uint_fuzz_8(unsigned char const* data)
 	mk_uint_fuzz_8_neq(data);
 	mk_uint_fuzz_8_lt(data);
 	mk_uint_fuzz_8_le(data);
+	mk_uint_fuzz_8_gt(data);
+	mk_uint_fuzz_8_ge(data);
 
 	mk_uint_fuzz_8_inc(data);
 	mk_uint_fuzz_8_dec(data);
