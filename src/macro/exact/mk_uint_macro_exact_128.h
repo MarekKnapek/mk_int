@@ -3,6 +3,12 @@
 #include <limits.h> /* CHAR_BIT ULLONG_MAX ULONG_MAX */
 
 
+#if defined(__GNUC__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpedantic"
+#endif
+
+
 #if CHAR_BIT == 8
 #if mk_uint_has_128bit_int
 #include "../base/mk_uint_macro_base_128.h"
@@ -65,3 +71,8 @@
 
 #define mk_uint_add mk_uint128_add
 #define mk_uint_sub mk_uint128_sub
+
+
+#if defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif

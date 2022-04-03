@@ -5,6 +5,9 @@
 #if defined(_MSC_VER)
 #pragma warning(push)
 #pragma warning(disable:4464) /* warning C4464: relative include path contains '..' */
+#elif defined(__GNUC__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpedantic"
 #endif
 
 
@@ -19,6 +22,8 @@
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
 #endif
 
 
