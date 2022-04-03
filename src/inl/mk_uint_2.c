@@ -99,14 +99,14 @@ void mk_uint_to_buff_le(mk_uint_t const* x, void* buff)
 
 void mk_uint_from_buff_be(mk_uint_t* out, void const* buff)
 {
-	mk_uint_small_from_buff_le(&out->m_data[1], ((unsigned char const*)buff) + 0 * sizeof(mk_uint_small_t));
-	mk_uint_small_from_buff_le(&out->m_data[0], ((unsigned char const*)buff) + 1 * sizeof(mk_uint_small_t));
+	mk_uint_small_from_buff_be(&out->m_data[1], ((unsigned char const*)buff) + 0 * sizeof(mk_uint_small_t));
+	mk_uint_small_from_buff_be(&out->m_data[0], ((unsigned char const*)buff) + 1 * sizeof(mk_uint_small_t));
 }
 
 void mk_uint_to_buff_be(mk_uint_t const* x, void* buff)
 {
-	mk_uint_small_to_buff_le(&x->m_data[1], ((unsigned char*)buff) + 0 * sizeof(mk_uint_small_t));
-	mk_uint_small_to_buff_le(&x->m_data[0], ((unsigned char*)buff) + 1 * sizeof(mk_uint_small_t));
+	mk_uint_small_to_buff_be(&x->m_data[1], ((unsigned char*)buff) + 0 * sizeof(mk_uint_small_t));
+	mk_uint_small_to_buff_be(&x->m_data[0], ((unsigned char*)buff) + 1 * sizeof(mk_uint_small_t));
 }
 
 

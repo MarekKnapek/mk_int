@@ -8,13 +8,13 @@
 #if ULLONG_MAX == 0xffffffffffffffff
 #include "../base/mk_uint_macro_base_llong.h"
 #define mk_uint_small_bits 64
-#define mk_uint64_c(a, b) {{(((unsigned long long)a) << 32) | (((unsigned long long)b) << 0)}}
+#define mk_uint64_c(a, b) {(((unsigned long long)a) << 32) | (((unsigned long long)b) << 0)}
 #endif
 #else
 #if ULONG_MAX == 0xffffffff
 #include "../base/mk_uint_macro_base_long.h"
 #define mk_uint_small_bits 32
-#define mk_uint64_c(a, b) {{a, b}}
+#define mk_uint64_c(a, b) {{b, a}}
 #endif
 #endif
 #endif

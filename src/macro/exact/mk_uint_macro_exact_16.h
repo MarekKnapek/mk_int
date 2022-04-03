@@ -5,7 +5,7 @@
 #if USHRT_MAX == 0xffff
 #include "../base/mk_uint_macro_base_short.h"
 #define mk_uint_small_bits 16
-#define mk_uint16_c(a) {{a}}
+#define mk_uint16_c(a) {a}
 #endif
 #endif
 
