@@ -104,6 +104,7 @@
     <ClInclude Include="..\..\..\src\macro\base\mk_uint_macro_base_long.h" />
     <ClInclude Include="..\..\..\src\macro\base\mk_uint_macro_base_short.h" />
     <ClInclude Include="..\..\..\src\macro\base\mk_uint_macro_base_undef.h" />
+    <ClInclude Include="..\..\..\src\macro\exact\mk_uint_macro_exact.h" />
     <ClInclude Include="..\..\..\src\macro\exact\mk_uint_macro_exact_128.h" />
     <ClInclude Include="..\..\..\src\macro\exact\mk_uint_macro_exact_16.h" />
     <ClInclude Include="..\..\..\src\macro\exact\mk_uint_macro_exact_32.h" />

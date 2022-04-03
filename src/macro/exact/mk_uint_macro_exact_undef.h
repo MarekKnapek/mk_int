@@ -1,6 +1,11 @@
 #include "../base/mk_uint_macro_base_undef.h"
 
 
+#undef mk_uint_concat_2_
+#undef mk_uint_concat_1_
+#undef mk_uint_concat_
+
+
 #undef mk_uint_small_bits
 #undef mk_uint_bits
 #undef mk_uint_t
