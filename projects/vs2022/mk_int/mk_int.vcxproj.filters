@@ -201,5 +201,8 @@
     <ClInclude Include="..\..\..\src\macro\exact\mk_uint_macro_exact.h">
       <Filter>macro\exact</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\utils\mk_jumbo.h">
+      <Filter>utils</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

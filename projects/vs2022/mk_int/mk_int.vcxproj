@@ -114,6 +114,7 @@
     <ClInclude Include="..\..\..\src\mk_uint_setup.h" />
     <ClInclude Include="..\..\..\src\utils\mk_assert.h" />
     <ClInclude Include="..\..\..\src\utils\mk_inline.h" />
+    <ClInclude Include="..\..\..\src\utils\mk_jumbo.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

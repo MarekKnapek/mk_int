@@ -1,4 +1,5 @@
 #include "../utils/mk_assert.h"
+#include "../utils/mk_jumbo.h"
 
 #include <stddef.h> /* size_t */
 
@@ -12,7 +13,7 @@
 #endif
 
 
-void mk_uint_zero(mk_uint_t* out)
+mk_jumbo void mk_uint_zero(mk_uint_t* out)
 {
 	int i;
 
@@ -24,7 +25,7 @@ void mk_uint_zero(mk_uint_t* out)
 	}
 }
 
-void mk_uint_one(mk_uint_t* out)
+mk_jumbo void mk_uint_one(mk_uint_t* out)
 {
 	int i;
 
@@ -37,7 +38,7 @@ void mk_uint_one(mk_uint_t* out)
 	}
 }
 
-void mk_uint_from_int(mk_uint_t* out, unsigned in)
+mk_jumbo void mk_uint_from_int(mk_uint_t* out, unsigned in)
 {
 	int parts;
 	int i;
@@ -57,7 +58,7 @@ void mk_uint_from_int(mk_uint_t* out, unsigned in)
 	}
 }
 
-unsigned mk_uint_to_int(mk_uint_t const* x)
+mk_jumbo unsigned mk_uint_to_int(mk_uint_t const* x)
 {
 	unsigned r;
 	int parts;
@@ -77,7 +78,7 @@ unsigned mk_uint_to_int(mk_uint_t const* x)
 	return r;
 }
 
-void mk_uint_from_sizet(mk_uint_t* out, size_t in)
+mk_jumbo void mk_uint_from_sizet(mk_uint_t* out, size_t in)
 {
 	int parts;
 	int i;
@@ -97,7 +98,7 @@ void mk_uint_from_sizet(mk_uint_t* out, size_t in)
 	}
 }
 
-size_t mk_uint_to_sizet(mk_uint_t const* x)
+mk_jumbo size_t mk_uint_to_sizet(mk_uint_t const* x)
 {
 	size_t r;
 	int parts;
@@ -117,7 +118,7 @@ size_t mk_uint_to_sizet(mk_uint_t const* x)
 	return r;
 }
 
-void mk_uint_from_buff_le(mk_uint_t* out, void const* buff)
+mk_jumbo void mk_uint_from_buff_le(mk_uint_t* out, void const* buff)
 {
 	int i;
 	unsigned char const* input;
@@ -132,7 +133,7 @@ void mk_uint_from_buff_le(mk_uint_t* out, void const* buff)
 	}
 }
 
-void mk_uint_to_buff_le(mk_uint_t const* x, void* buff)
+mk_jumbo void mk_uint_to_buff_le(mk_uint_t const* x, void* buff)
 {
 	int i;
 	unsigned char* output;
@@ -147,7 +148,7 @@ void mk_uint_to_buff_le(mk_uint_t const* x, void* buff)
 	}
 }
 
-void mk_uint_from_buff_be(mk_uint_t* out, void const* buff)
+mk_jumbo void mk_uint_from_buff_be(mk_uint_t* out, void const* buff)
 {
 	int i;
 	unsigned char const* input;
@@ -162,7 +163,7 @@ void mk_uint_from_buff_be(mk_uint_t* out, void const* buff)
 	}
 }
 
-void mk_uint_to_buff_be(mk_uint_t const* x, void* buff)
+mk_jumbo void mk_uint_to_buff_be(mk_uint_t const* x, void* buff)
 {
 	int i;
 	unsigned char* output;
@@ -178,7 +179,7 @@ void mk_uint_to_buff_be(mk_uint_t const* x, void* buff)
 }
 
 
-int mk_uint_is_zero(mk_uint_t const* x)
+mk_jumbo int mk_uint_is_zero(mk_uint_t const* x)
 {
 	int i;
 	int r;
@@ -197,7 +198,7 @@ int mk_uint_is_zero(mk_uint_t const* x)
 	return r;
 }
 
-int mk_uint_is_max(mk_uint_t const* x)
+mk_jumbo int mk_uint_is_max(mk_uint_t const* x)
 {
 	int i;
 	int r;
@@ -217,7 +218,7 @@ int mk_uint_is_max(mk_uint_t const* x)
 }
 
 
-void mk_uint_cmplmnt(mk_uint_t* out, mk_uint_t const* x)
+mk_jumbo void mk_uint_cmplmnt(mk_uint_t* out, mk_uint_t const* x)
 {
 	int i;
 
@@ -230,7 +231,7 @@ void mk_uint_cmplmnt(mk_uint_t* out, mk_uint_t const* x)
 	}
 }
 
-void mk_uint_or(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo void mk_uint_or(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 {
 	mk_uint_t r;
 	int i;
@@ -247,7 +248,7 @@ void mk_uint_or(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 	*out = r;
 }
 
-void mk_uint_and(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo void mk_uint_and(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 {
 	mk_uint_t r;
 	int i;
@@ -264,7 +265,7 @@ void mk_uint_and(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 	*out = r;
 }
 
-void mk_uint_xor(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo void mk_uint_xor(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 {
 	mk_uint_t r;
 	int i;
@@ -282,7 +283,7 @@ void mk_uint_xor(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 }
 
 
-void mk_uint_shl(mk_uint_t* out, mk_uint_t const* x, int n)
+mk_jumbo void mk_uint_shl(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_uint_t r;
 	int parts;
@@ -322,7 +323,7 @@ void mk_uint_shl(mk_uint_t* out, mk_uint_t const* x, int n)
 	*out = r;
 }
 
-void mk_uint_shr(mk_uint_t* out, mk_uint_t const* x, int n)
+mk_jumbo void mk_uint_shr(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_uint_t r;
 	int parts;
@@ -362,7 +363,7 @@ void mk_uint_shr(mk_uint_t* out, mk_uint_t const* x, int n)
 	*out = r;
 }
 
-void mk_uint_rotl(mk_uint_t* out, mk_uint_t const* x, int n)
+mk_jumbo void mk_uint_rotl(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_uint_t r;
 	mk_uint_t tmp;
@@ -378,7 +379,7 @@ void mk_uint_rotl(mk_uint_t* out, mk_uint_t const* x, int n)
 	*out = r;
 }
 
-void mk_uint_rotr(mk_uint_t* out, mk_uint_t const* x, int n)
+mk_jumbo void mk_uint_rotr(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_uint_t r;
 	mk_uint_t tmp;
@@ -395,7 +396,7 @@ void mk_uint_rotr(mk_uint_t* out, mk_uint_t const* x, int n)
 }
 
 
-int mk_uint_eq(mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo int mk_uint_eq(mk_uint_t const* a, mk_uint_t const* b)
 {
 	int r;
 	int i;
@@ -415,7 +416,7 @@ int mk_uint_eq(mk_uint_t const* a, mk_uint_t const* b)
 	return r;
 }
 
-int mk_uint_neq(mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo int mk_uint_neq(mk_uint_t const* a, mk_uint_t const* b)
 {
 	int r;
 	int i;
@@ -435,7 +436,7 @@ int mk_uint_neq(mk_uint_t const* a, mk_uint_t const* b)
 	return r;
 }
 
-int mk_uint_lt(mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo int mk_uint_lt(mk_uint_t const* a, mk_uint_t const* b)
 {
 	int r;
 	int i;
@@ -463,7 +464,7 @@ int mk_uint_lt(mk_uint_t const* a, mk_uint_t const* b)
 	return r;
 }
 
-int mk_uint_le(mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo int mk_uint_le(mk_uint_t const* a, mk_uint_t const* b)
 {
 	int r;
 	int i;
@@ -491,7 +492,7 @@ int mk_uint_le(mk_uint_t const* a, mk_uint_t const* b)
 	return r;
 }
 
-int mk_uint_gt(mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo int mk_uint_gt(mk_uint_t const* a, mk_uint_t const* b)
 {
 	int r;
 	int i;
@@ -519,7 +520,7 @@ int mk_uint_gt(mk_uint_t const* a, mk_uint_t const* b)
 	return r;
 }
 
-int mk_uint_ge(mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo int mk_uint_ge(mk_uint_t const* a, mk_uint_t const* b)
 {
 	int r;
 	int i;
@@ -548,7 +549,7 @@ int mk_uint_ge(mk_uint_t const* a, mk_uint_t const* b)
 }
 
 
-void mk_uint_inc(mk_uint_t* x)
+mk_jumbo void mk_uint_inc(mk_uint_t* x)
 {
 	int i;
 	int o;
@@ -570,7 +571,7 @@ void mk_uint_inc(mk_uint_t* x)
 	}
 }
 
-void mk_uint_dec(mk_uint_t* x)
+mk_jumbo void mk_uint_dec(mk_uint_t* x)
 {
 	int i;
 	int u;
@@ -593,7 +594,7 @@ void mk_uint_dec(mk_uint_t* x)
 }
 
 
-void mk_uint_add(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo void mk_uint_add(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 {
 	mk_uint_t r;
 	int i;
@@ -629,7 +630,7 @@ void mk_uint_add(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 	*out = r;
 }
 
-void mk_uint_sub(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo void mk_uint_sub(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 {
 	mk_uint_t r;
 	int i;

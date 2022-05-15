@@ -9,54 +9,55 @@
 
 
 #include "../utils/mk_assert.h"
+#include "../utils/mk_jumbo.h"
 
 #include <stddef.h> /* size_t */
 #include <limits.h> /* CHAR_BIT */
 
 
-void mk_uint_concat(mk_uint_tn, zero)(mk_uint_t* out)
+mk_jumbo void mk_uint_concat(mk_uint_tn, zero)(mk_uint_t* out)
 {
 	mk_assert(out);
 
 	*out = 0;
 }
 
-void mk_uint_concat(mk_uint_tn, one)(mk_uint_t* out)
+mk_jumbo void mk_uint_concat(mk_uint_tn, one)(mk_uint_t* out)
 {
 	mk_assert(out);
 
 	*out = 1;
 }
 
-void mk_uint_concat(mk_uint_tn, from_int)(mk_uint_t* out, unsigned in)
+mk_jumbo void mk_uint_concat(mk_uint_tn, from_int)(mk_uint_t* out, unsigned in)
 {
 	mk_assert(out);
 
 	*out = (mk_uint_t)in;
 }
 
-unsigned mk_uint_concat(mk_uint_tn, to_int)(mk_uint_t const* x)
+mk_jumbo unsigned mk_uint_concat(mk_uint_tn, to_int)(mk_uint_t const* x)
 {
 	mk_assert(x);
 
 	return (unsigned)*x;
 }
 
-void mk_uint_concat(mk_uint_tn, from_sizet)(mk_uint_t* out, size_t in)
+mk_jumbo void mk_uint_concat(mk_uint_tn, from_sizet)(mk_uint_t* out, size_t in)
 {
 	mk_assert(out);
 
 	*out = (mk_uint_t)in;
 }
 
-size_t mk_uint_concat(mk_uint_tn, to_sizet)(mk_uint_t const* x)
+mk_jumbo size_t mk_uint_concat(mk_uint_tn, to_sizet)(mk_uint_t const* x)
 {
 	mk_assert(x);
 
 	return (size_t)*x;
 }
 
-void mk_uint_concat(mk_uint_tn, from_buff_le)(mk_uint_t* out, void const* buff)
+mk_jumbo void mk_uint_concat(mk_uint_tn, from_buff_le)(mk_uint_t* out, void const* buff)
 {
 	mk_uint_t r;
 	unsigned char const* input;
@@ -75,7 +76,7 @@ void mk_uint_concat(mk_uint_tn, from_buff_le)(mk_uint_t* out, void const* buff)
 	*out = r;
 }
 
-void mk_uint_concat(mk_uint_tn, to_buff_le)(mk_uint_t const* x, void* buff)
+mk_jumbo void mk_uint_concat(mk_uint_tn, to_buff_le)(mk_uint_t const* x, void* buff)
 {
 	int i;
 	unsigned char* output;
@@ -90,7 +91,7 @@ void mk_uint_concat(mk_uint_tn, to_buff_le)(mk_uint_t const* x, void* buff)
 	}
 }
 
-void mk_uint_concat(mk_uint_tn, from_buff_be)(mk_uint_t* out, void const* buff)
+mk_jumbo void mk_uint_concat(mk_uint_tn, from_buff_be)(mk_uint_t* out, void const* buff)
 {
 	mk_uint_t r;
 	unsigned char const* input;
@@ -109,7 +110,7 @@ void mk_uint_concat(mk_uint_tn, from_buff_be)(mk_uint_t* out, void const* buff)
 	*out = r;
 }
 
-void mk_uint_concat(mk_uint_tn, to_buff_be)(mk_uint_t const* x, void* buff)
+mk_jumbo void mk_uint_concat(mk_uint_tn, to_buff_be)(mk_uint_t const* x, void* buff)
 {
 	int i;
 	unsigned char* output;
@@ -125,14 +126,14 @@ void mk_uint_concat(mk_uint_tn, to_buff_be)(mk_uint_t const* x, void* buff)
 }
 
 
-int mk_uint_concat(mk_uint_tn, is_zero)(mk_uint_t const* x)
+mk_jumbo int mk_uint_concat(mk_uint_tn, is_zero)(mk_uint_t const* x)
 {
 	mk_assert(x);
 
 	return *x == 0;
 }
 
-int mk_uint_concat(mk_uint_tn, is_max)(mk_uint_t const* x)
+mk_jumbo int mk_uint_concat(mk_uint_tn, is_max)(mk_uint_t const* x)
 {
 	mk_assert(x);
 
@@ -140,7 +141,7 @@ int mk_uint_concat(mk_uint_tn, is_max)(mk_uint_t const* x)
 }
 
 
-void mk_uint_concat(mk_uint_tn, cmplmnt)(mk_uint_t* out, mk_uint_t const* x)
+mk_jumbo void mk_uint_concat(mk_uint_tn, cmplmnt)(mk_uint_t* out, mk_uint_t const* x)
 {
 	mk_uint_t r;
 
@@ -152,7 +153,7 @@ void mk_uint_concat(mk_uint_tn, cmplmnt)(mk_uint_t* out, mk_uint_t const* x)
 	*out = r;
 }
 
-void mk_uint_concat(mk_uint_tn, or)(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo void mk_uint_concat(mk_uint_tn, or)(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 {
 	mk_uint_t r;
 
@@ -165,7 +166,7 @@ void mk_uint_concat(mk_uint_tn, or)(mk_uint_t* out, mk_uint_t const* a, mk_uint_
 	*out = r;
 }
 
-void mk_uint_concat(mk_uint_tn, and)(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo void mk_uint_concat(mk_uint_tn, and)(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 {
 	mk_uint_t r;
 
@@ -178,7 +179,7 @@ void mk_uint_concat(mk_uint_tn, and)(mk_uint_t* out, mk_uint_t const* a, mk_uint
 	*out = r;
 }
 
-void mk_uint_concat(mk_uint_tn, xor)(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo void mk_uint_concat(mk_uint_tn, xor)(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 {
 	mk_uint_t r;
 
@@ -192,7 +193,7 @@ void mk_uint_concat(mk_uint_tn, xor)(mk_uint_t* out, mk_uint_t const* a, mk_uint
 }
 
 
-void mk_uint_concat(mk_uint_tn, shl)(mk_uint_t* out, mk_uint_t const* x, int n)
+mk_jumbo void mk_uint_concat(mk_uint_tn, shl)(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_uint_t r;
 
@@ -205,7 +206,7 @@ void mk_uint_concat(mk_uint_tn, shl)(mk_uint_t* out, mk_uint_t const* x, int n)
 	*out = r;
 }
 
-void mk_uint_concat(mk_uint_tn, shr)(mk_uint_t* out, mk_uint_t const* x, int n)
+mk_jumbo void mk_uint_concat(mk_uint_tn, shr)(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_uint_t r;
 
@@ -218,7 +219,7 @@ void mk_uint_concat(mk_uint_tn, shr)(mk_uint_t* out, mk_uint_t const* x, int n)
 	*out = r;
 }
 
-void mk_uint_concat(mk_uint_tn, rotl)(mk_uint_t* out, mk_uint_t const* x, int n)
+mk_jumbo void mk_uint_concat(mk_uint_tn, rotl)(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_uint_t r;
 
@@ -231,7 +232,7 @@ void mk_uint_concat(mk_uint_tn, rotl)(mk_uint_t* out, mk_uint_t const* x, int n)
 	*out = r;
 }
 
-void mk_uint_concat(mk_uint_tn, rotr)(mk_uint_t* out, mk_uint_t const* x, int n)
+mk_jumbo void mk_uint_concat(mk_uint_tn, rotr)(mk_uint_t* out, mk_uint_t const* x, int n)
 {
 	mk_uint_t r;
 
@@ -245,7 +246,7 @@ void mk_uint_concat(mk_uint_tn, rotr)(mk_uint_t* out, mk_uint_t const* x, int n)
 }
 
 
-int mk_uint_concat(mk_uint_tn, eq)(mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo int mk_uint_concat(mk_uint_tn, eq)(mk_uint_t const* a, mk_uint_t const* b)
 {
 	mk_assert(a);
 	mk_assert(b);
@@ -253,7 +254,7 @@ int mk_uint_concat(mk_uint_tn, eq)(mk_uint_t const* a, mk_uint_t const* b)
 	return *a == *b;
 }
 
-int mk_uint_concat(mk_uint_tn, neq)(mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo int mk_uint_concat(mk_uint_tn, neq)(mk_uint_t const* a, mk_uint_t const* b)
 {
 	mk_assert(a);
 	mk_assert(b);
@@ -261,7 +262,7 @@ int mk_uint_concat(mk_uint_tn, neq)(mk_uint_t const* a, mk_uint_t const* b)
 	return *a != *b;
 }
 
-int mk_uint_concat(mk_uint_tn, lt)(mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo int mk_uint_concat(mk_uint_tn, lt)(mk_uint_t const* a, mk_uint_t const* b)
 {
 	mk_assert(a);
 	mk_assert(b);
@@ -269,7 +270,7 @@ int mk_uint_concat(mk_uint_tn, lt)(mk_uint_t const* a, mk_uint_t const* b)
 	return *a < *b;
 }
 
-int mk_uint_concat(mk_uint_tn, le)(mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo int mk_uint_concat(mk_uint_tn, le)(mk_uint_t const* a, mk_uint_t const* b)
 {
 	mk_assert(a);
 	mk_assert(b);
@@ -277,7 +278,7 @@ int mk_uint_concat(mk_uint_tn, le)(mk_uint_t const* a, mk_uint_t const* b)
 	return *a <= *b;
 }
 
-int mk_uint_concat(mk_uint_tn, gt)(mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo int mk_uint_concat(mk_uint_tn, gt)(mk_uint_t const* a, mk_uint_t const* b)
 {
 	mk_assert(a);
 	mk_assert(b);
@@ -285,7 +286,7 @@ int mk_uint_concat(mk_uint_tn, gt)(mk_uint_t const* a, mk_uint_t const* b)
 	return *a > *b;
 }
 
-int mk_uint_concat(mk_uint_tn, ge)(mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo int mk_uint_concat(mk_uint_tn, ge)(mk_uint_t const* a, mk_uint_t const* b)
 {
 	mk_assert(a);
 	mk_assert(b);
@@ -294,14 +295,14 @@ int mk_uint_concat(mk_uint_tn, ge)(mk_uint_t const* a, mk_uint_t const* b)
 }
 
 
-void mk_uint_concat(mk_uint_tn, inc)(mk_uint_t* x)
+mk_jumbo void mk_uint_concat(mk_uint_tn, inc)(mk_uint_t* x)
 {
 	mk_assert(x);
 
 	++*x;
 }
 
-void mk_uint_concat(mk_uint_tn, dec)(mk_uint_t* x)
+mk_jumbo void mk_uint_concat(mk_uint_tn, dec)(mk_uint_t* x)
 {
 	mk_assert(x);
 
@@ -309,7 +310,7 @@ void mk_uint_concat(mk_uint_tn, dec)(mk_uint_t* x)
 }
 
 
-void mk_uint_concat(mk_uint_tn, add)(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo void mk_uint_concat(mk_uint_tn, add)(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 {
 	mk_uint_t r;
 	
@@ -322,7 +323,7 @@ void mk_uint_concat(mk_uint_tn, add)(mk_uint_t* out, mk_uint_t const* a, mk_uint
 	*out = r;
 }
 
-void mk_uint_concat(mk_uint_tn, sub)(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+mk_jumbo void mk_uint_concat(mk_uint_tn, sub)(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 {
 	mk_uint_t r;
 
