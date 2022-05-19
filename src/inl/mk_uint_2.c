@@ -60,6 +60,32 @@ mk_jumbo unsigned mk_uint_to_int(mk_uint_t const* x)
 	}
 }
 
+mk_jumbo void mk_uint_from_long(mk_uint_t* out, unsigned long in)
+{
+	if(mk_uint_small_bits < sizeof(unsigned long) * CHAR_BIT)
+	{
+		mk_uint_small_from_long(&out->m_data[0], in);
+		mk_uint_small_from_long(&out->m_data[1], in >> mk_uint_small_bits);
+	}
+	else
+	{
+		mk_uint_small_from_long(&out->m_data[0], in);
+		mk_uint_small_zero(&out->m_data[1]);
+	}
+}
+
+mk_jumbo unsigned long mk_uint_to_long(mk_uint_t const* x)
+{
+	if(mk_uint_small_bits < sizeof(unsigned long) * CHAR_BIT)
+	{
+		return mk_uint_small_to_long(&x->m_data[0]) | mk_uint_small_to_long(&x->m_data[1]) << mk_uint_small_bits;
+	}
+	else
+	{
+		return mk_uint_small_to_long(&x->m_data[0]);
+	}
+}
+
 mk_jumbo void mk_uint_from_sizet(mk_uint_t* out, size_t in)
 {
 	if(mk_uint_small_bits < sizeof(size_t) * CHAR_BIT)

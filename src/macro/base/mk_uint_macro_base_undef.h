@@ -9,6 +9,8 @@
 #undef mk_uint_small_one
 #undef mk_uint_small_from_int
 #undef mk_uint_small_to_int
+#undef mk_uint_small_from_long
+#undef mk_uint_small_to_long
 #undef mk_uint_small_from_sizet
 #undef mk_uint_small_to_sizet
 #undef mk_uint_small_from_buff_le

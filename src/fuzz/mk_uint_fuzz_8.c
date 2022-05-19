@@ -78,6 +78,36 @@ static mk_inline void mk_uint_fuzz_8_to_int(unsigned char const* data)
 	test(memcmp(&br, &mr, sizeof(unsigned)) == 0);
 }
 
+static mk_inline void mk_uint_fuzz_8_from_long(unsigned char const* data)
+{
+	unsigned long n;
+	uint8_t br;
+	struct mk_uint8_s mr;
+	
+	memcpy(&n, data, sizeof(unsigned long));
+
+	br = (uint8_t)n;
+	mk_uint8_from_long(&mr, n);
+
+	test(memcmp(&br, &mr, 8 / CHAR_BIT) == 0);
+}
+
+static mk_inline void mk_uint_fuzz_8_to_long(unsigned char const* data)
+{
+	uint8_t bx;
+	unsigned long br;
+	struct mk_uint8_s mx;
+	unsigned long mr;
+
+	memcpy(&bx, data, 8 / CHAR_BIT);
+	br = (unsigned long)bx;
+
+	memcpy(&mx, data, 8 / CHAR_BIT);
+	mr = mk_uint8_to_long(&mx);
+
+	test(memcmp(&br, &mr, sizeof(unsigned long)) == 0);
+}
+
 static mk_inline void mk_uint_fuzz_8_from_sizet(unsigned char const* data)
 {
 	size_t n;
@@ -461,6 +491,8 @@ void mk_uint_fuzz_8(unsigned char const* data)
 	mk_uint_fuzz_8_one();
 	mk_uint_fuzz_8_from_int(data);
 	mk_uint_fuzz_8_to_int(data);
+	mk_uint_fuzz_8_from_long(data);
+	mk_uint_fuzz_8_to_long(data);
 	mk_uint_fuzz_8_from_sizet(data);
 	mk_uint_fuzz_8_to_sizet(data);
 

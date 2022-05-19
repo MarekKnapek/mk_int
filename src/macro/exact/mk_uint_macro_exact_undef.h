@@ -14,6 +14,8 @@
 #undef mk_uint_one
 #undef mk_uint_from_int
 #undef mk_uint_to_int
+#undef mk_uint_from_long
+#undef mk_uint_to_long
 #undef mk_uint_from_sizet
 #undef mk_uint_to_sizet
 #undef mk_uint_from_buff_le

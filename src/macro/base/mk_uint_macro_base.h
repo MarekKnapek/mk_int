@@ -7,6 +7,8 @@
 #define mk_uint_small_one mk_uint_concat(one)
 #define mk_uint_small_from_int mk_uint_concat(from_int)
 #define mk_uint_small_to_int mk_uint_concat(to_int)
+#define mk_uint_small_from_long mk_uint_concat(from_long)
+#define mk_uint_small_to_long mk_uint_concat(to_long)
 #define mk_uint_small_from_sizet mk_uint_concat(from_sizet)
 #define mk_uint_small_to_sizet mk_uint_concat(to_sizet)
 #define mk_uint_small_from_buff_le mk_uint_concat(from_buff_le)
