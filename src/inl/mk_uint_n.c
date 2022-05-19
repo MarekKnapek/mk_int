@@ -700,6 +700,40 @@ mk_jumbo void mk_uint_sub(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b
 	*out = r;
 }
 
+mk_jumbo void mk_uint_mul(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+{
+	mk_uint_t r;
+	int i;
+	int j;
+	int k;
+	mk_uint_t tmp;
+
+	mk_uint_zero(&r);
+	for(i = 0; i != mk_uint_parts; ++i)
+	{
+		for(j = 0; j != mk_uint_parts - i - 1; ++j)
+		{
+			for(k = 0; k != j + i; ++k)
+			{
+				mk_uint_small_zero(&tmp.m_data[k]);
+			}
+			mk_uint_small_mul4(&a->m_data[i], &b->m_data[j], &tmp.m_data[i + j + 0], &tmp.m_data[i + j + 1]);
+			for(k = j + i + 2; k != mk_uint_parts; ++k)
+			{
+				mk_uint_small_zero(&tmp.m_data[k]);
+			}
+			mk_uint_add(&r, &r, &tmp);
+		}
+		for(k = 0; k != j + i; ++k)
+		{
+			mk_uint_small_zero(&tmp.m_data[k]);
+		}
+		mk_uint_small_mul(&tmp.m_data[i + j + 0], &a->m_data[i], &b->m_data[j]);
+		mk_uint_add(&r, &r, &tmp);
+	}
+	*out = r;
+}
+
 
 #if defined(_MSC_VER)
 #pragma warning(pop)

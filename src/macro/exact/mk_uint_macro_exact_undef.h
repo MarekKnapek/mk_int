@@ -48,3 +48,4 @@
 
 #undef mk_uint_add
 #undef mk_uint_sub
+#undef mk_uint_mul

@@ -350,6 +350,62 @@ mk_jumbo void mk_uint_concat(mk_uint_tn, sub)(mk_uint_t* out, mk_uint_t const* a
 	*out = r;
 }
 
+mk_jumbo void mk_uint_concat(mk_uint_tn, mul)(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+{
+	mk_uint_t r;
+
+	mk_assert(out);
+	mk_assert(a);
+	mk_assert(b);
+
+	r = (mk_uint_t)(*a * *b);
+
+	*out = r;
+}
+
+mk_jumbo void mk_uint_concat(mk_uint_tn, mul4)(mk_uint_t const* a, mk_uint_t const* b, mk_uint_t* out_lo, mk_uint_t* out_hi)
+{
+	#define shift ((sizeof(mk_uint_t) * CHAR_BIT) / 2)
+	#define one ((mk_uint_t)1u)
+	#define mask ((one << shift) - one)
+
+	mk_uint_t alo;
+	mk_uint_t ahi;
+	mk_uint_t blo;
+	mk_uint_t bhi;
+	mk_uint_t ablo;
+	mk_uint_t abmi;
+	mk_uint_t bami;
+	mk_uint_t abhi;
+	mk_uint_t rlo;
+	mk_uint_t rhi;
+
+	mk_assert(a);
+	mk_assert(b);
+	mk_assert(out_lo);
+	mk_assert(out_hi);
+
+	alo = (mk_uint_t)((*a) & mask);
+	ahi = (mk_uint_t)(((*a) >> shift) & mask);
+	blo = (mk_uint_t)((*b) & mask);
+	bhi = (mk_uint_t)(((*b) >> shift) & mask);
+
+	ablo = (mk_uint_t)(alo * blo);
+	abmi = (mk_uint_t)(alo * bhi);
+	bami = (mk_uint_t)(ahi * blo);
+	abhi = (mk_uint_t)(ahi * bhi);
+
+	rlo = ablo + ((abmi & mask) << shift) + ((bami & mask) << shift);
+	rhi = abhi + (abmi >> shift) + (bami >> shift) + (((abmi & mask) + (bami & mask) + (ablo >> shift)) >> shift);
+
+	*out_lo = rlo;
+	*out_hi = rhi;
+
+	#undef shift
+	#undef one
+	#undef mask
+}
+
 
 #if defined(_MSC_VER)
 #pragma warning(pop)

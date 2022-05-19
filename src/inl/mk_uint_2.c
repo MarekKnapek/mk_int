@@ -418,6 +418,25 @@ mk_jumbo void mk_uint_sub(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b
 	}
 }
 
+mk_jumbo void mk_uint_mul(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+{
+	mk_uint_small_t abmilo;
+	mk_uint_small_t bamilo;
+	mk_uint_t r;
+
+	mk_assert(out);
+	mk_assert(a);
+	mk_assert(b);
+
+	mk_uint_small_mul4(&a->m_data[0], &b->m_data[0], &r.m_data[0], &r.m_data[1]);
+	mk_uint_small_mul(&abmilo, &a->m_data[0], &b->m_data[1]);
+	mk_uint_small_mul(&bamilo, &a->m_data[1], &b->m_data[0]);
+
+	mk_uint_small_add(&r.m_data[1], &r.m_data[1], &bamilo);
+	mk_uint_small_add(&r.m_data[1], &r.m_data[1], &abmilo);
+	*out = r;
+}
+
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
