@@ -717,7 +717,8 @@ mk_jumbo void mk_uint_mul(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b
 			{
 				mk_uint_small_zero(&tmp.m_data[k]);
 			}
-			mk_uint_small_mul4(&a->m_data[i], &b->m_data[j], &tmp.m_data[i + j + 0], &tmp.m_data[i + j + 1]);
+			mk_uint_small_mul(&tmp.m_data[i + j + 0], &a->m_data[i], &b->m_data[j]);
+			mk_uint_small_mulhi(&tmp.m_data[i + j + 1], &a->m_data[i], &b->m_data[j]);
 			for(k = j + i + 2; k != mk_uint_parts; ++k)
 			{
 				mk_uint_small_zero(&tmp.m_data[k]);

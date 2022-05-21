@@ -428,7 +428,8 @@ mk_jumbo void mk_uint_mul(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b
 	mk_assert(a);
 	mk_assert(b);
 
-	mk_uint_small_mul4(&a->m_data[0], &b->m_data[0], &r.m_data[0], &r.m_data[1]);
+	mk_uint_small_mul(&r.m_data[0], &a->m_data[0], &b->m_data[0]);
+	mk_uint_small_mulhi(&r.m_data[1], &a->m_data[0], &b->m_data[0]);
 	mk_uint_small_mul(&abmilo, &a->m_data[0], &b->m_data[1]);
 	mk_uint_small_mul(&bamilo, &a->m_data[1], &b->m_data[0]);
 

@@ -42,4 +42,4 @@
 #undef mk_uint_small_add
 #undef mk_uint_small_sub
 #undef mk_uint_small_mul
-#undef mk_uint_small_mul4
+#undef mk_uint_small_mulhi

@@ -42,4 +42,4 @@
 #define mk_uint_small_add mk_uint_concat(add)
 #define mk_uint_small_sub mk_uint_concat(sub)
 #define mk_uint_small_mul mk_uint_concat(mul)
-#define mk_uint_small_mul4 mk_uint_concat(mul4)
+#define mk_uint_small_mulhi mk_uint_concat(mulhi)
