@@ -438,6 +438,29 @@ mk_jumbo void mk_uint_mul(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b
 	*out = r;
 }
 
+mk_jumbo void mk_uint_div(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+{
+	mk_uint_t r;
+
+	mk_assert(out);
+	mk_assert(a);
+	mk_assert(b);
+
+	r.m_data[0] =
+		(unsigned long)
+		(((
+			(((unsigned long long)a->m_data[0]) | (((unsigned long long)a->m_data[1]) << 32 )) /
+			(((unsigned long long)b->m_data[0]) | (((unsigned long long)b->m_data[1]) << 32 ))
+		) >> 0 ) & 0xffffffffull);
+	r.m_data[1] =
+		(unsigned long)
+		(((
+			(((unsigned long long)a->m_data[0]) | (((unsigned long long)a->m_data[1]) << 32 )) /
+			(((unsigned long long)b->m_data[0]) | (((unsigned long long)b->m_data[1]) << 32 ))
+		) >> 32) & 0xffffffffull);
+	*out = r;
+}
+
 
 #if defined(_MSC_VER)
 #pragma warning(pop)

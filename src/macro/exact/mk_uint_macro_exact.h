@@ -42,3 +42,4 @@
 #define mk_uint_add mk_uint_concat_(add)
 #define mk_uint_sub mk_uint_concat_(sub)
 #define mk_uint_mul mk_uint_concat_(mul)
+#define mk_uint_div mk_uint_concat_(div)
