@@ -441,23 +441,61 @@ mk_jumbo void mk_uint_mul(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b
 mk_jumbo void mk_uint_div(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
 {
 	mk_uint_t r;
+	mk_uint_small_t one;
+	mk_uint_t aa;
+	mk_uint_t bb;
+	int ai;
+	int bi;
+	int i;
+	unsigned bit;
+	int diff;
 
 	mk_assert(out);
 	mk_assert(a);
 	mk_assert(b);
+	mk_assert(!mk_uint_is_zero(b));
 
-	r.m_data[0] =
-		(unsigned long)
-		(((
-			(((unsigned long long)a->m_data[0]) | (((unsigned long long)a->m_data[1]) << 32 )) /
-			(((unsigned long long)b->m_data[0]) | (((unsigned long long)b->m_data[1]) << 32 ))
-		) >> 0 ) & 0xffffffffull);
-	r.m_data[1] =
-		(unsigned long)
-		(((
-			(((unsigned long long)a->m_data[0]) | (((unsigned long long)a->m_data[1]) << 32 )) /
-			(((unsigned long long)b->m_data[0]) | (((unsigned long long)b->m_data[1]) << 32 ))
-		) >> 32) & 0xffffffffull);
+	mk_uint_zero(&r);
+	if(mk_uint_ge(a, b))
+	{
+		mk_uint_small_one(&one);
+		aa = *a;
+		bb = *b;
+		ai = 0;
+		bi = 0;
+		for(i = 0; i != mk_uint_bits - 1; ++i)
+		{
+			mk_uint_shr(&aa, &aa, 1);
+			bit = mk_uint_to_int(&aa) & 0x01;
+			if(bit != 0)
+			{
+				ai = i + 1;
+			}
+		}
+		for(i = 0; i != mk_uint_bits - 1; ++i)
+		{
+			mk_uint_shr(&bb, &bb, 1);
+			bit = mk_uint_to_int(&bb) & 0x01;
+			if(bit != 0)
+			{
+				bi = i + 1;
+			}
+		}
+		diff = ai - bi;
+		aa = *a;
+		mk_uint_shl(&bb, b, diff);
+		for(i = 0; i != diff + 1; ++i)
+		{
+			mk_uint_shl(&r, &r, 1);
+			if(mk_uint_ge(&aa, &bb))
+			{
+				mk_uint_sub(&aa, &aa, &bb);
+				mk_uint_small_or(&r.m_data[0], &r.m_data[0], &one);
+			}
+			mk_uint_shr(&bb, &bb, 1);
+		}
+	}
+
 	*out = r;
 }
 
