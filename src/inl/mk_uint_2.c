@@ -438,9 +438,10 @@ mk_jumbo void mk_uint_mul(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b
 	*out = r;
 }
 
-mk_jumbo void mk_uint_div(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+static mk_inline void mk_uint_concat_(divmod)(mk_uint_t* out_div, mk_uint_t* out_mod, mk_uint_t const* a, mk_uint_t const* b)
 {
-	mk_uint_t r;
+	mk_uint_t r_div;
+	mk_uint_t r_mod;
 	mk_uint_small_t one;
 	mk_uint_t aa;
 	mk_uint_t bb;
@@ -450,12 +451,14 @@ mk_jumbo void mk_uint_div(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b
 	unsigned bit;
 	int diff;
 
-	mk_assert(out);
+	mk_assert(out_div);
+	mk_assert(out_mod);
 	mk_assert(a);
 	mk_assert(b);
 	mk_assert(!mk_uint_is_zero(b));
 
-	mk_uint_zero(&r);
+	mk_uint_zero(&r_div);
+	r_mod = *a;
 	if(mk_uint_ge(a, b))
 	{
 		mk_uint_small_one(&one);
@@ -486,17 +489,43 @@ mk_jumbo void mk_uint_div(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b
 		mk_uint_shl(&bb, b, diff);
 		for(i = 0; i != diff + 1; ++i)
 		{
-			mk_uint_shl(&r, &r, 1);
+			mk_uint_shl(&r_div, &r_div, 1);
 			if(mk_uint_ge(&aa, &bb))
 			{
 				mk_uint_sub(&aa, &aa, &bb);
-				mk_uint_small_or(&r.m_data[0], &r.m_data[0], &one);
+				mk_uint_small_or(&r_div.m_data[0], &r_div.m_data[0], &one);
 			}
 			mk_uint_shr(&bb, &bb, 1);
+			r_mod = aa;
 		}
 	}
 
-	*out = r;
+	*out_div = r_div;
+	*out_mod = r_mod;
+}
+
+mk_jumbo void mk_uint_div(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+{
+	mk_uint_t mod;
+
+	mk_assert(out);
+	mk_assert(a);
+	mk_assert(b);
+	mk_assert(!mk_uint_is_zero(b));
+
+	mk_uint_concat_(divmod)(out, &mod, a, b);
+}
+
+mk_jumbo void mk_uint_mod(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+{
+	mk_uint_t div;
+
+	mk_assert(out);
+	mk_assert(a);
+	mk_assert(b);
+	mk_assert(!mk_uint_is_zero(b));
+
+	mk_uint_concat_(divmod)(&div, out, a, b);
 }
 
 

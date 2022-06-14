@@ -44,3 +44,4 @@
 #undef mk_uint_small_mul
 #undef mk_uint_small_mulhi
 #undef mk_uint_small_div
+#undef mk_uint_small_mod

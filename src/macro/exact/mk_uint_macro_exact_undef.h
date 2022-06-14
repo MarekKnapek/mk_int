@@ -50,3 +50,4 @@
 #undef mk_uint_sub
 #undef mk_uint_mul
 #undef mk_uint_div
+#undef mk_uint_mod

@@ -525,6 +525,27 @@ static mk_inline void mk_uint_fuzz_64_div(unsigned char const* data)
 	test(memcmp(&br, &mr, 64 / CHAR_BIT) == 0);
 }
 
+static mk_inline void mk_uint_fuzz_64_mod(unsigned char const* data)
+{
+	uint64_t ba;
+	uint64_t bb;
+	uint64_t br;
+	struct mk_uint64_s ma;
+	struct mk_uint64_s mb;
+	struct mk_uint64_s mr;
+
+	memcpy(&ba, data + 0 / CHAR_BIT, 64 / CHAR_BIT);
+	memcpy(&bb, data + 64 / CHAR_BIT, 64 / CHAR_BIT);
+	if(bb == 0) return;
+	br = ba % bb;
+
+	memcpy(&ma, data + 0 / CHAR_BIT, 64 / CHAR_BIT);
+	memcpy(&mb, data + 64 / CHAR_BIT, 64 / CHAR_BIT);
+	mk_uint64_mod(&mr, &ma, &mb);
+
+	test(memcmp(&br, &mr, 64 / CHAR_BIT) == 0);
+}
+
 
 void mk_uint_fuzz_64(unsigned char const* data)
 {
@@ -562,6 +583,7 @@ void mk_uint_fuzz_64(unsigned char const* data)
 	mk_uint_fuzz_64_sub(data);
 	mk_uint_fuzz_64_mul(data);
 	mk_uint_fuzz_64_div(data);
+	mk_uint_fuzz_64_mod(data);
 }
 
 

@@ -434,6 +434,19 @@ mk_jumbo void mk_uint_concat(mk_uint_tn, div)(mk_uint_t* out, mk_uint_t const* a
 	*out = r;
 }
 
+mk_jumbo void mk_uint_concat(mk_uint_tn, mod)(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+{
+	mk_uint_t r;
+
+	mk_assert(out);
+	mk_assert(a);
+	mk_assert(b);
+
+	r = (mk_uint_t)(*a % *b);
+
+	*out = r;
+}
+
 
 #if defined(_MSC_VER)
 #pragma warning(pop)

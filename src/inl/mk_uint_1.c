@@ -290,6 +290,15 @@ mk_jumbo void mk_uint_div(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b
 	mk_uint_small_div(&out->m_data, &a->m_data, &b->m_data);
 }
 
+mk_jumbo void mk_uint_mod(mk_uint_t* out, mk_uint_t const* a, mk_uint_t const* b)
+{
+	mk_assert(out);
+	mk_assert(a);
+	mk_assert(b);
+
+	mk_uint_small_mod(&out->m_data, &a->m_data, &b->m_data);
+}
+
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
