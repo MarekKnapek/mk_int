@@ -93,6 +93,9 @@
     <ClCompile Include="..\..\..\src\inl\mk_uint_n.c">
       <Filter>inl</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\inl\mk_uint_fuzz.inl.c">
+      <Filter>inl</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\exact\mk_uint_128.h">
@@ -203,6 +206,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\src\utils\mk_jumbo.h">
       <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\inl\mk_uint_fuzz.inl.h">
+      <Filter>inl</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
