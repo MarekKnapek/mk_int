@@ -33,6 +33,12 @@ int main(int argv, char** argc)
 }
 
 
+#if defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable:4464) /* warning C4464: relative include path contains '..' */
+#endif
+
+
 #include "../../src/base/mk_uint_base_char.c"
 #include "../../src/base/mk_uint_base_short.c"
 #include "../../src/base/mk_uint_base_int.c"
@@ -52,3 +58,8 @@ int main(int argv, char** argc)
 #include "../../src/fuzz/mk_uint_fuzz_32.c"
 #include "../../src/fuzz/mk_uint_fuzz_64.c"
 #include "../../src/fuzz/mk_uint_fuzz_128.c"
+
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#endif
