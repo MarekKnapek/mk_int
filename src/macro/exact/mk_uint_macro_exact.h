@@ -44,3 +44,10 @@
 #define mk_uint_mul mk_uint_concat_(mul)
 #define mk_uint_div mk_uint_concat_(div)
 #define mk_uint_mod mk_uint_concat_(mod)
+
+#define mk_uint_to_string_dec_n mk_uint_concat_(to_string_dec_n)
+#define mk_uint_to_string_dec_w mk_uint_concat_(to_string_dec_w)
+#define mk_uint_to_string_hex_n mk_uint_concat_(to_string_hex_n)
+#define mk_uint_to_string_hex_w mk_uint_concat_(to_string_hex_w)
+#define mk_uint_to_string_hex_full_n mk_uint_concat_(to_string_hex_full_n)
+#define mk_uint_to_string_hex_full_w mk_uint_concat_(to_string_hex_full_w)

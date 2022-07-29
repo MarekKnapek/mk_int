@@ -51,3 +51,10 @@
 #undef mk_uint_mul
 #undef mk_uint_div
 #undef mk_uint_mod
+
+#undef mk_uint_to_string_dec_n
+#undef mk_uint_to_string_dec_w
+#undef mk_uint_to_string_hex_n
+#undef mk_uint_to_string_hex_w
+#undef mk_uint_to_string_hex_full_n
+#undef mk_uint_to_string_hex_full_w
