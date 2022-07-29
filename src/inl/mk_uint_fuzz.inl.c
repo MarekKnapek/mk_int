@@ -19,7 +19,9 @@
 #include <limits.h> /* CHAR_BIT */
 #include <stddef.h> /* size_t NULL */
 #include <stdint.h> /* uintX_t */
+#include <stdio.h> /* sprintf */
 #include <string.h> /* memcpy memcmp */
+#include <wchar.h> /* wchar_t swprintf */
 
 
 #define mk_uint_concat_(a, b) a ## b
@@ -561,6 +563,99 @@ static mk_inline void mk_uint_func_fuzz(mod)(unsigned char const* data)
 }
 
 
+static mk_inline void mk_uint_func_fuzz(to_string_dec_n)(unsigned char const* data)
+{
+#if mk_uint_n <= 32
+	mk_uint_type_native ba;
+	int br;
+	char bstr[40];
+	mk_uint_type_my ma;
+	int mr;
+	char mstr[40];
+
+	memcpy(&ba, data + 0 / CHAR_BIT, mk_uint_n / CHAR_BIT);
+	br = sprintf(bstr, "%lu", (unsigned long)ba);
+
+	memcpy(&ma, data + 0 / CHAR_BIT, mk_uint_n / CHAR_BIT);
+	mr = mk_uint_func_my(to_string_dec_n)(&ma, mstr, (int)(sizeof(mstr) / sizeof(mstr[0])));
+
+	test(mr == br);
+	test(memcmp(mstr, bstr, mr * sizeof(char)) == 0);
+#else
+	(void)data;
+#endif
+}
+
+static mk_inline void mk_uint_func_fuzz(to_string_dec_w)(unsigned char const* data)
+{
+#if mk_uint_n <= 32
+	mk_uint_type_native ba;
+	int br;
+	wchar_t bstr[40];
+	mk_uint_type_my ma;
+	int mr;
+	wchar_t mstr[40];
+
+	memcpy(&ba, data + 0 / CHAR_BIT, mk_uint_n / CHAR_BIT);
+	br = swprintf(bstr, sizeof(bstr), L"%lu", (unsigned long)ba);
+
+	memcpy(&ma, data + 0 / CHAR_BIT, mk_uint_n / CHAR_BIT);
+	mr = mk_uint_func_my(to_string_dec_w)(&ma, mstr, (int)(sizeof(mstr) / sizeof(mstr[0])));
+
+	test(mr == br);
+	test(memcmp(mstr, bstr, mr * sizeof(wchar_t)) == 0);
+#else
+	(void)data;
+#endif
+}
+
+static mk_inline void mk_uint_func_fuzz(to_string_hex_n)(unsigned char const* data)
+{
+#if mk_uint_n <= 32
+	mk_uint_type_native ba;
+	int br;
+	char bstr[40];
+	mk_uint_type_my ma;
+	int mr;
+	char mstr[40];
+
+	memcpy(&ba, data + 0 / CHAR_BIT, mk_uint_n / CHAR_BIT);
+	br = sprintf(bstr, "%lx", (unsigned long)ba);
+
+	memcpy(&ma, data + 0 / CHAR_BIT, mk_uint_n / CHAR_BIT);
+	mr = mk_uint_func_my(to_string_hex_n)(&ma, mstr, (int)(sizeof(mstr) / sizeof(mstr[0])));
+
+	test(mr == br);
+	test(memcmp(mstr, bstr, mr * sizeof(char)) == 0);
+#else
+	(void)data;
+#endif
+}
+
+static mk_inline void mk_uint_func_fuzz(to_string_hex_w)(unsigned char const* data)
+{
+#if mk_uint_n <= 32
+	mk_uint_type_native ba;
+	int br;
+	wchar_t bstr[40];
+	mk_uint_type_my ma;
+	int mr;
+	wchar_t mstr[40];
+
+	memcpy(&ba, data + 0 / CHAR_BIT, mk_uint_n / CHAR_BIT);
+	br = swprintf(bstr, sizeof(bstr), L"%lx", (unsigned long)ba);
+
+	memcpy(&ma, data + 0 / CHAR_BIT, mk_uint_n / CHAR_BIT);
+	mr = mk_uint_func_my(to_string_hex_w)(&ma, mstr, (int)(sizeof(mstr) / sizeof(mstr[0])));
+
+	test(mr == br);
+	test(memcmp(mstr, bstr, mr * sizeof(wchar_t)) == 0);
+#else
+	(void)data;
+#endif
+}
+
+
 void mk_uint_concat(mk_uint_fuzz_, mk_uint_n)(unsigned char const* data)
 {
 	mk_uint_func_fuzz(zero)();
@@ -597,7 +692,12 @@ void mk_uint_concat(mk_uint_fuzz_, mk_uint_n)(unsigned char const* data)
 	mk_uint_func_fuzz(sub)(data);
 	mk_uint_func_fuzz(mul)(data);
 	mk_uint_func_fuzz(div)(data);
-	mk_uint_func_fuzz(mod)	(data);
+	mk_uint_func_fuzz(mod)(data);
+
+	mk_uint_func_fuzz(to_string_dec_n)(data);
+	mk_uint_func_fuzz(to_string_dec_w)(data);
+	mk_uint_func_fuzz(to_string_hex_n)(data);
+	mk_uint_func_fuzz(to_string_hex_w)(data);
 }
 
 
